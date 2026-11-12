@@ -1,0 +1,24 @@
+title: Escutativa
+description: "Histórias ouvidas. Novos capítulos. Jornalismo, pessoas e direitos."
+url: "https://iarleyoliveira.github.io"
+baseurl: "/ESCUTATIVA"
+lang: pt-BR
+timezone: America/Sao_Paulo
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+collections:
+  materias:
+    output: true
+    permalink: /materias/:name/
+defaults:
+  - scope:
+      path: ""
+      type: materias
+    values:
+      layout: materia
+      published: false
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

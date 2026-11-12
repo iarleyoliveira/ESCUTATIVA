@@ -1,0 +1,83 @@
+media:
+  input: assets/uploads
+  output: /ESCUTATIVA/assets/uploads
+content:
+  - name: materias
+    label: Matérias
+    type: collection
+    path: _materias
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      fields: [title, author, published]
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: description
+        label: Resumo
+        type: text
+        required: true
+      - name: author
+        label: Autor ou autores
+        type: string
+        required: true
+      - name: date
+        label: Data
+        type: date
+        required: true
+      - name: category
+        label: Categoria
+        type: select
+        options:
+          values: [Reportagem, Entrevista, Bastidores]
+      - name: cover
+        label: Imagem de capa
+        type: image
+      - name: cover_alt
+        label: Descrição da imagem para acessibilidade
+        type: string
+      - name: credit
+        label: Crédito da imagem
+        type: string
+      - name: published
+        label: Publicar no site
+        type: boolean
+        default: false
+        description: "Desativado: rascunho fora do site. Atenção: os arquivos do repositório são públicos."
+      - name: body
+        label: Texto da matéria
+        type: rich-text
+  - name: videos
+    label: Vídeos
+    type: file
+    path: _data/videos.yml
+    fields:
+      - name: documentario
+        label: Minidocumentário
+        type: object
+        fields:
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Sinopse
+            type: text
+          - name: youtube_id
+            label: ID do vídeo no YouTube
+            type: string
+      - name: videocast
+        label: Videocast
+        type: object
+        fields:
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Apresentação
+            type: text
+          - name: youtube_id
+            label: ID do vídeo no YouTube
+            type: string
