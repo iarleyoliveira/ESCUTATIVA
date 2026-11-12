@@ -4,6 +4,7 @@ description: "Reportagem que apresenta uma iniciativa cultural com entrevistas e
   informações principais do evento. "
 author: Circy Shara
 date: 2026-11-12
+category: Reportagem
 cover: /ESCUTATIVA/assets/uploads/WhatsApp Image 2026-11-12 at 15.27.09.jpeg
 published: true
 ---
