@@ -1,0 +1,110 @@
+name: Validar site editorial
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    env:
+      JEKYLL_ENV: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Instalar Jekyll do GitHub Pages
+        run: gem install github-pages --no-document
+      - name: Verificar formulários e preparar publicações de teste
+        run: |
+          ruby -ryaml <<'RUBY'
+          cms = YAML.safe_load_file('.pages.yml').fetch('content')
+          categories = YAML.safe_load_file('_data/categorias.yml')
+          publication = cms.find { |entry| entry['type'] == 'collection' }
+          field = publication.fetch('fields').find { |item| item['name'] == 'category' }
+          abort 'Categorias divergentes' unless field.dig('options', 'values') == categories.map { |item| item.fetch('name') }
+          def validate_fields(fields, data)
+            abort 'Campos do CMS e conteúdo divergentes' unless fields.map { |field| field.fetch('name') }.sort == data.keys.sort
+            fields.each { |field| validate_fields(field.fetch('fields'), data.fetch(field.fetch('name'))) if field['type'] == 'object' }
+          end
+          cms.select { |entry| entry['type'] == 'file' }.each do |entry|
+            validate_fields(entry.fetch('fields'), YAML.safe_load_file(entry.fetch('path')))
+          end
+          categories.each_with_index do |category, index|
+            File.write("_materias/validacao-#{index}.md", <<~POST)
+              ---
+              title: Publicação de teste #{index}
+              description: Resumo de teste
+              author: Equipe de teste
+              date: 2020-01-01
+              category: #{category.fetch('name')}
+              published: true
+              #{'youtube_id: M7lc1UVf-VE' if category['video']}
+              ---
+              Corpo da publicação.
+            POST
+          end
+          File.write('_materias/validacao-rascunho.md', "---\ntitle: Rascunho de teste\ncategory: Reportagem\npublished: false\n---\n")
+          RUBY
+      - name: Gerar site com Jekyll
+        run: jekyll build --strict_front_matter
+      - name: Instalar Chromium
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verificar navegação, sitemap e layout no celular
+        run: |
+          mkdir -p /tmp/escutativa-preview
+          ln -s "$PWD/_site" /tmp/escutativa-preview/ESCUTATIVA
+          python -m http.server 8000 --directory /tmp/escutativa-preview &
+          curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:8000/ESCUTATIVA/ -o /dev/null
+          python <<'PY'
+          from pathlib import Path
+          from playwright.sync_api import expect, sync_playwright
+
+          root = 'http://127.0.0.1:8000/ESCUTATIVA/'
+          sections = ['materias', 'entrevistas', 'bastidores', 'documentario', 'videocast']
+          sitemap = Path('_site/sitemap.xml').read_text()
+          assert 'validacao-rascunho' not in sitemap
+          assert not list(Path('_site').rglob('*validacao-rascunho*'))
+
+          with sync_playwright() as playwright:
+              browser = playwright.chromium.launch()
+              page = browser.new_page()
+              page.route('https://www.youtube-nocookie.com/**', lambda route: route.abort())
+              for width in [320, 390, 1280]:
+                  page.set_viewport_size({'width': width, 'height': 850})
+                  page.goto(root)
+                  expect(page.locator('meta[name="google-site-verification"]')).to_have_attribute(
+                      'content', 'k3ZHhVNUdvAijnVMVd8QVD-enngPZGUcz9113uLSEwU'
+                  )
+                  expect(page.locator('#documentario h2')).to_have_text('Quando a notícia faz parte da história.')
+                  expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
+                  assert page.evaluate('document.documentElement.scrollWidth') <= width
+                  for index, section_id in enumerate(sections):
+                      section = page.locator(f'#{section_id}')
+                      expect(page.locator(f'nav a[href="/ESCUTATIVA/#{section_id}"]')).to_be_visible()
+                      link = section.get_by_role('link', name=f'Publicação de teste {index}', exact=False).first
+                      expect(link).to_be_visible()
+                      path = link.get_attribute('href')
+                      assert path in sitemap
+                      if index >= 3:
+                          expect(section.locator('iframe')).to_have_attribute(
+                              'src', 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE'
+                          )
+                      page.goto('http://127.0.0.1:8000' + path)
+                      expect(page.get_by_role('heading', level=1)).to_have_text(f'Publicação de teste {index}')
+                      expect(page.locator('.article-end a')).to_have_attribute('href', f'/ESCUTATIVA/#{section_id}')
+                      assert page.evaluate('document.documentElement.scrollWidth') <= width
+                      page.goto(root)
+                  existing = page.locator('#materias').get_by_role('link', name='Black Charme Ice', exact=False)
+                  expect(existing).to_be_visible()
+                  assert existing.get_attribute('href') in sitemap
+                  existing.click()
+                  expect(page.get_by_role('heading', level=1)).to_have_text('Black Charme Ice')
+                  page.wait_for_function('document.querySelector("figure img").naturalWidth > 0')
+                  assert page.evaluate('document.documentElement.scrollWidth') <= width
+          PY

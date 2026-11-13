@@ -1,0 +1,30 @@
+{% assign entry = include.publication %}
+{% if include.video %}
+  <article class="video-grid">
+    <div>
+      {% if entry.youtube_id and entry.youtube_id != "" %}
+        {% include video.html publication=entry %}
+      {% elsif entry.cover and entry.cover != "" %}
+        <img class="video-cover" src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy">
+      {% else %}
+        <div class="placeholder"><strong>{{ site.data.inicio.video_pending | escape }}</strong></div>
+      {% endif %}
+    </div>
+    <div>
+      <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+      <p>{{ entry.description | escape }}</p>
+      <a href="{{ entry.url | relative_url }}">{{ site.data.inicio.read_more | escape }} →</a>
+    </div>
+  </article>
+{% else %}
+  <article class="card">
+    <a href="{{ entry.url | relative_url }}">
+      {% if entry.cover and entry.cover != "" %}
+        <img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy">
+      {% endif %}
+      <h3>{{ entry.title | escape }}</h3>
+      <p>{{ entry.description | escape }}</p>
+      <span>{{ site.data.inicio.read_more | escape }} →</span>
+    </a>
+  </article>
+{% endif %}

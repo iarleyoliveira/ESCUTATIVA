@@ -1,1 +1,7 @@
-<div class="video-grid"><div>{% if video.youtube_id and video.youtube_id != "" %}<iframe src="https://www.youtube-nocookie.com/embed/{{ video.youtube_id | uri_escape }}" title="{{ video.title | escape }}" loading="lazy" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe>{% else %}<div class="placeholder"><strong>Em breve</strong><small>CONTEÚDO EM PREPARAÇÃO</small></div>{% endif %}</div><div><h3>{{ video.title | escape }}</h3><p>{{ video.description | escape }}</p></div></div>
+<iframe
+  src="https://www.youtube-nocookie.com/embed/{{ include.publication.youtube_id | uri_escape | escape }}"
+  title="{{ include.publication.title | escape }}"
+  loading="lazy"
+  allowfullscreen
+  allow="encrypted-media; picture-in-picture">
+</iframe>

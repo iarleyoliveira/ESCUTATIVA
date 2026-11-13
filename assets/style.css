@@ -31,3 +31,13 @@ h1,h2,h3{overflow-wrap:anywhere;text-wrap:pretty}
 nav a{padding:8px 2px}
 @media(max-width:700px){.brand{font-size:clamp(28px,8vw,52px);letter-spacing:-1px}.brand img{width:34px;height:34px;flex-shrink:0}.article h1{font-size:clamp(32px,8vw,44px);letter-spacing:-1px}.article .intro{font-size:19px}.article .body{font-size:18px;line-height:1.8}.article .body blockquote{font-size:22px;padding-left:18px}.card{padding:20px}.card h3{font-size:28px}.topline{gap:12px}.topline span:last-child{text-align:right}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
+
+/* Publicações audiovisuais e menu por categoria */
+nav{flex-wrap:wrap;column-gap:clamp(12px,3vw,38px);row-gap:4px}
+.brand{overflow-wrap:anywhere}
+.brand img{object-fit:contain}
+.video-list{display:grid;gap:32px}
+.video-grid iframe,.article>iframe,.video-cover{display:block;width:100%;aspect-ratio:16/9;border:0}
+.video-cover{object-fit:cover}
+.dark .kicker{color:#f49d7b}
+.about img{max-width:100%;height:auto}

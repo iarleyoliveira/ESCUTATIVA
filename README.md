@@ -1,16 +1,12 @@
 # Escutativa
-Projeto multimídia de jornalismo. Site Jekyll compatível com GitHub Pages.
+Projeto multimídia de jornalismo em Jekyll e GitHub Pages.
 
-## Ativar o site
-Settings > Pages > Deploy from a branch > main > /(root).
+No [Pages CMS](https://app.pagescms.org), selecione `iarleyoliveira/ESCUTATIVA` e a branch `main`. A área da equipe fica em `/ESCUTATIVA/admin/`.
 
-## Editor
-Acesse https://app.pagescms.org, entre com GitHub e autorize o aplicativo somente neste repositório. Escolha ESCUTATIVA e a branch main. O arquivo .pages.yml configura os formulários.
+- **Publicações** reúne reportagens, entrevistas, bastidores, minidocumentários e videocasts. Escolha a categoria para posicionar a publicação na página inicial. Informe título, resumo, data, autoria, texto, imagem de capa, descrição alternativa e créditos conforme o material. Em publicações com vídeo, cole somente o ID de 11 caracteres do YouTube.
+- **Página inicial e créditos** reúne os textos de abertura, títulos, menu, mensagens das seções, apresentação e créditos da equipe. A frase “Quando a notícia faz parte da história” fica no grupo **Minidocumentário**, no campo **Título**.
+- **Identidade** reúne nome, assinatura, textos do cabeçalho e descrição para buscadores. O campo de logotipo é opcional.
 
-Todos os colaboradores autorizados podem publicar sem revisão. Convide a equipe pelo Pages CMS ou conceda acesso de escrita ao repositório. Não compartilhe senhas.
+Ative **Publicar no site** e salve quando o conteúdo estiver pronto. Aguarde a geração do GitHub Pages. Rascunhos ficam fora do site e do sitemap. Seus arquivos e histórico são públicos no GitHub.
 
-Em Matérias, preencha título, resumo, autoria, data, categoria, capa e texto. Ative Publicar no site e salve. A atualização depende da conclusão do build do GitHub Pages.
-
-Rascunhos não aparecem no site, mas seus arquivos e histórico ficam visíveis no repositório público. Não salve material confidencial.
-
-Em Vídeos, informe somente o ID do vídeo do YouTube (os caracteres depois de v=), não o link inteiro.
+Ao atualizar uma publicação existente, edite o mesmo registro para preservar seu endereço. Alterar a categoria muda a seção, e alterar o título muda o texto exibido.

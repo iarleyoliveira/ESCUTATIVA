@@ -1,0 +1,40 @@
+title: "Jornalismo, pessoas e direitos"
+hero:
+  kicker: "Nossa pauta são as pessoas"
+  title: "Histórias ouvidas."
+  accent: "Novos capítulos."
+  description: "Quando uma história ganha espaço na imprensa, ela pode encontrar novos caminhos. Um projeto sobre pessoas, direitos e a força de ser ouvido."
+  button: "Explore as reportagens"
+  quote: "Por trás de cada notícia,\numa vida."
+materias:
+  nav: "Reportagens"
+  title: "Histórias para ler de perto."
+  empty: "As primeiras matérias estão em preparação. Em breve, conheça os relatos e as entrevistas do projeto."
+entrevistas:
+  nav: "Entrevistas"
+  title: "Entrevistas"
+  empty: "As entrevistas estão em preparação."
+bastidores:
+  nav: "Bastidores"
+  title: "Bastidores"
+  empty: "Os bastidores do projeto estão em preparação."
+documentario:
+  nav: "Minidocumentário"
+  title: "Quando a notícia faz parte da história."
+  empty: "O minidocumentário está em preparação."
+videocast:
+  nav: "Videocast"
+  title: "Escutar é o começo."
+  empty: "O videocast está em preparação."
+projeto:
+  nav: "O projeto"
+  kicker: "Sobre o projeto"
+  title: "O jornalismo como ferramenta social e voz da população."
+  presentation: "Escutativa é um trabalho de conclusão de curso que investiga a contribuição do jornalismo para a defesa dos direitos da população, a partir de histórias de pessoas que encontraram apoio na imprensa.\n\nNas entrevistas realizadas pelo grupo, os personagens destacaram a importância da visibilidade e da credibilidade jornalística para que suas demandas fossem ouvidas e suas histórias ganhassem novos capítulos.\n\nO projeto reúne minidocumentário, videocast e reportagens."
+  credits_title: "Créditos da equipe"
+  credits: "Os créditos completos da equipe serão acrescentados na versão final."
+read_more: "Abrir publicação"
+video_pending: "Em breve"
+byline: "Por"
+back: "Voltar à seção"
+continue: "Continuar explorando"
