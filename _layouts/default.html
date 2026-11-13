@@ -3,8 +3,8 @@
 {% assign page_title = page.title %}
 {% if page.home %}{% assign page_title = inicio.title %}{% endif %}
 {% assign description = page.description | default: identity.description %}
-{% assign logo = identity.logo %}
-{% if identity.logo == blank %}{% assign logo = '/assets/icon.svg' | relative_url %}{% endif %}
+{% assign default_icon = '/assets/icon.svg' | relative_url %}
+{% assign logo = identity.logo | strip | default: default_icon %}
 <!doctype html>
 <html lang="{{ site.lang }}">
 <head>
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <link rel="icon" href="{{ logo | escape }}">
+  <link rel="icon" href="{{ default_icon | escape }}" type="image/svg+xml">
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
