@@ -3,14 +3,16 @@ media:
   output: /ESCUTATIVA/assets/uploads
 content:
   - name: materias
-    label: Matérias
+    label: Publicações
     type: collection
     path: _materias
     format: yaml-frontmatter
     filename: "{year}-{month}-{day}-{primary}.md"
+    operations:
+      rename: false
     view:
       primary: title
-      fields: [title, author, published]
+      fields: [title, category, date, published]
     fields:
       - name: title
         label: Título
@@ -23,7 +25,6 @@ content:
       - name: author
         label: Autor ou autores
         type: string
-        required: true
       - name: date
         label: Data
         type: date
@@ -31,8 +32,9 @@ content:
       - name: category
         label: Categoria
         type: select
+        required: true
         options:
-          values: [Reportagem, Entrevista, Bastidores]
+          values: [Reportagem, Entrevista, Bastidores, Minidocumentário, Videocast]
       - name: cover
         label: Imagem de capa
         type: image
@@ -42,42 +44,183 @@ content:
       - name: credit
         label: Crédito da imagem
         type: string
+      - name: credits
+        label: Créditos da publicação
+        type: text
+      - name: youtube_id
+        label: ID do vídeo no YouTube
+        type: string
+        description: "Informe os 11 caracteres do ID do vídeo. Para uma publicação de texto, deixe em branco."
+        pattern:
+          regex: "^([A-Za-z0-9_-]{11})?$"
+          message: "Informe apenas o ID de 11 caracteres do YouTube."
       - name: published
         label: Publicar no site
         type: boolean
         default: false
         description: "Desativado: rascunho fora do site. Atenção: os arquivos do repositório são públicos."
       - name: body
-        label: Texto da matéria
+        label: Texto da publicação
         type: rich-text
-  - name: videos
-    label: Vídeos
+  - name: identidade
+    label: Identidade
     type: file
-    path: _data/videos.yml
+    path: _data/identidade.yml
+    operations:
+      delete: false
     fields:
+      - name: name
+        label: "Nome do projeto"
+        type: string
+      - name: signature
+        label: "Assinatura"
+        type: string
+      - name: topics
+        label: "Temas do cabeçalho"
+        type: string
+      - name: format
+        label: "Identificação do projeto"
+        type: string
+      - name: description
+        label: "Descrição para buscadores"
+        type: text
+      - name: team_link
+        label: "Link da área da equipe"
+        type: string
+      - name: logo
+        label: "Logotipo alternativo"
+        type: image
+  - name: inicio
+    label: Página inicial e créditos
+    type: file
+    path: _data/inicio.yml
+    operations:
+      delete: false
+    fields:
+      - name: title
+        label: "Título da página"
+        type: string
+      - name: hero
+        label: "Abertura"
+        type: object
+        fields:
+          - name: kicker
+            label: "Chamada"
+            type: string
+          - name: title
+            label: "Primeira linha do título"
+            type: string
+          - name: accent
+            label: "Linha em destaque"
+            type: string
+          - name: description
+            label: "Apresentação"
+            type: text
+          - name: button
+            label: "Texto do botão"
+            type: string
+          - name: quote
+            label: "Frase em destaque"
+            type: text
+      - name: materias
+        label: "Reportagem"
+        type: object
+        fields:
+          - name: nav
+            label: "Menu e categoria"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: empty
+            label: "Mensagem sem publicações"
+            type: text
+      - name: entrevistas
+        label: "Entrevista"
+        type: object
+        fields:
+          - name: nav
+            label: "Menu e categoria"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: empty
+            label: "Mensagem sem publicações"
+            type: text
+      - name: bastidores
+        label: "Bastidores"
+        type: object
+        fields:
+          - name: nav
+            label: "Menu e categoria"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: empty
+            label: "Mensagem sem publicações"
+            type: text
       - name: documentario
-        label: Minidocumentário
+        label: "Minidocumentário"
         type: object
         fields:
+          - name: nav
+            label: "Menu e categoria"
+            type: string
           - name: title
-            label: Título
+            label: "Título"
             type: string
-          - name: description
-            label: Sinopse
+          - name: empty
+            label: "Mensagem sem publicações"
             type: text
-          - name: youtube_id
-            label: ID do vídeo no YouTube
-            type: string
       - name: videocast
-        label: Videocast
+        label: "Videocast"
         type: object
         fields:
+          - name: nav
+            label: "Menu e categoria"
+            type: string
           - name: title
-            label: Título
+            label: "Título"
             type: string
-          - name: description
-            label: Apresentação
+          - name: empty
+            label: "Mensagem sem publicações"
             type: text
-          - name: youtube_id
-            label: ID do vídeo no YouTube
+      - name: projeto
+        label: "Sobre o projeto"
+        type: object
+        fields:
+          - name: nav
+            label: "Menu"
             type: string
+          - name: kicker
+            label: "Chamada"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: presentation
+            label: "Apresentação"
+            type: rich-text
+          - name: credits_title
+            label: "Título dos créditos"
+            type: string
+          - name: credits
+            label: "Créditos"
+            type: rich-text
+      - name: read_more
+        label: "Link para abrir publicação"
+        type: string
+      - name: video_pending
+        label: "Aviso de vídeo em preparação"
+        type: string
+      - name: byline
+        label: "Rótulo antes da autoria"
+        type: string
+      - name: back
+        label: "Link de volta à seção"
+        type: string
+      - name: continue
+        label: Link ao fim da publicação
+        type: string

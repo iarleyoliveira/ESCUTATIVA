@@ -1,0 +1,13 @@
+- name: Reportagem
+  section: materias
+- name: Entrevista
+  section: entrevistas
+- name: Bastidores
+  section: bastidores
+- name: Minidocumentário
+  section: documentario
+  video: true
+- name: Videocast
+  section: videocast
+  video: true
+  dark: true
