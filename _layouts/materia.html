@@ -18,13 +18,20 @@ layout: default
     <p class="meta">{{ page.date | date: "%d/%m/%Y" }}</p>
   {% endif %}
   {% if cover != "" %}
-    <figure>
+    <figure class="article-cover">
       {% if category.video and video_id == "" %}
         {% include video-pending.html publication=page %}
       {% else %}
         <img src="{{ page.cover | escape }}" alt="{{ page.cover_alt | escape }}">
       {% endif %}
-      {% if page.credit and page.credit != "" %}<figcaption>{{ page.credit | escape }}</figcaption>{% endif %}
+      {% if page.cover_caption or page.credit %}
+        {% capture caption %}
+          {% if page.cover_caption and page.cover_caption != "" %}<span>{{ page.cover_caption | escape }}</span>{% endif %}
+          {% if page.credit and page.credit != "" %}<small>{{ page.credit | escape }}</small>{% endif %}
+        {% endcapture %}
+        {% assign caption = caption | strip %}
+        {% if caption != "" %}<figcaption>{{ caption }}</figcaption>{% endif %}
+      {% endif %}
     </figure>
   {% endif %}
   {% if video_id != "" %}
