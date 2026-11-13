@@ -3,13 +3,16 @@
 {% assign category = site.data.categorias | where: "name", category_name | first %}
 {% assign section = site.data.inicio[category.section] %}
 {% assign action = section.action | default: site.data.inicio.read_more %}
+{% assign video_id = entry.youtube_id | default: "" %}
+{% if category.video and video_id == "" %}
+  {% assign action = site.data.inicio.video_summary | default: site.data.inicio.read_more %}
+{% endif %}
 {% if include.video %}
   <article class="video-grid">
     <div>
       {% if entry.youtube_id and entry.youtube_id != "" %}
         {% include video.html publication=entry %}
       {% else %}
-        {% assign action = site.data.inicio.video_summary | default: site.data.inicio.read_more %}
         {% include video-pending.html publication=entry lazy=true %}
       {% endif %}
     </div>

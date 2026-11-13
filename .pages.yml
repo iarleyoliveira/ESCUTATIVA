@@ -41,6 +41,9 @@ content:
       - name: cover_alt
         label: Descrição da imagem para acessibilidade
         type: string
+      - name: cover_caption
+        label: Legenda da imagem de capa
+        type: string
       - name: credit
         label: Crédito da imagem
         type: string
@@ -242,3 +245,52 @@ content:
       - name: continue
         label: Link ao fim da publicação
         type: string
+      - name: destaque
+        label: Publicação em destaque
+        type: object
+        fields:
+          - name: publication
+            label: Escolher publicação
+            type: reference
+            description: Selecione uma publicação no ar. Limpe o campo para voltar a mostrar a frase da abertura.
+            options:
+              collection: materias
+              value: "{path}"
+              label: "{primary}"
+          - name: kicker
+            label: Chamada acima do título
+            type: string
+          - name: title
+            label: Título alternativo
+            type: string
+          - name: description
+            label: Resumo alternativo
+            type: text
+          - name: cover
+            label: Foto alternativa
+            type: image
+          - name: cover_alt
+            label: Descrição da foto alternativa
+            type: string
+      - name: acervo
+        label: Acervo
+        type: object
+        fields:
+          - name: nav
+            label: Rótulo no menu
+            type: string
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Apresentação
+            type: text
+          - name: all
+            label: Rótulo para todas as categorias
+            type: string
+          - name: filter
+            label: Rótulo dos filtros
+            type: string
+          - name: more
+            label: Link da inicial para o acervo
+            type: string

@@ -2,6 +2,7 @@
 {% assign inicio = site.data.inicio %}
 {% assign page_title = page.title %}
 {% if page.home %}{% assign page_title = inicio.title %}{% endif %}
+{% if page.archive %}{% assign page_title = inicio.acervo.title %}{% endif %}
 {% assign description = page.description | default: identity.description %}
 {% assign default_icon = '/assets/icon.svg' | relative_url %}
 {% assign logo = identity.logo | strip | default: default_icon %}
@@ -31,6 +32,7 @@
       {% for category in site.data.categorias %}
         <a href="{{ '/' | relative_url }}#{{ category.section }}">{{ inicio[category.section].nav | escape }}</a>
       {% endfor %}
+      <a href="{{ '/acervo/' | relative_url }}"{% if page.archive %} aria-current="page"{% endif %}>{{ inicio.acervo.nav | escape }}</a>
       <a href="{{ '/' | relative_url }}#projeto">{{ inicio.projeto.nav | escape }}</a>
     </nav>
   </header>

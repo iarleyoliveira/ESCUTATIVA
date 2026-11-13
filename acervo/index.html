@@ -1,0 +1,40 @@
+---
+layout: default
+archive: true
+permalink: /acervo/
+---
+{% assign inicio = site.data.inicio %}
+{% assign archive = inicio.acervo %}
+{% assign publications = site.materias | where: "published", true | sort: "date" | reverse %}
+<section class="wrap section archive">
+  <h1>{{ archive.title | escape }}</h1>
+  <p>{{ archive.description | escape }}</p>
+  <div class="archive-filters" role="group" aria-label="{{ archive.filter | escape }}" hidden>
+    <button type="button" data-filter="" aria-pressed="true">{{ archive.all | escape }}</button>
+    {% for category in site.data.categorias %}
+      <button type="button" data-filter="{{ category.section }}" aria-pressed="false">{{ inicio[category.section].nav | escape }}</button>
+    {% endfor %}
+  </div>
+  {% for category in site.data.categorias %}
+    {% assign section = inicio[category.section] %}
+    <section class="archive-group" data-category="{{ category.section }}">
+      <h2>{{ section.nav | escape }}</h2>
+      {% assign has_publications = false %}
+      {% capture entries %}
+        {% for publication in publications %}
+          {% assign publication_category = publication.category | default: "Reportagem" %}
+          {% if publication_category == category.name %}
+            {% assign has_publications = true %}
+            {% include publication-card.html publication=publication %}
+          {% endif %}
+        {% endfor %}
+      {% endcapture %}
+      {% if has_publications %}
+        <div class="cards">{{ entries }}</div>
+      {% else %}
+        <p>{{ section.empty | escape }}</p>
+      {% endif %}
+    </section>
+  {% endfor %}
+</section>
+<script src="{{ '/assets/acervo.js' | relative_url }}" defer></script>

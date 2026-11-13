@@ -4,6 +4,9 @@ home: true
 ---
 {% assign inicio = site.data.inicio %}
 {% assign hero = inicio.hero %}
+{% assign publications = site.materias | where: 'published', true | sort: 'date' | reverse %}
+{% assign feature_path = inicio.destaque.publication %}
+{% assign feature = publications | where: 'path', feature_path | first %}
 <section class="wrap hero">
   <div>
     <span class="kicker">{{ hero.kicker | escape }}</span>
@@ -11,31 +14,50 @@ home: true
     <p>{{ hero.description | escape }}</p>
     <a class="button" href="#materias">{{ hero.button | escape }}</a>
   </div>
+  {% if feature %}
+    <article class="hero-feature">
+      {% assign feature_cover = inicio.destaque.cover | default: feature.cover %}
+      {% if feature_cover and feature_cover != "" %}
+        {% assign feature_alt = feature.cover_alt %}
+        {% if inicio.destaque.cover and inicio.destaque.cover != "" %}
+          {% assign feature_alt = inicio.destaque.cover_alt %}
+        {% endif %}
+        <img src="{{ feature_cover | escape }}" alt="{{ feature_alt | escape }}" fetchpriority="high">
+      {% endif %}
+      <div>
+        <span class="kicker">{{ inicio.destaque.kicker | escape }}</span>
+        <h2><a href="{{ feature.url | relative_url }}">{{ inicio.destaque.title | default: feature.title | escape }}</a></h2>
+        <p>{{ inicio.destaque.description | default: feature.description | escape }}</p>
+      </div>
+    </article>
+  {% else %}
   <aside class="quote">
     <b aria-hidden="true">“</b>
     <p>{{ hero.quote | escape | newline_to_br }}</p>
   </aside>
+  {% endif %}
 </section>
 
-{% assign publications = site.materias | where: "published", true | sort: "date" | reverse %}
 {% for category in site.data.categorias %}
   {% if category.dark %}<div class="dark">{% endif %}
   {% assign section = inicio[category.section] %}
   <section class="wrap section" id="{{ category.section }}">
     <span class="kicker">{{ section.nav | escape }}</span>
     <h2>{{ section.title | escape }}</h2>
-    {% assign has_publications = false %}
+    {% assign shown = 0 %}
     {% capture entries %}
       {% for publication in publications %}
         {% assign publication_category = publication.category | default: "Reportagem" %}
         {% if publication_category == category.name %}
-          {% assign has_publications = true %}
+          {% assign shown = shown | plus: 1 %}
           {% include publication-card.html publication=publication video=category.video %}
+          {% if shown == 3 %}{% break %}{% endif %}
         {% endif %}
       {% endfor %}
     {% endcapture %}
-    {% if has_publications %}
+    {% if shown > 0 %}
       <div class="{% if category.video %}video-list{% else %}cards{% endif %}">{{ entries }}</div>
+      <a class="text-action section-archive" href="{{ '/acervo/' | relative_url }}?categoria={{ category.section }}">{{ inicio.acervo.more | escape }} <span aria-hidden="true">→</span></a>
     {% else %}
       {% if section.empty != blank %}<div class="empty"><p>{{ section.empty | escape }}</p></div>{% endif %}
     {% endif %}

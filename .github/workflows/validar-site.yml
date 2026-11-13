@@ -79,6 +79,7 @@ jobs:
           root = 'http://127.0.0.1:8000/ESCUTATIVA/'
           sections = ['materias', 'entrevistas', 'bastidores', 'documentario', 'videocast']
           sitemap = Path('_site/sitemap.xml').read_text()
+          assert '/ESCUTATIVA/acervo/' in sitemap
           assert 'validacao-rascunho' not in sitemap
           assert not list(Path('_site').rglob('*validacao-rascunho*'))
 
@@ -97,6 +98,20 @@ jobs:
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   assert min(page.locator('nav a').evaluate_all('(links) => links.map(link => link.offsetHeight)')) >= 44
                   expect(page.locator('#documentario').get_by_role('link', name='Ver sinopse — Quando a escuta abre caminhos')).to_be_visible()
+                  expect(page.locator('.hero-feature h2')).to_have_text('Black Charme Ice')
+                  archive = page.locator('#materias a.section-archive')
+                  expect(archive).to_have_attribute('href', '/ESCUTATIVA/acervo/?categoria=materias')
+                  archive.click()
+                  expect(page.locator('[data-category="materias"]')).to_be_visible()
+                  expect(page.locator('[data-category="entrevistas"]')).to_be_hidden()
+                  page.get_by_role('button', name='Entrevistas').click()
+                  expect(page.locator('[data-category="entrevistas"]')).to_be_visible()
+                  expect(page.locator('[data-category="materias"]')).to_be_hidden()
+                  assert page.evaluate('document.documentElement.scrollWidth') <= width
+                  page.get_by_role('button', name='Todas').click()
+                  expect(page.locator('[data-category="materias"]')).to_be_visible()
+                  expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
+                  page.goto(root)
                   poster = page.locator('#videocast .video-poster')
                   expect(poster.get_by_alt_text('Ícone do projeto')).to_be_visible()
                   expect(poster.locator('.video-status')).to_have_text('Em breve')
