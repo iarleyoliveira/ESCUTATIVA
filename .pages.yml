@@ -126,6 +126,9 @@ content:
         label: "Reportagem"
         type: object
         fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
           - name: nav
             label: "Menu e categoria"
             type: string
@@ -139,6 +142,9 @@ content:
         label: "Entrevista"
         type: object
         fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
           - name: nav
             label: "Menu e categoria"
             type: string
@@ -152,6 +158,9 @@ content:
         label: "Bastidores"
         type: object
         fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
           - name: nav
             label: "Menu e categoria"
             type: string
@@ -165,6 +174,9 @@ content:
         label: "Minidocumentário"
         type: object
         fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
           - name: nav
             label: "Menu e categoria"
             type: string
@@ -178,6 +190,9 @@ content:
         label: "Videocast"
         type: object
         fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
           - name: nav
             label: "Menu e categoria"
             type: string
@@ -211,6 +226,9 @@ content:
             type: rich-text
       - name: read_more
         label: "Link para abrir publicação"
+        type: string
+      - name: video_summary
+        label: Chamada do vídeo em preparação
         type: string
       - name: video_pending
         label: "Aviso de vídeo em preparação"

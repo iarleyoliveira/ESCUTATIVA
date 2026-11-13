@@ -33,6 +33,17 @@ jobs:
           cms.select { |entry| entry['type'] == 'file' }.each do |entry|
             validate_fields(entry.fetch('fields'), YAML.safe_load_file(entry.fetch('path')))
           end
+          File.write('_materias/validacao-capa.md', <<~POST)
+            ---
+            title: Vídeo com capa de teste
+            description: Sinopse de teste
+            date: 2020-01-01
+            category: Videocast
+            cover: /ESCUTATIVA/assets/icon.svg
+            cover_alt: Ícone do projeto
+            published: true
+            ---
+          POST
           categories.each_with_index do |category, index|
             File.write("_materias/validacao-#{index}.md", <<~POST)
               ---
@@ -84,6 +95,11 @@ jobs:
                   expect(page.locator('#documentario h2')).to_have_text('Quando a notícia faz parte da história.')
                   expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
+                  assert min(page.locator('nav a').evaluate_all('(links) => links.map(link => link.offsetHeight)')) >= 44
+                  expect(page.locator('#documentario').get_by_role('link', name='Ver sinopse — Quando a escuta abre caminhos')).to_be_visible()
+                  poster = page.locator('#videocast .video-poster')
+                  expect(poster.get_by_alt_text('Ícone do projeto')).to_be_visible()
+                  expect(poster.locator('.video-status')).to_have_text('Em breve')
                   for index, section_id in enumerate(sections):
                       section = page.locator(f'#{section_id}')
                       expect(page.locator(f'nav a[href="/ESCUTATIVA/#{section_id}"]')).to_be_visible()
@@ -91,6 +107,10 @@ jobs:
                       expect(link).to_be_visible()
                       path = link.get_attribute('href')
                       assert path in sitemap
+                      if index == 0:
+                          expect(link.locator('.text-action')).to_contain_text('Ler reportagem')
+                      if index == 1:
+                          expect(link.locator('.text-action')).to_contain_text('Ler entrevista')
                       if index >= 3:
                           expect(section.locator('iframe')).to_have_attribute(
                               'src', 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE'

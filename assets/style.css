@@ -41,3 +41,56 @@ nav{flex-wrap:wrap;column-gap:clamp(12px,3vw,38px);row-gap:4px}
 .video-cover{object-fit:cover}
 .dark .kicker{color:#f49d7b}
 .about img{max-width:100%;height:auto}
+
+/* Ações editoriais e capas de vídeo */
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+}
+.button:hover { background: #294450; }
+nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 6px;
+  text-align: center;
+}
+nav a:hover, nav a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.text-action {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.text-action:hover, .card a:hover .text-action {
+  text-decoration-thickness: 2px;
+}
+.dark .text-action { color: #f49d7b; }
+.video-poster {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.video-poster img { height: 100%; }
+.video-status {
+  position: absolute;
+  inset: auto auto 12px 12px;
+  padding: 6px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  nav { padding-block: 4px; gap: 2px 8px; }
+}
