@@ -1,0 +1,8 @@
+{% if include.publication.cover and include.publication.cover != "" %}
+  <div class="video-poster">
+    <img class="video-cover" src="{{ include.publication.cover | escape }}" alt="{{ include.publication.cover_alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %}>
+    <span class="video-status">{{ site.data.inicio.video_pending | escape }}</span>
+  </div>
+{% else %}
+  <div class="placeholder"><strong>{{ site.data.inicio.video_pending | escape }}</strong></div>
+{% endif %}

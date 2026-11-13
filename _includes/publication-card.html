@@ -1,19 +1,22 @@
 {% assign entry = include.publication %}
+{% assign category_name = entry.category | default: "Reportagem" %}
+{% assign category = site.data.categorias | where: "name", category_name | first %}
+{% assign section = site.data.inicio[category.section] %}
+{% assign action = section.action | default: site.data.inicio.read_more %}
 {% if include.video %}
   <article class="video-grid">
     <div>
       {% if entry.youtube_id and entry.youtube_id != "" %}
         {% include video.html publication=entry %}
-      {% elsif entry.cover and entry.cover != "" %}
-        <img class="video-cover" src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy">
       {% else %}
-        <div class="placeholder"><strong>{{ site.data.inicio.video_pending | escape }}</strong></div>
+        {% assign action = site.data.inicio.video_summary | default: site.data.inicio.read_more %}
+        {% include video-pending.html publication=entry lazy=true %}
       {% endif %}
     </div>
     <div>
-      <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+      <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
-      <a href="{{ entry.url | relative_url }}">{{ site.data.inicio.read_more | escape }} →</a>
+      <a class="text-action" href="{{ entry.url | relative_url }}" aria-label="{{ action | escape }} — {{ entry.title | escape }}">{{ action | escape }} <span aria-hidden="true">→</span></a>
     </div>
   </article>
 {% else %}
@@ -24,7 +27,7 @@
       {% endif %}
       <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
-      <span>{{ site.data.inicio.read_more | escape }} →</span>
+      <span class="text-action">{{ action | escape }} <span aria-hidden="true">→</span></span>
     </a>
   </article>
 {% endif %}

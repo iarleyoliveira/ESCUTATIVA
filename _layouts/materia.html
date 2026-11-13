@@ -5,6 +5,8 @@ layout: default
 {% assign category_name = page.category | default: "Reportagem" %}
 {% assign category = site.data.categorias | where: "name", category_name | first %}
 {% assign section_id = category.section | default: "materias" %}
+{% assign video_id = page.youtube_id | default: "" %}
+{% assign cover = page.cover | default: "" %}
 <article class="wrap article">
   <a href="{{ '/' | relative_url }}#{{ section_id }}">← {{ inicio.back | escape }}</a>
   <p class="kicker">{{ inicio[section_id].nav | escape }}</p>
@@ -15,16 +17,20 @@ layout: default
   {% elsif page.date %}
     <p class="meta">{{ page.date | date: "%d/%m/%Y" }}</p>
   {% endif %}
-  {% if page.cover and page.cover != "" %}
+  {% if cover != "" %}
     <figure>
-      <img src="{{ page.cover | escape }}" alt="{{ page.cover_alt | escape }}">
+      {% if category.video and video_id == "" %}
+        {% include video-pending.html publication=page %}
+      {% else %}
+        <img src="{{ page.cover | escape }}" alt="{{ page.cover_alt | escape }}">
+      {% endif %}
       {% if page.credit and page.credit != "" %}<figcaption>{{ page.credit | escape }}</figcaption>{% endif %}
     </figure>
   {% endif %}
-  {% if page.youtube_id and page.youtube_id != "" %}
+  {% if video_id != "" %}
     {% include video.html publication=page %}
-  {% elsif category.video %}
-    <div class="placeholder"><strong>{{ inicio.video_pending | escape }}</strong></div>
+  {% elsif category.video and cover == "" %}
+    {% include video-pending.html publication=page %}
   {% endif %}
   <div class="body">{{ content }}</div>
   {% if page.credits and page.credits != "" %}

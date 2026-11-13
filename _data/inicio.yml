@@ -7,22 +7,27 @@ hero:
   button: "Explore as reportagens"
   quote: "Por trás de cada notícia,\numa vida."
 materias:
+  action: "Ler reportagem"
   nav: "Reportagens"
   title: "Histórias para ler de perto."
   empty: "As primeiras matérias estão em preparação. Em breve, conheça os relatos e as entrevistas do projeto."
 entrevistas:
+  action: "Ler entrevista"
   nav: "Entrevistas"
   title: "Entrevistas"
   empty: "As entrevistas estão em preparação."
 bastidores:
+  action: "Ler os bastidores"
   nav: "Bastidores"
   title: "Bastidores"
   empty: "Os bastidores do projeto estão em preparação."
 documentario:
+  action: "Assistir ao minidocumentário"
   nav: "Minidocumentário"
   title: "Quando a notícia faz parte da história."
   empty: "O minidocumentário está em preparação."
 videocast:
+  action: "Assistir ao videocast"
   nav: "Videocast"
   title: "Escutar é o começo."
   empty: "O videocast está em preparação."
@@ -34,6 +39,7 @@ projeto:
   credits_title: "Créditos da equipe"
   credits: "Os créditos completos da equipe serão acrescentados na versão final."
 read_more: "Abrir publicação"
+video_summary: "Ver sinopse"
 video_pending: "Em breve"
 byline: "Por"
 back: "Voltar à seção"
