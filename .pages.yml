@@ -294,3 +294,52 @@ content:
           - name: more
             label: Link da inicial para o acervo
             type: string
+
+  - name: equipe
+    label: Equipe, redes e contatos
+    type: file
+    path: _data/equipe.yml
+    fields:
+      - name: title
+        label: Título da seção
+        type: string
+      - name: description
+        label: Apresentação
+        type: text
+      - name: members
+        label: Integrantes
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Nome
+            type: string
+          - name: role
+            label: Função
+            type: string
+          - name: bio
+            label: Biografia curta
+            type: text
+          - name: portrait
+            label: Caricatura
+            type: image
+          - name: url
+            label: Link pessoal
+            type: string
+      - name: socials
+        label: Redes sociais
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Nome da rede
+            type: string
+          - name: url
+            label: Endereço completo
+            type: string
+      - name: contact
+        label: E-mail de contato
+        type: string
+      - name: advertising
+        label: E-mail para anúncios
+        type: string

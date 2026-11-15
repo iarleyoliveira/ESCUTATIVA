@@ -9,15 +9,24 @@ permalink: /acervo/
 <section class="wrap section archive">
   <h1>{{ archive.title | escape }}</h1>
   <p>{{ archive.description | escape }}</p>
+  <form class="archive-search" id="busca" role="search" action="{{ '/acervo/' | relative_url }}">
+    <label for="search-query">Pesquisar no acervo</label>
+    <div><input type="search" id="search-query" name="q" placeholder="Título, assunto ou autoria" maxlength="200"><button type="submit">Buscar</button></div>
+  </form>
+  <p id="search-status" role="status" aria-live="polite"></p>
+  <noscript><p>Ative o JavaScript para pesquisar e filtrar as publicações. O acervo completo está disponível abaixo.</p></noscript>
   <div class="archive-filters" role="group" aria-label="{{ archive.filter | escape }}" hidden>
     <button type="button" data-filter="" aria-pressed="true">{{ archive.all | escape }}</button>
+    <button type="button" data-filter="leia" data-format="true" aria-pressed="false">Leia</button>
+    <button type="button" data-filter="assista" data-format="true" aria-pressed="false">Assista</button>
+    <button type="button" data-filter="escute" data-format="true" aria-pressed="false">Escute</button>
     {% for category in site.data.categorias %}
       <button type="button" data-filter="{{ category.section }}" aria-pressed="false">{{ inicio[category.section].nav | escape }}</button>
     {% endfor %}
   </div>
   {% for category in site.data.categorias %}
     {% assign section = inicio[category.section] %}
-    <section class="archive-group" data-category="{{ category.section }}">
+    <section class="archive-group" data-category="{{ category.section }}" data-format="{% if category.section == 'videocast' %}escute{% elsif category.video %}assista{% else %}leia{% endif %}">
       <h2>{{ section.nav | escape }}</h2>
       {% assign has_publications = false %}
       {% capture entries %}

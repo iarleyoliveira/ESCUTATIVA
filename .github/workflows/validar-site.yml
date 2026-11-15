@@ -28,7 +28,14 @@ jobs:
           abort 'Categorias divergentes' unless field.dig('options', 'values') == categories.map { |item| item.fetch('name') }
           def validate_fields(fields, data)
             abort 'Campos do CMS e conteúdo divergentes' unless fields.map { |field| field.fetch('name') }.sort == data.keys.sort
-            fields.each { |field| validate_fields(field.fetch('fields'), data.fetch(field.fetch('name'))) if field['type'] == 'object' }
+            fields.select { |field| field['type'] == 'object' }.each do |field|
+              value = data.fetch(field.fetch('name'))
+              if field['list']
+                value.each { |item| validate_fields(field.fetch('fields'), item) }
+              else
+                validate_fields(field.fetch('fields'), value)
+              end
+            end
           end
           cms.select { |entry| entry['type'] == 'file' }.each do |entry|
             validate_fields(entry.fetch('fields'), YAML.safe_load_file(entry.fetch('path')))
@@ -117,7 +124,8 @@ jobs:
                   expect(poster.locator('.video-status')).to_have_text('Em breve')
                   for index, section_id in enumerate(sections):
                       section = page.locator(f'#{section_id}')
-                      expect(page.locator(f'nav a[href="/ESCUTATIVA/#{section_id}"]')).to_be_visible()
+                      for label, target in [("Leia", "leia"), ("Assista", "assista"), ("Escute", "escute")]:
+                          expect(page.locator('header nav').get_by_role("link", name=label, exact=True)).to_have_attribute("href", f"/ESCUTATIVA/acervo/?formato={target}")
                       link = section.get_by_role('link', name=f'Publicação de teste {index}', exact=False).first
                       expect(link).to_be_visible()
                       path = link.get_attribute('href')
@@ -135,6 +143,19 @@ jobs:
                       expect(page.locator('.article-end a')).to_have_attribute('href', f'/ESCUTATIVA/#{section_id}')
                       assert page.evaluate('document.documentElement.scrollWidth') <= width
                       page.goto(root)
+                  page.goto(root + 'acervo/?formato=escute')
+                  expect(page.locator('[data-category="videocast"]')).to_be_visible()
+                  expect(page.locator('[data-category="materias"]')).to_be_hidden()
+                  page.get_by_role('button', name='Todas', exact=True).click()
+                  page.get_by_role('searchbox').fill('Equipe de teste')
+                  page.get_by_role('button', name='Buscar', exact=True).click()
+                  expect(page.locator('#search-status')).to_contain_text('5 publicações')
+                  page.get_by_role('searchbox').fill('termo-sem-resultados')
+                  page.get_by_role('button', name='Buscar', exact=True).click()
+                  expect(page.locator('#search-status')).to_contain_text('Nenhuma publicação')
+                  page.go_back()
+                  expect(page.get_by_role('searchbox')).to_have_value('Equipe de teste')
+                  page.goto(root)
                   existing = page.locator('#materias').get_by_role('link', name='Black Charme Ice', exact=False)
                   expect(existing).to_be_visible()
                   assert existing.get_attribute('href') in sitemap

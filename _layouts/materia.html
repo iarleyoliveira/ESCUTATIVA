@@ -43,5 +43,6 @@ layout: default
   {% if page.credits and page.credits != "" %}
     <p class="meta">{{ page.credits | escape | newline_to_br }}</p>
   {% endif %}
+  {% include comments.html %}
   <div class="article-end"><a href="{{ '/' | relative_url }}#{{ section_id }}">← {{ inicio.continue | escape }}</a></div>
 </article>

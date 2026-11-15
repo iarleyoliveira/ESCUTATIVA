@@ -19,6 +19,7 @@
     <div>
       <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
+      {% if entry.author != blank %}<small>{{ entry.author | escape }}</small>{% endif %}
       <a class="text-action" href="{{ entry.url | relative_url }}" aria-label="{{ action | escape }} — {{ entry.title | escape }}">{{ action | escape }} <span aria-hidden="true">→</span></a>
     </div>
   </article>

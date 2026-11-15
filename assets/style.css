@@ -140,3 +140,35 @@ nav a:hover, nav a:focus-visible {
 .archive-filters button:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 .archive-group { border-top: 1px solid var(--line); padding-block: 24px; }
 nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Cabeçalho, pesquisa e expediente */
+[hidden]{display:none!important}
+button:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.topline{align-items:center;padding:12px 0;letter-spacing:.8px}
+.search-link,.login-link{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-size:12px;text-decoration:none}
+.login-link{border:1px solid var(--ink);border-radius:3px;padding:0 14px}
+.login-link:hover{background:var(--ink);color:var(--paper)}
+header nav{gap:clamp(24px,10vw,100px);font:22px Georgia,serif}
+.archive-search{margin:30px 0 15px;max-width:700px;scroll-margin-top:25px}
+.archive-search label{display:block;font-weight:bold;margin-bottom:8px}
+.archive-search>div{display:flex;gap:8px}
+.archive-search input{width:100%;min-width:0;min-height:48px;padding:10px 14px;border:1px solid var(--ink);background:#faf8f2;color:var(--ink);font:inherit;border-radius:0}
+.archive-search button{border:1px solid var(--ink);padding:10px 20px;background:var(--ink);color:white;font:inherit;cursor:pointer}
+.team-section{background:#e8e5da}
+.team-section .section{border-top:4px double var(--ink)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;margin-top:36px}
+.team-member{border-top:1px solid var(--line);padding-top:24px}
+.team-member img{width:100%;max-width:240px;height:auto;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+.team-member h3{font-size:30px;margin-bottom:12px}
+.team-member p{font-size:14px}
+.footer-brand{font:bold clamp(28px,6vw,50px) Georgia,serif;text-decoration:none;letter-spacing:-1px}
+.footer-signature{font:italic 18px Georgia,serif;margin-bottom:32px}
+.footer-bottom{border-top:1px solid #60717a;padding-top:22px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px 36px}
+.footer-socials{display:flex;gap:18px;flex-wrap:wrap}
+.footer-socials:empty{display:none}
+.footer-socials a{min-height:44px;display:inline-flex;align-items:center}
+.footer-nav{justify-content:flex-start;gap:8px 22px;border:0;padding:0;font-size:13px}
+.comments{margin-top:45px;border-top:3px solid var(--ink);padding-top:24px}
+.comments h2{font-size:32px}
+.comments>p{font:15px/1.6 Arial,sans-serif;color:#4e6169}
+@media(max-width:700px){.search-link span,.login-detail{display:none}header nav{font-size:20px;gap:28px}.footer-bottom{flex-direction:column}.footer-nav{gap:4px 16px}.team-section .section h2{font-size:32px}}

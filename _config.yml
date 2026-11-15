@@ -19,6 +19,7 @@ defaults:
       layout: materia
       published: false
 exclude:
+  - preview.ps1
   - README.md
   - Gemfile
   - Gemfile.lock

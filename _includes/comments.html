@@ -1,0 +1,19 @@
+{% assign comments = site.data.comentarios %}
+<section class="comments" id="comentarios" aria-labelledby="comments-title">
+  <h2 id="comments-title">Deixar comentário</h2>
+  {% if comments.repo_id != blank and comments.category_id != blank %}
+    <p>Participe da conversa com sua conta GitHub. Os comentários são públicos. Respeite as pessoas e mantenha o diálogo sobre a publicação.</p>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+      data-repo="{{ comments.repo | escape }}"
+      data-repo-id="{{ comments.repo_id | escape }}"
+      data-category="{{ comments.category | escape }}"
+      data-category-id="{{ comments.category_id | escape }}"
+      data-mapping="pathname" data-strict="0" data-reactions-enabled="1"
+      data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+      data-lang="pt" data-loading="lazy" crossorigin="anonymous" async></script>
+    <noscript>Ative o JavaScript para ler e deixar comentários.</noscript>
+  {% else %}
+    <p>Os comentários públicos estão em preparação. Em breve, você poderá participar com sua conta GitHub.</p>
+  {% endif %}
+</section>
