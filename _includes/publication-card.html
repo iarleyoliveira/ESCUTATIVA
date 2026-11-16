@@ -19,21 +19,25 @@
     <div>
       <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
-      {% if entry.author != blank %}<small>{{ entry.author | escape }}</small>{% endif %}
+      {% if entry.author and entry.author != "" %}<small>{{ entry.author | escape }}</small>{% endif %}
       <a class="text-action" href="{{ entry.url | relative_url }}" aria-label="{{ action | escape }} — {{ entry.title | escape }}">{{ action | escape }} <span aria-hidden="true">→</span></a>
     </div>
   </article>
 {% else %}
-  <article class="card" data-publication-category="{{ category.section }}">
-    <a href="{{ entry.url | relative_url }}">
-      {% if entry.cover and entry.cover != "" %}
-        <img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy">
+  <article class="card{% if category.video %} media-card{% endif %}{% if entry.cover and entry.cover != "" %} has-cover{% endif %}" data-publication-category="{{ category.section }}">
+    <a class="card-link" href="{{ entry.url | relative_url }}">
+      {% if category.video %}
+        {% include media-cover.html publication=entry %}
+      {% elsif entry.cover and entry.cover != "" %}
+        <span class="card-media"><img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy"></span>
       {% endif %}
+      <div class="card-copy">
       <small>{{ category_name | escape }}</small>
       <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
-      {% if entry.author != blank %}<small class="card-author">{{ entry.author | escape }}</small>{% endif %}
+      {% if entry.author and entry.author != "" %}<small class="card-author">{{ entry.author | escape }}</small>{% endif %}
       <span class="text-action">{{ action | escape }} <span aria-hidden="true">→</span></span>
+      </div>
     </a>
   </article>
 {% endif %}

@@ -21,6 +21,7 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="icon" href="{{ default_icon | escape }}" type="image/svg+xml">
+  <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -41,6 +42,19 @@
       {% include format-links.html %}
     </nav>
   </header>
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-dialog-heading">
+      <h2 id="search-title">O que você quer encontrar?</h2>
+      <button type="button" class="search-close" aria-label="Fechar pesquisa">Fechar <span aria-hidden="true">×</span></button>
+    </div>
+    <form class="quick-search" role="search" action="{{ '/acervo/' | relative_url }}" method="get">
+      <label for="quick-search-query">Pesquisar publicações</label>
+      <div class="quick-search-fields">
+        <input type="search" name="q" id="quick-search-query" placeholder="Título, assunto ou autoria" maxlength="200" required>
+        <button class="button" type="submit">Buscar</button>
+      </div>
+    </form>
+  </dialog>
   {% endif %}
   <main id="conteudo">{{ content }}</main>
   {% unless page.team_access %}
@@ -58,8 +72,8 @@
           {% include format-links.html %}
           <a href="{{ '/acervo/' | relative_url }}">Acervo</a>
           <a href="{{ '/' | relative_url }}#projeto">O projeto</a>
-          {% if site.data.equipe.contact != blank %}<a href="mailto:{{ site.data.equipe.contact | escape }}">Fale conosco</a>{% endif %}
-          {% if site.data.equipe.advertising != blank %}<a href="mailto:{{ site.data.equipe.advertising | escape }}">Anuncie aqui</a>{% endif %}
+          {% if site.data.equipe.contact and site.data.equipe.contact != "" %}<a href="mailto:{{ site.data.equipe.contact | escape }}">Fale conosco</a>{% endif %}
+          {% if site.data.equipe.advertising and site.data.equipe.advertising != "" %}<a href="mailto:{{ site.data.equipe.advertising | escape }}">Anuncie aqui</a>{% endif %}
         </nav>
       </div>
     </div>

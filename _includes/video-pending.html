@@ -4,5 +4,5 @@
     <span class="video-status">{{ site.data.inicio.video_pending | escape }}</span>
   </div>
 {% else %}
-  <div class="placeholder"><strong>{{ site.data.inicio.video_pending | escape }}</strong></div>
+  <div class="pending-cover">{% include media-cover.html publication=include.publication %}</div>
 {% endif %}

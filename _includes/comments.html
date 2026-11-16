@@ -1,7 +1,7 @@
 {% assign comments = site.data.comentarios %}
 <section class="comments" id="comentarios" aria-labelledby="comments-title">
   <h2 id="comments-title">Deixar comentário</h2>
-  {% if comments.repo_id != blank and comments.category_id != blank %}
+  {% if comments.repo_id and comments.repo_id != "" and comments.category_id and comments.category_id != "" %}
     <p>Participe da conversa com sua conta GitHub. Os comentários são públicos. Respeite as pessoas e mantenha o diálogo sobre a publicação.</p>
     <div class="giscus"></div>
     <script src="https://giscus.app/client.js"
