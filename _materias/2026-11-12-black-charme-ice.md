@@ -1,22 +1,23 @@
 ---
 title: Black Charme Ice
-description: "Reportagem que apresenta uma iniciativa cultural com entrevistas e
-  informações principais do evento. "
+description: "Em Santos, o Black Charme Ice reúne R&B, hip-hop e dança em grupo em um espaço de encontro e valorização da cultura negra."
 author: Circy Shara
 date: 2026-11-12
 category: Reportagem
 cover: /ESCUTATIVA/assets/uploads/WhatsApp Image 2026-11-12 at 15.27.09.jpeg
+cover_alt: "Cartaz do Black Charme Ice, com a identidade visual do baile."
+cover_caption: "Material de divulgação do Black Charme Ice."
+cover_fit: contain
+share_image: /assets/social/black-charme-ice.png
 published: true
 ---
 Black Charme Ice faz da pista um espaço de encontro e valorização da cultura negra em Santos
 
 Com R&B, hip-hop e dança em grupo, o projeto aproxima gerações e reúne histórias de pertencimento e descoberta.
 
-Cultura, charme e uma convidada especial: a ancestralidade. No Black Charme Ice, em Santos, o R&B???? e o hip-hop embalam os passinhos. A pista se transforma em um passarela para quem quer desfilar com as roupas, os penteados e os acessórios que escolheu para o baile. Criado para dar espaço à expressão da população negra da Baixada Santista, o projeto reúne música, dança e estética negra em uma festa que valoriza o pertencimento. 
+Cultura, charme e uma convidada especial: a ancestralidade. No Black Charme Ice, em Santos, o R&B e o hip-hop embalam os passinhos. A pista se transforma em uma passarela para quem quer desfilar com as roupas, os penteados e os acessórios que escolheu para o baile. Criado para dar espaço à expressão da população negra da Baixada Santista, o projeto reúne música, dança e estética negra em uma festa que valoriza o pertencimento.
 
 Idealizado pelo DJ Reille Cristovão, o Black Charme Ice nasceu em 2023, na Vila Mathias. Hoje, ao completar três anos de resistência, o movimento já passou por diferentes endereços, onde o encontro abre espaço para artistas da cena black e aproxima quem conhece os passos de quem ainda está aprendendo a entrar na roda.
-
-[Inserir declaração de Reille Cristovão sobre a criação do projeto e a importância de manter espaços de valorização da cultura negra na Baixada Santista.]
 
 O baile dá continuidade a uma tradição que atravessa gerações. No início dos anos 1980, no Rio de Janeiro, DJ Corello passou a usar a palavra charme para anunciar as músicas mais lentas de R&B no Clube Mackenzie, no Méier. A dança em grupo se tornou uma das marcas do movimento. Em Santos, essa história encontra continuidade no repertório dos DJs, nas coreografias compartilhadas e na participação de novos frequentadores.
 

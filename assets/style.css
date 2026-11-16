@@ -269,6 +269,14 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .text-action { transition: color 180ms ease; }
 .text-action:hover { color: var(--orange); }
 .feature-media, .card-media { display: block; overflow: hidden; }
+.feature-media.media-contained, .card-media.media-contained { background: #e8e5da; }
+.feature-media.media-contained img, .card-media.media-contained img { object-fit: contain; }
+.media-cover.media-contained img, .video-poster.media-contained img { object-fit: contain; }
+.card:hover .media-cover.media-contained img { transform: none; }
+.hero-feature:hover .feature-media.media-contained img, .card:hover .card-media.media-contained img { transform: none; }
+.team-member[id] { scroll-margin-top: 24px; }
+.team-member:target { border-color: var(--orange); background: var(--paper); }
+.related-publications h2 { font-size: clamp(30px, 4vw, 40px); }
 .feature-media { aspect-ratio: 16 / 10; }
 .feature-media img { height: 100%; }
 .card-media { aspect-ratio: 16 / 10; margin-bottom: 24px; }
@@ -319,6 +327,8 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .media-cover {
   position: relative;
   display: flex;
+  width: 100%;
+  min-width: 0;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;

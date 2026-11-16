@@ -1,0 +1,28 @@
+{% assign related_category = page.category | default: 'Reportagem' %}
+{% assign related_publications = site.materias | where: 'published', true | sort: 'date' | reverse %}
+{% assign related_priorities = 'same,other' | split: ',' %}
+{% assign related_shown = 0 %}
+{% capture related_entries %}
+  {% for priority in related_priorities %}
+    {% for candidate in related_publications %}
+      {% if candidate.url != page.url %}
+        {% assign candidate_category = candidate.category | default: 'Reportagem' %}
+        {% assign matches_priority = false %}
+        {% if priority == 'same' and candidate_category == related_category %}{% assign matches_priority = true %}{% endif %}
+        {% if priority == 'other' and candidate_category != related_category %}{% assign matches_priority = true %}{% endif %}
+        {% if matches_priority %}
+          {% include publication-card.html publication=candidate video=false %}
+          {% assign related_shown = related_shown | plus: 1 %}
+          {% if related_shown == 3 %}{% break %}{% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% if related_shown == 3 %}{% break %}{% endif %}
+  {% endfor %}
+{% endcapture %}
+{% if related_shown > 0 %}
+<section class="wrap section related-publications" aria-labelledby="related-title">
+  <h2 id="related-title">Continue explorando</h2>
+  <div class="cards">{{ related_entries }}</div>
+</section>
+{% endif %}

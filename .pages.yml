@@ -41,6 +41,17 @@ content:
       - name: cover_alt
         label: Descrição da imagem para acessibilidade
         type: string
+      - name: cover_fit
+        label: Exibição da capa
+        type: select
+        default: cover
+        options:
+          values: [cover, contain]
+        description: "cover preenche o espaço com recorte. contain mostra a imagem inteira, indicado para cartazes."
+      - name: share_image
+        label: Imagem para compartilhamento
+        type: image
+        description: "Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa."
       - name: cover_caption
         label: Legenda da imagem de capa
         type: string

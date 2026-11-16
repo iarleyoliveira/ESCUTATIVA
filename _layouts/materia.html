@@ -13,7 +13,8 @@ layout: default
   <h1>{{ page.title | escape }}</h1>
   <p class="intro">{{ page.description | escape }}</p>
   {% if page.author and page.author != "" %}
-    <p class="meta">{{ inicio.byline | escape }} {{ page.author | escape }} · {{ page.date | date: "%d/%m/%Y" }}</p>
+    {% assign team_author = site.data.equipe.members | where: 'name', page.author | first %}
+    <p class="meta">{{ inicio.byline | escape }} {% if team_author %}<a href="#autor-{{ team_author.name | slugify }}">{{ page.author | escape }}</a>{% else %}{{ page.author | escape }}{% endif %} · {{ page.date | date: "%d/%m/%Y" }}</p>
   {% elsif page.date %}
     <p class="meta">{{ page.date | date: "%d/%m/%Y" }}</p>
   {% endif %}
@@ -46,3 +47,4 @@ layout: default
   {% include comments.html %}
   <div class="article-end"><a href="{{ '/' | relative_url }}#{{ section_id }}">← {{ inicio.continue | escape }}</a></div>
 </article>
+{% include related-publications.html %}

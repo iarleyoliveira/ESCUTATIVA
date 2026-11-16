@@ -1,0 +1,20 @@
+{% assign share_image = page.share_image | default: page.cover | default: '/assets/social/escutativa.png' | strip %}
+{% if share_image contains '://' %}
+  {% assign share_image_url = share_image %}
+{% else %}
+  {% assign share_image_url = share_image | remove_first: site.baseurl | absolute_url %}
+{% endif %}
+{% assign share_alt = page.cover_alt | default: page_title | default: identity.name %}
+<meta property="og:site_name" content="{{ identity.name | escape }}">
+<meta property="og:locale" content="{{ site.lang | replace: '-', '_' | escape }}">
+<meta property="og:image" content="{{ share_image_url | escape }}">
+<meta property="og:image:alt" content="{{ share_alt | escape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | default: identity.name | escape }}">
+<meta name="twitter:description" content="{{ description | escape }}">
+<meta name="twitter:image" content="{{ share_image_url | escape }}">
+<meta name="twitter:image:alt" content="{{ share_alt | escape }}">
+{% if page.collection == 'materias' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.author and page.author != '' %}<meta name="author" content="{{ page.author | escape }}">{% endif %}
+{% endif %}

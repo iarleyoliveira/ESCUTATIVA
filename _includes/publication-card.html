@@ -29,7 +29,7 @@
       {% if category.video %}
         {% include media-cover.html publication=entry %}
       {% elsif entry.cover and entry.cover != "" %}
-        <span class="card-media"><img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy"></span>
+        <span class="card-media{% if entry.cover_fit == 'contain' %} media-contained{% endif %}"><img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy"></span>
       {% endif %}
       <div class="card-copy">
       <small>{{ category_name | escape }}</small>

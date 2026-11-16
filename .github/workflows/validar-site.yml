@@ -172,6 +172,20 @@ jobs:
                   expect(page.get_by_role('heading', level=1)).to_have_text('Black Charme Ice')
                   page.wait_for_function('document.querySelector("figure img").naturalWidth > 0')
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
+                  expect(page.locator('meta[property="og:type"]')).to_have_attribute('content', 'article')
+                  expect(page.locator('meta[property="og:image"]')).to_have_attribute(
+                      'content', 'https://iarleyoliveira.github.io/ESCUTATIVA/assets/social/black-charme-ice.png'
+                  )
+                  current_path = page.url.split('8000')[-1]
+                  related_links = page.locator('.related-publications .card-link').evaluate_all(
+                      '(links) => links.map(link => link.getAttribute("href"))'
+                  )
+                  assert current_path not in related_links
+                  assert len(related_links) == len(set(related_links))
+                  assert related_links[0] == '/ESCUTATIVA/materias/validacao-0/'
+                  page.goto(root + 'materias/conversas-que-aproximam/')
+                  expect(page.locator('.pending-cover .media-cover')).to_be_visible()
+                  assert page.evaluate('document.documentElement.scrollWidth') <= width
               page.emulate_media(reduced_motion='reduce')
               page.goto(root)
               page.locator('#quem-faz').scroll_into_view_if_needed()
