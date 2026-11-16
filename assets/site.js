@@ -1,3 +1,4 @@
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const searchLink = document.querySelector('.search-link');
 const searchDialog = document.querySelector('#search-dialog');
 
@@ -16,6 +17,12 @@ if (searchLink && searchDialog && typeof searchDialog.showModal === 'function') 
     document.documentElement.classList.add('search-open');
     searchLink.setAttribute('aria-expanded', 'true');
     searchInput.focus();
+    if (!motionPreference.matches && typeof searchDialog.animate === 'function') {
+      searchDialog.animate(
+        [{ opacity: 0.85, transform: 'translateY(6px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 180, easing: 'cubic-bezier(.22,1,.36,1)' },
+      );
+    }
   });
 
   closeButton.addEventListener('click', () => searchDialog.close());
@@ -26,6 +33,7 @@ if (searchLink && searchDialog && typeof searchDialog.showModal === 'function') 
     if (event.target === searchDialog && outside) searchDialog.close();
   });
   searchDialog.addEventListener('close', () => {
+    searchDialog.getAnimations().forEach((animation) => animation.cancel());
     document.documentElement.classList.remove('search-open');
     searchLink.setAttribute('aria-expanded', 'false');
     searchLink.focus({ preventScroll: true });
@@ -33,7 +41,6 @@ if (searchLink && searchDialog && typeof searchDialog.showModal === 'function') 
 }
 
 // Content remains visible when scripts, observers or animations are unavailable.
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const revealedElements = new WeakSet();
 const runningAnimations = new Set();
 let revealObserver;
@@ -48,23 +55,32 @@ function observeSections() {
       revealObserver.unobserve(entry.target);
       if (revealedElements.has(entry.target)) continue;
       revealedElements.add(entry.target);
+      if (entry.target.contains(document.activeElement)) continue;
       const animation = entry.target.animate(
-        [{ opacity: 0.2, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }],
-        { duration: 460, easing: 'cubic-bezier(.2,.7,.2,1)' },
+        [{ opacity: 0.92, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 360, easing: 'cubic-bezier(.22,1,.36,1)' },
       );
       runningAnimations.add(animation);
       animation.finished.catch(() => {}).finally(() => runningAnimations.delete(animation));
     }
-  }, { threshold: 0.08 });
+  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
 
-  document.querySelectorAll('.format-heading, .cards > .card, .video-list > article, .team-member, .about > div')
-    .forEach((element) => revealObserver.observe(element));
+  // Reveal each block as a unit. Keep the initial viewport and visited content stable.
+  document.querySelectorAll('.format-heading, .format-section > .cards, .format-section > .video-list, .about, .team-grid, .related-publications > .cards')
+    .forEach((element) => {
+      if (element.getBoundingClientRect().top < window.innerHeight) {
+        revealedElements.add(element);
+      } else if (!revealedElements.has(element)) {
+        revealObserver.observe(element);
+      }
+    });
 }
 
 observeSections();
 motionPreference.addEventListener('change', () => {
   revealObserver?.disconnect();
   for (const animation of runningAnimations) animation.cancel();
+  searchDialog?.getAnimations().forEach((animation) => animation.cancel());
   if (!motionPreference.matches) observeSections();
 });
 document.addEventListener('focusin', (event) => {
