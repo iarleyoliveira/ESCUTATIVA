@@ -376,6 +376,7 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
   background: #193847;
   color: var(--paper);
   isolation: isolate;
+  transition: background-color 220ms ease;
 }
 .media-cover::before {
   content: '';
@@ -383,6 +384,7 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
   inset: 18px;
   z-index: -1;
   border: 1px solid #f4f1e940;
+  transition: inset 260ms cubic-bezier(.22,1,.36,1), border-color 220ms ease;
 }
 .media-cover-audio { background: #9e3a1a; }
 .media-cover-photo { background: var(--ink); }
@@ -392,6 +394,15 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .media-cover-title { font: clamp(23px, 2.6vw, 34px)/1.15 Georgia, serif; max-width: 20ch; text-wrap: pretty; }
 .media-cover-status { font-size: 12px; }
 .media-cover-symbol { display: flex; align-items: center; gap: 5px; height: 42px; }
+.media-cover:not(.media-cover-audio) .media-cover-symbol {
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+  border: 1px solid #f4f1e966;
+  border-radius: 50%;
+  transition: transform 260ms cubic-bezier(.22,1,.36,1), background-color 220ms ease;
+}
+.media-cover:not(.media-cover-audio) .play-triangle { margin-left: 4px; border-top-width: 10px; border-bottom-width: 10px; border-left-width: 16px; }
 .play-triangle { display: block; width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid #f49d7b; }
 .media-cover-symbol i { width: 4px; height: 14px; background: #f4f1e9; border-radius: 4px; }
 .media-cover-symbol i:nth-child(2n) { height: 30px; }
@@ -399,9 +410,30 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .video-list > .media-card { max-width: none; }
 .video-list > .media-card .card-link { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
 .video-grid { padding-block: 24px; border-top: 1px solid var(--line); }
-.video-grid iframe { background: #193847; }
+.video-grid iframe { background: #193847; transition: box-shadow 220ms ease; }
 .video-grid h3 { margin-top: 0; }
 .video-grid .text-action { display: inline-block; margin-top: 16px; }
+
+@keyframes media-wave {
+  0%, 100% { transform: scaleY(0.7); }
+  50% { transform: scaleY(1.25); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .media-card:hover { border-color: var(--orange); box-shadow: 0 8px 24px #142d3b18; }
+  .media-card:hover .media-cover:not(.media-cover-photo) { background-color: #245063; }
+  .media-card:hover .media-cover-audio:not(.media-cover-photo) { background-color: #b14725; }
+  .media-card:hover .media-cover::before { inset: 12px; border-color: #f4f1e9b3; }
+  .media-card:hover .media-cover:not(.media-cover-audio) .media-cover-symbol { transform: scale(1.12); background: #f4f1e91a; }
+  .media-card:hover .media-cover-audio .media-cover-symbol i { animation: media-wave 700ms ease-in-out infinite; }
+  .media-card:hover .media-cover-symbol i:nth-child(2n) { animation-delay: -180ms; }
+  .media-card:hover .media-cover-symbol i:nth-child(3n) { animation-delay: -360ms; }
+  .card:hover .text-action > span[aria-hidden] { transform: translateX(4px); }
+  .video-grid:hover iframe { box-shadow: 0 0 0 3px var(--orange), 0 8px 24px #142d3b18; }
+}
+.media-card:focus-within { border-color: var(--orange); }
+.media-card:focus-within .media-cover::before { border-color: #f4f1e9b3; }
+.card-link:focus-visible .text-action > span[aria-hidden] { transform: translateX(4px); }
+.video-grid iframe:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 
 /* Pesquisa acessível, com acesso ao acervo sem JavaScript. */
 .search-open { overflow: hidden; }
@@ -462,4 +494,8 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
   header nav a::after, .text-action > span[aria-hidden], .access-button > span[aria-hidden] { transition: none; }
   .text-action:hover > span[aria-hidden], .access-button:hover > span[aria-hidden] { transform: none; }
   .team-member:hover img, .team-member:focus-within img { filter: none; }
+  .media-cover, .media-cover::before, .media-cover:not(.media-cover-audio) .media-cover-symbol, .video-grid iframe { transition: none; }
+  .media-card:hover .media-cover-audio .media-cover-symbol i { animation: none; }
+  .media-card:hover .media-cover::before { inset: 18px; }
+  .media-card:hover .media-cover:not(.media-cover-audio) .media-cover-symbol, .card:hover .text-action > span[aria-hidden], .card-link:focus-visible .text-action > span[aria-hidden] { transform: none; }
 }
