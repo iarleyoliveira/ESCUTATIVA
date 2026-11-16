@@ -10,8 +10,26 @@
             {% if member.portrait and member.portrait != "" %}<img src="{{ member.portrait | remove_first: site.baseurl | relative_url | escape }}" alt="{% if member.name and member.name != "" %}Caricatura de {{ member.name | escape }}{% else %}Caricatura de integrante da equipe Escutativa{% endif %}" width="240" height="240" loading="lazy">{% endif %}
             {% if member.name and member.name != "" %}<h3>{{ member.name | escape }}</h3>{% endif %}
             {% if member.role and member.role != "" %}<p class="kicker">{{ member.role | escape }}</p>{% endif %}
-            {% if member.bio and member.bio != "" %}<p>{{ member.bio | escape }}</p>{% endif %}
-            {% if member.url and member.url != "" and member.name and member.name != "" %}<a href="{{ member.url | escape }}">Conheça {{ member.name | escape }} ↗</a>{% endif %}
+            {% if member.name and member.name != '' %}
+              <details class="member-profile">
+                <summary>Conheça {{ member.name | escape }}</summary>
+                {% if member.bio and member.bio != '' %}
+                  <p>{{ member.bio | escape | newline_to_br }}</p>
+                {% else %}
+                  <p>A biografia de {{ member.name | escape }} será adicionada em breve.</p>
+                {% endif %}
+                {% if member.url and member.url != '' %}<a href="{{ member.url | escape }}">Perfil de {{ member.name | escape }} ↗</a>{% endif %}
+                {% assign member_publications = site.materias | where: 'published', true | where: 'author', member.name | sort: 'date' | reverse %}
+                {% if member_publications.size > 0 %}
+                  <h4>Publicações</h4>
+                  <ul>
+                    {% for publication in member_publications %}
+                      <li><a href="{{ publication.url | relative_url }}">{{ publication.title | escape }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </details>
+            {% endif %}
           </article>
         {% endfor %}
       </div>
