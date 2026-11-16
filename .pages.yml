@@ -2,6 +2,35 @@ media:
   input: assets/uploads
   output: /ESCUTATIVA/assets/uploads
 content:
+  - name: comentarios
+    label: Comentários
+    type: file
+    path: _data/comentarios.yml
+    fields:
+      - name: provider
+        label: Serviço de comentários
+        type: select
+        options:
+          values: [giscus, disqus]
+      - name: disqus_shortname
+        label: Identificador do site no Disqus (shortname)
+        type: string
+        description: "Antes de selecionar disqus, cadastre o site, habilite Guest Commenting em Settings → Moderation e configure a aprovação prévia dos comentários."
+        pattern:
+          regex: "^([A-Za-z0-9][A-Za-z0-9-]*)?$"
+          message: "Use o identificador do Disqus, com letras, números e hífens."
+      - name: repo
+        label: Repositório do Giscus
+        type: string
+      - name: repo_id
+        label: ID do repositório do Giscus
+        type: string
+      - name: category
+        label: Categoria do Giscus
+        type: string
+      - name: category_id
+        label: ID da categoria do Giscus
+        type: string
   - name: materias
     label: Publicações
     type: collection

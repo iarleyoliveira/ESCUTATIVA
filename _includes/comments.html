@@ -1,7 +1,19 @@
 {% assign comments = site.data.comentarios %}
+{% assign comments_provider = comments.provider | default: 'giscus' %}
+{% assign disqus_shortname = comments.disqus_shortname | default: '' | strip %}
 <section class="comments" id="comentarios" aria-labelledby="comments-title">
   <h2 id="comments-title">Deixar comentário</h2>
-  {% if comments.repo_id and comments.repo_id != "" and comments.category_id and comments.category_id != "" %}
+  {% if comments_provider == 'disqus' and disqus_shortname != '' %}
+    <p>Para comentar sem criar uma conta, selecione a opção de publicar como visitante no formulário. Os comentários de visitantes aparecem após aprovação da equipe.</p>
+    <div id="disqus_thread"
+      data-shortname="{{ disqus_shortname | escape }}"
+      data-page-url="{{ page.url | absolute_url | escape }}"
+      data-page-id="{{ page.url | escape }}"
+      data-page-title="{{ page.title | escape }}"></div>
+    <p class="comments-status" role="status" hidden></p>
+    <script src="{{ '/assets/comments.js' | relative_url }}" defer></script>
+    <noscript>Ative o JavaScript para ler e deixar comentários pelo Disqus.</noscript>
+  {% elsif comments_provider == 'giscus' and comments.repo_id and comments.repo_id != "" and comments.category_id and comments.category_id != "" %}
     <p>Participe da conversa com sua conta GitHub. Os comentários são públicos. Respeite as pessoas e mantenha o diálogo sobre a publicação.</p>
     <div class="giscus"></div>
     <script src="https://giscus.app/client.js"
@@ -14,6 +26,6 @@
       data-lang="pt" data-loading="lazy" crossorigin="anonymous" async></script>
     <noscript>Ative o JavaScript para ler e deixar comentários.</noscript>
   {% else %}
-    <p>Os comentários públicos estão em preparação. Em breve, você poderá participar com sua conta GitHub.</p>
+    <p>Os comentários públicos estão em preparação.</p>
   {% endif %}
 </section>

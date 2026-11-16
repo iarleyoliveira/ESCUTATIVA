@@ -17,4 +17,8 @@ O menu reúne textos em **Leia**, minidocumentários em **Assista** e videocasts
 
 Em _data/equipe.yml, preencha members com name, role, bio, portrait (caminho local como /assets/uploads/nome.png) e url (opcional). Preencha socials com name e url e os e-mails contact e advertising para exibir redes e contatos no rodapé. Não são exibidos links sem destino.
 
-Para comentários públicos: habilite Discussions no GitHub, instale https://github.com/apps/giscus e configure https://giscus.app/pt para este repositório. Copie data-repo-id, data-category e data-category-id para os campos correspondentes em _data/comentarios.yml. O template só carrega Giscus quando os IDs estão preenchidos. Comentários são vinculados ao caminho de cada matéria e moderados no GitHub Discussions.
+Os comentários são configurados em **Comentários** no Pages CMS ou em `_data/comentarios.yml`. O serviço ativo fica em `provider`.
+
+Para ativar comentários com nome e e-mail pelo Disqus, cadastre o site em https://disqus.com/admin/create/, copie o identificador público (shortname) para `disqus_shortname` e selecione `disqus`. No painel do Disqus, habilite **Settings → Moderation → Guest Commenting**. Configure a moderação prévia de todos os comentários para que também as contas cadastradas aguardem aprovação. Os comentários de visitantes já dependem de aprovação manual. O plano Basic é sustentado por anúncios. Essas configurações de moderação são feitas no Disqus, não no código do site. Confira em uma janela anônima se a opção de visitante aparece antes de divulgar a nova forma de comentar.
+
+O Giscus permanece configurado até a ativação do Disqus. Suas discussões continuam no GitHub e podem ser acessadas selecionando novamente `giscus`. A troca de serviço não importa comentários automaticamente. Para Giscus, `repo`, `repo_id`, `category` e `category_id` correspondem aos valores gerados em https://giscus.app/pt.

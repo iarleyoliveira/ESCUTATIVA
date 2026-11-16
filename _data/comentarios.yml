@@ -1,3 +1,5 @@
+provider: giscus
+disqus_shortname: ""
 repo: "iarleyoliveira/ESCUTATIVA"
 repo_id: "R_kgDOVsCRtQ"
 category: "Announcements"
