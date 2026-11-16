@@ -26,7 +26,7 @@ permalink: /acervo/
   </div>
   {% for category in site.data.categorias %}
     {% assign section = inicio[category.section] %}
-    <section class="archive-group" data-category="{{ category.section }}" data-format="{% if category.section == 'videocast' %}escute{% elsif category.video %}assista{% else %}leia{% endif %}">
+    <section class="archive-group" data-category="{{ category.section }}" data-format="{{ category.format }}">
       <h2>{{ section.nav | escape }}</h2>
       {% assign has_publications = false %}
       {% capture entries %}

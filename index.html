@@ -7,12 +7,13 @@ home: true
 {% assign publications = site.materias | where: 'published', true | sort: 'date' | reverse %}
 {% assign feature_path = inicio.destaque.publication %}
 {% assign feature = publications | where: 'path', feature_path | first %}
-<section class="wrap hero">
+{% unless feature %}{% assign feature = publications | first %}{% endunless %}
+<section class="wrap hero home-hero">
   <div>
     <span class="kicker">{{ hero.kicker | escape }}</span>
     <h1>{{ hero.title | escape }}<br><em>{{ hero.accent | escape }}</em></h1>
     <p>{{ hero.description | escape }}</p>
-    <a class="button" href="#materias">{{ hero.button | escape }}</a>
+    <a class="button" href="#leia">{{ hero.button | escape }}</a>
   </div>
   {% if feature %}
     <article class="hero-feature">
@@ -38,31 +39,41 @@ home: true
   {% endif %}
 </section>
 
-{% for category in site.data.categorias %}
-  {% if category.dark %}<div class="dark">{% endif %}
-  {% assign section = inicio[category.section] %}
-  <section class="wrap section" id="{{ category.section }}">
-    <span class="kicker">{{ section.nav | escape }}</span>
-    <h2>{{ section.title | escape }}</h2>
+{% for format in site.data.formatos %}
+  {% if format.dark %}<div class="dark">{% endif %}
+  <section class="wrap section format-section" id="{{ format.id }}" aria-labelledby="heading-{{ format.id }}">
+    {% for category in site.data.categorias %}
+      {% if category.format == format.id %}<span id="{{ category.section }}" class="section-anchor" aria-hidden="true"></span>{% endif %}
+    {% endfor %}
+    <div class="format-heading">
+      <div>
+        <span class="kicker">{{ format.label | escape }}</span>
+        <h2 id="heading-{{ format.id }}">{{ inicio[format.heading].title | escape }}</h2>
+        <p>{{ format.description | escape }}</p>
+      </div>
+      <a class="text-action section-archive" href="{{ '/acervo/' | relative_url }}?formato={{ format.id }}">Ver tudo em {{ format.label | downcase | escape }} <span aria-hidden="true">→</span></a>
+    </div>
     {% assign shown = 0 %}
     {% capture entries %}
       {% for publication in publications %}
-        {% assign publication_category = publication.category | default: "Reportagem" %}
-        {% if publication_category == category.name %}
+        {% assign publication_category = publication.category | default: 'Reportagem' %}
+        {% assign category = site.data.categorias | where: 'name', publication_category | first %}
+        {% if category.format == format.id %}
           {% assign shown = shown | plus: 1 %}
-          {% include publication-card.html publication=publication video=category.video %}
-          {% if shown == 3 %}{% break %}{% endif %}
+          {% assign show_video = false %}
+          {% if category.video and publication.youtube_id != blank %}{% assign show_video = true %}{% endif %}
+          {% include publication-card.html publication=publication video=show_video %}
+          {% if shown == 6 %}{% break %}{% endif %}
         {% endif %}
       {% endfor %}
     {% endcapture %}
     {% if shown > 0 %}
-      <div class="{% if category.video %}video-list{% else %}cards{% endif %}">{{ entries }}</div>
-      <a class="text-action section-archive" href="{{ '/acervo/' | relative_url }}?categoria={{ category.section }}">{{ inicio.acervo.more | escape }} <span aria-hidden="true">→</span></a>
+      <div class="{% if format.id == 'leia' %}cards{% else %}video-list{% endif %}">{{ entries }}</div>
     {% else %}
-      {% if section.empty != blank %}<div class="empty"><p>{{ section.empty | escape }}</p></div>{% endif %}
+      <p class="format-empty">Novas histórias em preparação.</p>
     {% endif %}
   </section>
-  {% if category.dark %}</div>{% endif %}
+  {% if format.dark %}</div>{% endif %}
 {% endfor %}
 
 {% assign project = inicio.projeto %}
@@ -73,9 +84,6 @@ home: true
   </div>
   <div>
     {{ project.presentation | markdownify }}
-    {% if project.credits != blank %}
-      <h3>{{ project.credits_title | escape }}</h3>
-      {{ project.credits | markdownify }}
-    {% endif %}
+
   </div>
 </section>

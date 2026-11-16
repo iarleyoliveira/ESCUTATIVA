@@ -8,7 +8,7 @@
   {% assign action = site.data.inicio.video_summary | default: site.data.inicio.read_more %}
 {% endif %}
 {% if include.video %}
-  <article class="video-grid">
+  <article class="video-grid" data-publication-category="{{ category.section }}">
     <div>
       {% if entry.youtube_id and entry.youtube_id != "" %}
         {% include video.html publication=entry %}
@@ -24,13 +24,15 @@
     </div>
   </article>
 {% else %}
-  <article class="card">
+  <article class="card" data-publication-category="{{ category.section }}">
     <a href="{{ entry.url | relative_url }}">
       {% if entry.cover and entry.cover != "" %}
         <img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy">
       {% endif %}
+      <small>{{ category_name | escape }}</small>
       <h3>{{ entry.title | escape }}</h3>
       <p>{{ entry.description | escape }}</p>
+      {% if entry.author != blank %}<small class="card-author">{{ entry.author | escape }}</small>{% endif %}
       <span class="text-action">{{ action | escape }} <span aria-hidden="true">→</span></span>
     </a>
   </article>

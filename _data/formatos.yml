@@ -1,0 +1,13 @@
+- id: leia
+  label: Leia
+  heading: materias
+  description: Reportagens, entrevistas e bastidores.
+- id: assista
+  label: Assista
+  heading: documentario
+  description: Histórias em minidocumentários.
+- id: escute
+  label: Escute
+  heading: videocast
+  description: Conversas em videocast.
+  dark: true

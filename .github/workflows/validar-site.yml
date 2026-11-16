@@ -100,17 +100,17 @@ jobs:
                   expect(page.locator('meta[name="google-site-verification"]')).to_have_attribute(
                       'content', 'k3ZHhVNUdvAijnVMVd8QVD-enngPZGUcz9113uLSEwU'
                   )
-                  expect(page.locator('#documentario h2')).to_have_text('Quando a notícia faz parte da história.')
+                  expect(page.locator('#assista h2')).to_have_text('Quando a notícia faz parte da história.')
                   expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   assert min(page.locator('nav a').evaluate_all('(links) => links.map(link => link.offsetHeight)')) >= 44
-                  expect(page.locator('#documentario').get_by_role('link', name='Ver sinopse — Quando a escuta abre caminhos')).to_be_visible()
+                  expect(page.locator('#assista').get_by_role('link', name='Quando a escuta abre caminhos', exact=False)).to_be_visible()
                   expect(page.locator('.hero-feature h2')).to_have_text('Black Charme Ice')
-                  archive = page.locator('#materias a.section-archive')
-                  expect(archive).to_have_attribute('href', '/ESCUTATIVA/acervo/?categoria=materias')
+                  archive = page.locator('#leia a.section-archive')
+                  expect(archive).to_have_attribute('href', '/ESCUTATIVA/acervo/?formato=leia')
                   archive.click()
                   expect(page.locator('[data-category="materias"]')).to_be_visible()
-                  expect(page.locator('[data-category="entrevistas"]')).to_be_hidden()
+                  expect(page.locator('[data-category="entrevistas"]')).to_be_visible()
                   page.get_by_role('button', name='Entrevistas').click()
                   expect(page.locator('[data-category="entrevistas"]')).to_be_visible()
                   expect(page.locator('[data-category="materias"]')).to_be_hidden()
@@ -119,11 +119,9 @@ jobs:
                   expect(page.locator('[data-category="materias"]')).to_be_visible()
                   expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
                   page.goto(root)
-                  poster = page.locator('#videocast .video-poster')
-                  expect(poster.get_by_alt_text('Ícone do projeto')).to_be_visible()
-                  expect(poster.locator('.video-status')).to_have_text('Em breve')
+                  expect(page.locator('main .format-section')).to_have_count(3)
                   for index, section_id in enumerate(sections):
-                      section = page.locator(f'#{section_id}')
+                      section = page.locator(f'[data-publication-category="{section_id}"]')
                       for label, target in [("Leia", "leia"), ("Assista", "assista"), ("Escute", "escute")]:
                           expect(page.locator('header nav').get_by_role("link", name=label, exact=True)).to_have_attribute("href", f"/ESCUTATIVA/acervo/?formato={target}")
                       link = section.get_by_role('link', name=f'Publicação de teste {index}', exact=False).first
@@ -135,7 +133,7 @@ jobs:
                       if index == 1:
                           expect(link.locator('.text-action')).to_contain_text('Ler entrevista')
                       if index >= 3:
-                          expect(section.locator('iframe')).to_have_attribute(
+                          expect(section.locator('iframe').first).to_have_attribute(
                               'src', 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE'
                           )
                       page.goto('http://127.0.0.1:8000' + path)
@@ -156,7 +154,7 @@ jobs:
                   page.go_back()
                   expect(page.get_by_role('searchbox')).to_have_value('Equipe de teste')
                   page.goto(root)
-                  existing = page.locator('#materias').get_by_role('link', name='Black Charme Ice', exact=False)
+                  existing = page.locator('#leia').get_by_role('link', name='Black Charme Ice', exact=False)
                   expect(existing).to_be_visible()
                   assert existing.get_attribute('href') in sitemap
                   existing.click()

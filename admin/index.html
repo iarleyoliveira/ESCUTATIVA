@@ -2,16 +2,22 @@
 layout: default
 title: Área da equipe
 sitemap: false
+team_access: true
 ---
-<section class="wrap admin">
-  <span class="kicker">Redação {{ site.data.identidade.name | escape }}</span>
-  <h1>{{ page.title | escape }}</h1>
-  <p>Entre com sua conta autorizada e selecione <strong>iarleyoliveira / ESCUTATIVA / main</strong>.</p>
-  <a class="button" href="https://app.pagescms.org">Entrar no editor</a>
-  <ul>
-    <li><strong>Publicações</strong> reúne matérias e vídeos. Escolha a categoria e ative <strong>Publicar no site</strong> quando estiver pronto.</li>
-    <li><strong>Página inicial e créditos</strong> reúne chamadas, títulos das seções, apresentação e créditos da equipe.</li>
-    <li><strong>Identidade</strong> reúne nome, assinatura e logotipo.</li>
-  </ul>
-  <p class="notice">Rascunhos ficam fora do site, mas continuam visíveis nos arquivos públicos do GitHub.</p>
+<section class="wrap team-access" aria-labelledby="access-title">
+  <div class="access-intro">
+    <span class="kicker">Redação Escutativa</span>
+    <h1 id="access-title">O próximo capítulo<br>começa aqui.</h1>
+    <p>Um espaço da equipe para escrever, revisar e publicar as histórias do Escutativa.</p>
+  </div>
+  <div class="access-card">
+    <h2>Entrar na redação</h2>
+    <p>Use o e-mail convidado pela administração para acessar o painel de publicações.</p>
+    <a class="button access-button" href="{{ site.editor_url | escape }}">Abrir publicações <span aria-hidden="true">↗</span></a>
+    <p class="access-provider">O painel abre nas publicações do Escutativa. Se solicitado, entre com seu e-mail convidado.</p>
+    <div class="access-help">
+      <h3>Primeiro acesso?</h3>
+      <p>Peça à administração da equipe um convite para o seu e-mail. O acesso é liberado após esse convite.</p>
+    </div>
+  </div>
 </section>

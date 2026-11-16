@@ -1,13 +1,18 @@
 - name: Reportagem
   section: materias
+  format: leia
 - name: Entrevista
   section: entrevistas
+  format: leia
 - name: Bastidores
   section: bastidores
+  format: leia
 - name: Minidocumentário
   section: documentario
+  format: assista
   video: true
 - name: Videocast
   section: videocast
+  format: escute
   video: true
   dark: true
