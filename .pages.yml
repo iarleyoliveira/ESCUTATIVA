@@ -2,6 +2,50 @@ media:
   input: assets/uploads
   output: /ESCUTATIVA/assets/uploads
 content:
+  - name: reportagens_casos
+    label: Reportagens dos casos
+    type: file
+    path: _data/reportagens_casos.yml
+    operations:
+      delete: false
+    fields:
+      - name: reportagens
+        label: Reportagens
+        type: object
+        list: true
+        fields:
+          - name: caso
+            label: Caso
+            type: select
+            required: true
+            options:
+              values: [Caso Hillary, Caso canadense Cal, Caso Felipe]
+          - name: formato
+            label: Formato
+            type: select
+            required: true
+            options:
+              values: [Texto, Vídeo]
+          - name: title
+            label: Título
+            type: string
+            required: true
+          - name: veiculo
+            label: Veículo
+            type: string
+            required: true
+          - name: link
+            label: Link da matéria original
+            type: string
+            required: true
+            pattern:
+              regex: "^https?://[^\\s]+$"
+              message: "Cole o endereço completo da matéria, começando com https:// ou http://."
+          - name: published
+            label: Publicar no site
+            type: boolean
+            default: false
+            description: "Ative e salve para exibir a reportagem no caso escolhido após a atualização do site."
   - name: comentarios
     label: Comentários
     type: file

@@ -66,6 +66,17 @@ jobs:
             POST
           end
           File.write('_materias/validacao-rascunho.md', "---\ntitle: Rascunho de teste\ncategory: Reportagem\npublished: false\n---\n")
+          cases = YAML.safe_load_file('_data/casos.yml').map { |item| item.fetch('name') }
+          case_cms = cms.find { |entry| entry['name'] == 'reportagens_casos' }
+          case_fields = case_cms.fetch('fields').first.fetch('fields')
+          abort 'Casos divergentes no CMS' unless case_fields.find { |field| field['name'] == 'caso' }.dig('options', 'values') == cases
+          reports = cases.first(2).each_with_index.map do |name, index|
+            { 'caso' => name, 'formato' => ['Texto', 'Vídeo'][index], 'title' => "Matéria original #{index}",
+              'veiculo' => "Veículo #{index}", 'link' => "https://example.com/reportagem-#{index}", 'published' => true }
+          end
+          reports << reports.first.merge('title' => 'Rascunho do caso', 'published' => false)
+          reports << reports.first.merge('title' => 'Link inválido do caso', 'link' => 'javascript:alert(1)')
+          File.write('_data/reportagens_casos.yml', { 'reportagens' => reports }.to_yaml)
           RUBY
       - name: Gerar site com Jekyll
         run: jekyll build --strict_front_matter
@@ -112,6 +123,23 @@ jobs:
                       'content', 'k3ZHhVNUdvAijnVMVd8QVD-enngPZGUcz9113uLSEwU'
                   )
                   expect(page.locator('#assista h2')).to_have_text('Quando a notícia faz parte da história.')
+                  cases_link = page.locator('header nav').get_by_role('link', name='Casos', exact=True)
+                  expect(cases_link).to_have_attribute('href', '/ESCUTATIVA/#casos')
+                  cases_link.click()
+                  expect(page.locator('#casos')).to_be_visible()
+                  expect(page.locator('#casos h3')).to_have_text(['Caso Hillary', 'Caso canadense Cal', 'Caso Felipe'])
+                  expect(page.locator('#casos h4')).to_have_text(['Matérias completas'] * 3)
+                  for index, case_id in enumerate(['caso-hillary', 'caso-canadense-cal']):
+                      block = page.locator(f'article[aria-labelledby="{case_id}"]')
+                      link = block.get_by_role('link', name=f'Matéria original {index}', exact=False)
+                      expect(link).to_have_attribute('href', f'https://example.com/reportagem-{index}')
+                      expect(link).to_have_attribute('target', '_blank')
+                      expect(link).to_have_attribute('rel', 'noopener noreferrer')
+                      expect(block.locator('.case-report p')).to_contain_text(f'Veículo {index}')
+                      expect(block.locator('.case-format')).to_have_text(['Texto', 'Vídeo'][index])
+                  expect(page.locator('article[aria-labelledby="caso-felipe"] .case-empty')).to_be_visible()
+                  expect(page.get_by_text('Rascunho do caso')).to_have_count(0)
+                  expect(page.get_by_text('Link inválido do caso')).to_have_count(0)
                   expect(page.get_by_text('Rascunho de teste')).to_have_count(0)
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   assert min(page.locator('nav a').evaluate_all('(links) => links.map(link => link.offsetHeight)')) >= 44

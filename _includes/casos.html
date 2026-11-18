@@ -1,0 +1,34 @@
+<section class="wrap section cases-section" id="casos" aria-labelledby="heading-casos">
+  <span class="kicker">As histórias na imprensa</span>
+  <h2 id="heading-casos">Casos</h2>
+  <div class="cases-list">
+    {% assign reports = site.data.reportagens_casos.reportagens | where: 'published', true %}
+    {% for case in site.data.casos %}
+      <article class="case-block" aria-labelledby="{{ case.id }}">
+        <h3 id="{{ case.id }}">{{ case.name | escape }}</h3>
+        <h4>Matérias completas</h4>
+        {% assign case_reports = reports | where: 'caso', case.name %}
+        {% assign shown_reports = 0 %}
+        {% capture report_items %}
+          {% for report in case_reports %}
+            {% assign report_url = report.link | default: '' | strip %}
+            {% assign url_start = report_url | slice: 0, 8 | downcase %}
+            {% assign url_start_http = report_url | slice: 0, 7 | downcase %}
+            {% if url_start == 'https://' or url_start_http == 'http://' %}
+              {% assign shown_reports = shown_reports | plus: 1 %}
+              <li class="case-report">
+                <h5><a href="{{ report_url | escape }}" target="_blank" rel="noopener noreferrer">{{ report.title | escape }} <span aria-hidden="true">↗</span><span class="case-sr-only"> (abre em nova aba)</span></a></h5>
+                <p><span>{{ report.veiculo | escape }}</span><span class="case-format">{{ report.formato | escape }}</span></p>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endcapture %}
+        {% if shown_reports > 0 %}
+          <ul class="case-reports">{{ report_items }}</ul>
+        {% else %}
+          <p class="case-empty">Em breve, reportagens sobre este caso.</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

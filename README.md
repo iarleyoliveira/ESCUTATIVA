@@ -11,6 +11,14 @@ Ative **Publicar no site** e salve quando o conteúdo estiver pronto. Aguarde a 
 
 Ao atualizar uma publicação existente, edite o mesmo registro para preservar seu endereço. Alterar a categoria muda a seção, e alterar o título muda o texto exibido.
 
+## Casos
+
+O item **Casos** do menu abre uma seção única na página inicial, com **Caso Hillary**, **Caso canadense Cal** e **Caso Felipe**, nessa ordem. Os três blocos permanecem visíveis enquanto não houver reportagens cadastradas.
+
+No Pages CMS, abra **Reportagens dos casos**, adicione um item em **Reportagens**, escolha **Caso** e **Formato** (Texto ou Vídeo) e preencha **Título**, **Veículo** e **Link da matéria original** com o endereço completo. Ative **Publicar no site** e salve. Após a geração do GitHub Pages, a reportagem aparece automaticamente no caso escolhido. Desative essa opção para manter um rascunho ou retirar uma reportagem do site. Os títulos abrem os links originais em nova aba.
+
+Os cadastros ficam em `_data/reportagens_casos.yml`; a ordem dos blocos fica em `_data/casos.yml`.
+
 ## Navegação, equipe e comentários
 
 O menu reúne textos em **Leia**, minidocumentários em **Assista** e videocasts em **Escute**. O acervo permite buscar por título, resumo e autoria, com filtros compartilháveis pela URL. Escute mantém o player do videocast; não há uma faixa de áudio separada cadastrada. O Login abre a área da equipe e a autenticação continua no Pages CMS.
