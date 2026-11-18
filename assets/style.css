@@ -315,16 +315,6 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .team-member img { display: block; margin-inline: auto; transition: filter 240ms ease; }
 .team-member h3 { font-size: clamp(26px, 2.6vw, 32px); transition: color 180ms ease; }
 .team-member .kicker { line-height: 1.5; }
-.member-profile summary {
-  min-height: 44px;
-  padding-block: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.member-profile summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
-.member-profile[open] summary { color: var(--orange); }
 .member-profile p { margin-top: 8px; }
 .member-profile h4 { font: bold 14px Arial, sans-serif; margin-bottom: 8px; }
 .member-profile ul { padding-left: 18px; font-size: 14px; }

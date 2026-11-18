@@ -11,8 +11,7 @@
             {% if member.name and member.name != "" %}<h3>{{ member.name | escape }}</h3>{% endif %}
             {% if member.role and member.role != "" %}<p class="kicker">{{ member.role | escape }}</p>{% endif %}
             {% if member.name and member.name != '' %}
-              <details class="member-profile">
-                <summary>Conheça {{ member.name | escape }}</summary>
+              <div class="member-profile">
                 {% if member.bio and member.bio != '' %}
                   <p>{{ member.bio | escape | newline_to_br }}</p>
                 {% else %}
@@ -28,7 +27,7 @@
                     {% endfor %}
                   </ul>
                 {% endif %}
-              </details>
+              </div>
             {% endif %}
           </article>
         {% endfor %}
