@@ -38,7 +38,7 @@
       <a class="search-link" href="{{ '/acervo/' | relative_url }}#busca" aria-label="Pesquisar publicações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Pesquisar</span></a>
       <a class="login-link" href="{{ '/admin/' | relative_url }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg> Login <span class="login-detail">da equipe</span></a>
     </div>
-    <a class="brand{% if custom_logo != '' %} brand-logo{% endif %}" href="{{ '/' | relative_url }}">{% if custom_logo != '' %}<img src="{{ logo | escape }}" alt="{{ identity.name | escape }}" width="1290" height="396">{% else %}<img src="{{ logo | escape }}" alt="" width="65" height="65">{{ identity.name | escape }}{% endif %}</a>
+    <a class="brand{% if custom_logo != '' %} brand-logo{% endif %}" href="{{ '/' | relative_url }}">{% if custom_logo != '' %}<img src="{{ logo | escape }}" alt="{{ identity.name | escape }}" width="4096" height="529">{% else %}<img src="{{ logo | escape }}" alt="" width="65" height="65">{{ identity.name | escape }}{% endif %}</a>
     <p class="signature">{{ identity.signature | escape }}</p>
     <nav aria-label="Principal">
       {% include format-links.html %}
