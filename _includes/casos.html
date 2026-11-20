@@ -18,7 +18,8 @@
               {% assign shown_reports = shown_reports | plus: 1 %}
               <li class="case-report">
                 <h5><a href="{{ report_url | escape }}" target="_blank" rel="noopener noreferrer">{{ report.title | escape }} <span aria-hidden="true">↗</span><span class="case-sr-only"> (abre em nova aba)</span></a></h5>
-                <p><span>{{ report.veiculo | escape }}</span><span class="case-format">{{ report.formato | escape }}</span></p>
+                <p class="case-source">{{ report.veiculo | escape }}</p>
+                {% if report.resumo and report.resumo != '' %}<p class="case-summary">{{ report.resumo | escape }}</p>{% endif %}
               </li>
             {% endif %}
           {% endfor %}

@@ -34,6 +34,10 @@ content:
             label: Veículo
             type: string
             required: true
+          - name: resumo
+            label: Resumo da reportagem
+            type: text
+            description: "Frase que explica o assunto da reportagem e aparece abaixo do título no site."
           - name: link
             label: Link da matéria original
             type: string
