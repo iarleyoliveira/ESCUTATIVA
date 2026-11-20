@@ -104,7 +104,7 @@ jobs:
               title: Publicação de teste #{index}
               description: Resumo de teste
               author: Equipe de teste
-              date: 2020-01-01
+              date: 2031-01-01
               category: #{category.fetch('name')}
               published: true
               #{'youtube_id: "https://youtu.be/M7lc1UVf-VE?si=teste"' if index == 3}
