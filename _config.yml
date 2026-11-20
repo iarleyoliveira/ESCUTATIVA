@@ -20,6 +20,21 @@ defaults:
     values:
       layout: materia
       published: false
+  - scope:
+      path: _materias/leia
+      type: materias
+    values:
+      category: Reportagem
+  - scope:
+      path: _materias/assista
+      type: materias
+    values:
+      category: Minidocumentário
+  - scope:
+      path: _materias/escute
+      type: materias
+    values:
+      category: Podcast
 exclude:
   - preview.ps1
   - README.md

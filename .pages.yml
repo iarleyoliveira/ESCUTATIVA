@@ -8,137 +8,6 @@ actions:
     ref: current
     confirm: false
 content:
-  - name: materias
-    label: Publicações
-    type: collection
-    path: _materias
-    format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{primary}.md"
-    operations:
-      rename: false
-    view:
-      primary: title
-      fields:
-        - title
-        - category
-        - published
-        - date
-      sort:
-        - date
-        - title
-        - category
-        - published
-      search:
-        - title
-        - description
-        - author
-      default:
-        sort: date
-        order: desc
-    fields:
-      - name: title
-        label: Título
-        type: string
-        required: true
-        description: Título que aparece no site. O endereço é criado ao salvar e permanece o mesmo nas próximas edições.
-      - name: category
-        label: Categoria
-        type: select
-        required: true
-        options:
-          values:
-            - Reportagem
-            - Entrevista
-            - Bastidores
-            - Minidocumentário
-            - Podcast
-        default: Reportagem
-        description: Reportagem, Entrevista e Bastidores entram em Leia. Minidocumentário entra em Assista. Podcast entra em Escute.
-      - name: description
-        label: Resumo da publicação
-        type: text
-        required: true
-        description: Escreva uma apresentação curta. Ela aparece nos cartões e no início da publicação.
-      - name: author
-        label: Autor ou autores
-        type: string
-      - name: date
-        label: Data
-        type: date
-        required: true
-        description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
-      - name: cover
-        label: Capa — enviar ou escolher imagem
-        type: image
-        description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
-        options:
-          rename: safe
-      - name: cover_alt
-        label: O que aparece na capa?
-        type: string
-        description: Descreva a imagem em uma frase para quem usa leitor de tela.
-      - name: cover_caption
-        label: Legenda da imagem de capa
-        type: string
-      - name: credit
-        label: Crédito da imagem
-        type: string
-      - name: cover_fit
-        label: Como mostrar a capa
-        type: select
-        default: cover
-        options:
-          values:
-            - name: cover
-              label: Preencher o espaço (com recorte)
-            - name: contain
-              label: Mostrar a imagem inteira (cartazes e artes)
-        description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
-      - name: body
-        label: Conteúdo da publicação
-        type: rich-text
-        description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
-      - name: audio_url
-        label: Podcast — enviar arquivo de áudio
-        type: file
-        description: Para podcast, envie ou selecione o MP3, M4A, OGG ou WAV. O player aparece automaticamente no site. Deixe vazio em textos e vídeos.
-        options:
-          categories:
-            - audio
-          extensions:
-            - mp3
-            - m4a
-            - ogg
-            - wav
-            - aac
-            - flac
-          rename: safe
-      - name: audio_link
-        label: Podcast — link direto do áudio (opcional)
-        type: string
-        description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
-        pattern:
-          regex: "^(https?://[^\\s]+)?$"
-          message: Cole o link completo do arquivo de áudio ou deixe em branco.
-      - name: youtube_id
-        label: Vídeo — link do YouTube ou ID
-        type: string
-        description: Cole o link completo do YouTube (normal ou compartilhado) ou o ID de 11 caracteres. Deixe vazio se não houver vídeo.
-        pattern:
-          regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
-          message: Cole um link do YouTube ou um ID de 11 caracteres.
-      - name: credits
-        label: Créditos da publicação
-        type: text
-      - name: share_image
-        label: Imagem para compartilhamento
-        type: image
-        description: Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa.
-      - name: published
-        label: Publicar no site
-        type: boolean
-        default: false
-        description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
   - name: casos
     label: Casos
     type: file
@@ -235,8 +104,452 @@ content:
         type: boolean
         default: false
         description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. A ordem desta lista é a ordem no site.
+  - name: area_leia
+    label: Leia
+    type: group
+    items:
+      - name: materias
+        label: Reportagens, entrevistas e bastidores
+        type: collection
+        path: _materias/leia
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-leia-{primary}.md"
+        operations:
+          rename: false
+        view:
+          primary: title
+          fields:
+            - title
+            - category
+            - published
+            - date
+          sort:
+            - date
+            - title
+            - category
+            - published
+          search:
+            - title
+            - description
+            - author
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: Título
+            type: string
+            required: true
+            description: Título que aparece no site. O endereço é criado ao salvar e permanece o mesmo nas próximas edições.
+          - name: category
+            label: Categoria
+            type: select
+            required: true
+            options:
+              values:
+                - Reportagem
+                - Entrevista
+                - Bastidores
+            default: Reportagem
+            description: Conteúdo exibido na seção Leia do site.
+          - name: description
+            label: Resumo da publicação
+            type: text
+            required: true
+            description: Escreva uma apresentação curta. Ela aparece nos cartões e no início da publicação.
+          - name: author
+            label: Autor ou autores
+            type: string
+          - name: date
+            label: Data
+            type: date
+            required: true
+            description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: cover
+            label: Capa — enviar ou escolher imagem
+            type: image
+            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            options:
+              rename: safe
+          - name: cover_alt
+            label: O que aparece na capa?
+            type: string
+            description: Descreva a imagem em uma frase para quem usa leitor de tela.
+          - name: cover_caption
+            label: Legenda da imagem de capa
+            type: string
+          - name: credit
+            label: Crédito da imagem
+            type: string
+          - name: cover_fit
+            label: Como mostrar a capa
+            type: select
+            default: cover
+            options:
+              values:
+                - name: cover
+                  label: Preencher o espaço (com recorte)
+                - name: contain
+                  label: Mostrar a imagem inteira (cartazes e artes)
+            description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
+          - name: body
+            label: Conteúdo da publicação
+            type: rich-text
+            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
+          - name: credits
+            label: Créditos da publicação
+            type: text
+          - name: share_image
+            label: Imagem para compartilhamento
+            type: image
+            description: Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa.
+          - name: published
+            label: Publicar no site
+            type: boolean
+            default: false
+            description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
+        subfolders: false
+      - name: config_leia
+        label: Textos da seção Leia
+        type: file
+        path: _data/leia.yml
+        operations:
+          delete: false
+        fields:
+          - name: materias
+            label: Reportagem
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+              - name: description
+                label: Texto abaixo do título da seção
+                type: text
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+          - name: entrevistas
+            label: Entrevista
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+                hidden: true
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+          - name: bastidores
+            label: Bastidores
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+                hidden: true
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+  - name: area_assista
+    label: Assista
+    type: group
+    items:
+      - name: assista
+        label: Minidocumentários
+        type: collection
+        path: _materias/assista
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-assista-{primary}.md"
+        operations:
+          rename: false
+        view:
+          primary: title
+          fields:
+            - title
+            - published
+            - date
+          sort:
+            - date
+            - title
+            - category
+            - published
+          search:
+            - title
+            - description
+            - author
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: Título
+            type: string
+            required: true
+            description: Título que aparece no site. O endereço é criado ao salvar e permanece o mesmo nas próximas edições.
+          - name: category
+            label: Categoria
+            type: select
+            required: true
+            options:
+              values:
+                - Minidocumentário
+            default: Minidocumentário
+            description: Conteúdo exibido na seção Assista do site.
+            hidden: true
+          - name: description
+            label: Resumo da publicação
+            type: text
+            required: true
+            description: Escreva uma apresentação curta. Ela aparece nos cartões e no início da publicação.
+          - name: author
+            label: Autor ou autores
+            type: string
+          - name: date
+            label: Data
+            type: date
+            required: true
+            description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: cover
+            label: Capa — enviar ou escolher imagem
+            type: image
+            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            options:
+              rename: safe
+          - name: cover_alt
+            label: O que aparece na capa?
+            type: string
+            description: Descreva a imagem em uma frase para quem usa leitor de tela.
+          - name: cover_caption
+            label: Legenda da imagem de capa
+            type: string
+          - name: credit
+            label: Crédito da imagem
+            type: string
+          - name: cover_fit
+            label: Como mostrar a capa
+            type: select
+            default: cover
+            options:
+              values:
+                - name: cover
+                  label: Preencher o espaço (com recorte)
+                - name: contain
+                  label: Mostrar a imagem inteira (cartazes e artes)
+            description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
+          - name: body
+            label: Conteúdo da publicação
+            type: rich-text
+            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
+          - name: youtube_id
+            label: Vídeo — link do YouTube ou ID
+            type: string
+            description: Cole o link completo do YouTube (normal ou compartilhado) ou o ID de 11 caracteres. Deixe vazio se não houver vídeo.
+            pattern:
+              regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
+              message: Cole um link do YouTube ou um ID de 11 caracteres.
+          - name: credits
+            label: Créditos da publicação
+            type: text
+          - name: share_image
+            label: Imagem para compartilhamento
+            type: image
+            description: Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa.
+          - name: published
+            label: Publicar no site
+            type: boolean
+            default: false
+            description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
+        subfolders: false
+      - name: config_assista
+        label: Textos da seção Assista
+        type: file
+        path: _data/assista.yml
+        operations:
+          delete: false
+        fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
+          - name: nav
+            label: Menu e categoria
+            type: string
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
+          - name: empty
+            label: Mensagem sem publicações
+            type: text
+  - name: area_escute
+    label: Escute
+    type: group
+    items:
+      - name: escute
+        label: Podcasts
+        type: collection
+        path: _materias/escute
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-escute-{primary}.md"
+        operations:
+          rename: false
+        view:
+          primary: title
+          fields:
+            - title
+            - published
+            - date
+          sort:
+            - date
+            - title
+            - category
+            - published
+          search:
+            - title
+            - description
+            - author
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: Título
+            type: string
+            required: true
+            description: Título que aparece no site. O endereço é criado ao salvar e permanece o mesmo nas próximas edições.
+          - name: category
+            label: Categoria
+            type: select
+            required: true
+            options:
+              values:
+                - Podcast
+            default: Podcast
+            description: Conteúdo exibido na seção Escute do site.
+            hidden: true
+          - name: description
+            label: Resumo da publicação
+            type: text
+            required: true
+            description: Escreva uma apresentação curta. Ela aparece nos cartões e no início da publicação.
+          - name: author
+            label: Autor ou autores
+            type: string
+          - name: date
+            label: Data
+            type: date
+            required: true
+            description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: cover
+            label: Capa — enviar ou escolher imagem
+            type: image
+            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            options:
+              rename: safe
+          - name: cover_alt
+            label: O que aparece na capa?
+            type: string
+            description: Descreva a imagem em uma frase para quem usa leitor de tela.
+          - name: cover_caption
+            label: Legenda da imagem de capa
+            type: string
+          - name: credit
+            label: Crédito da imagem
+            type: string
+          - name: cover_fit
+            label: Como mostrar a capa
+            type: select
+            default: cover
+            options:
+              values:
+                - name: cover
+                  label: Preencher o espaço (com recorte)
+                - name: contain
+                  label: Mostrar a imagem inteira (cartazes e artes)
+            description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
+          - name: body
+            label: Conteúdo da publicação
+            type: rich-text
+            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
+          - name: audio_url
+            label: Podcast — enviar arquivo de áudio
+            type: file
+            description: Para podcast, envie ou selecione o MP3, M4A, OGG ou WAV. O player aparece automaticamente no site. Deixe vazio em textos e vídeos.
+            options:
+              categories:
+                - audio
+              extensions:
+                - mp3
+                - m4a
+                - ogg
+                - wav
+                - aac
+                - flac
+              rename: safe
+          - name: audio_link
+            label: Podcast — link direto do áudio (opcional)
+            type: string
+            description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
+            pattern:
+              regex: ^(https?://[^\s]+)?$
+              message: Cole o link completo do arquivo de áudio ou deixe em branco.
+          - name: credits
+            label: Créditos da publicação
+            type: text
+          - name: share_image
+            label: Imagem para compartilhamento
+            type: image
+            description: Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa.
+          - name: published
+            label: Publicar no site
+            type: boolean
+            default: false
+            description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
+        subfolders: false
+      - name: config_escute
+        label: Textos da seção Escute
+        type: file
+        path: _data/escute.yml
+        operations:
+          delete: false
+        fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
+          - name: nav
+            label: Menu e categoria
+            type: string
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
+          - name: empty
+            label: Mensagem sem publicações
+            type: text
   - name: inicio
-    label: Página inicial e projeto
+    label: Página inicial
     type: file
     path: _data/inicio.yml
     operations:
@@ -245,145 +558,6 @@ content:
       - name: title
         label: Título da página
         type: string
-      - name: hero
-        label: Abertura
-        type: object
-        fields:
-          - name: kicker
-            label: Chamada
-            type: string
-          - name: title
-            label: Primeira linha do título
-            type: string
-          - name: accent
-            label: Linha em destaque
-            type: string
-          - name: description
-            label: Apresentação
-            type: text
-          - name: button
-            label: Texto do botão
-            type: string
-          - name: quote
-            label: Frase em destaque
-            type: text
-        hidden: true
-      - name: materias
-        label: Reportagem
-        type: object
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-          - name: description
-            label: Texto abaixo do título da seção
-            type: text
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-      - name: entrevistas
-        label: Entrevista
-        type: object
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-            hidden: true
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-      - name: bastidores
-        label: Bastidores
-        type: object
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-            hidden: true
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-      - name: documentario
-        label: Minidocumentário
-        type: object
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-          - name: description
-            label: Texto abaixo do título da seção
-            type: text
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-      - name: videocast
-        label: Podcast
-        type: object
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-          - name: description
-            label: Texto abaixo do título da seção
-            type: text
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-      - name: projeto
-        label: Sobre o projeto
-        type: object
-        fields:
-          - name: nav
-            label: Menu
-            type: string
-            hidden: true
-          - name: kicker
-            label: Chamada
-            type: string
-          - name: title
-            label: Título
-            type: string
-          - name: presentation
-            label: Apresentação
-            type: rich-text
-          - name: credits_title
-            label: Título dos créditos
-            type: string
-            hidden: true
-          - name: credits
-            label: Créditos
-            type: rich-text
-            hidden: true
       - name: read_more
         label: Link para abrir publicação
         type: string
@@ -453,8 +627,36 @@ content:
             label: Link da inicial para o acervo
             type: string
             hidden: true
+  - name: projeto
+    label: Projeto
+    type: file
+    path: _data/projeto.yml
+    operations:
+      delete: false
+    fields:
+      - name: nav
+        label: Menu
+        type: string
+        hidden: true
+      - name: kicker
+        label: Chamada
+        type: string
+      - name: title
+        label: Título
+        type: string
+      - name: presentation
+        label: Apresentação
+        type: rich-text
+      - name: credits_title
+        label: Título dos créditos
+        type: string
+        hidden: true
+      - name: credits
+        label: Créditos
+        type: rich-text
+        hidden: true
   - name: equipe
-    label: Equipe, redes e contatos
+    label: Equipe, redes e contato
     type: file
     path: _data/equipe.yml
     fields:
@@ -528,7 +730,7 @@ content:
     operations:
       delete: false
   - name: identidade
-    label: Nome, logo e assinatura
+    label: Identidade
     type: file
     path: _data/identidade.yml
     operations:

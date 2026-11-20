@@ -4,6 +4,7 @@ layout: default
 {% assign inicio = site.data.inicio %}
 {% assign category_name = page.category | default: "Reportagem" %}
 {% assign category = site.data.categorias | where: "name", category_name | first %}
+{% include section-settings.html category=category %}
 {% assign section_id = category.section | default: "materias" %}
 {% capture video_id %}{% include youtube-id.html value=page.youtube_id %}{% endcapture %}
 {% assign video_id = video_id | strip %}
@@ -11,7 +12,7 @@ layout: default
 {% assign cover = page.cover | default: "" | strip %}
 <article class="wrap article">
   <a href="{{ '/' | relative_url }}#{{ section_id }}">← {{ inicio.back | escape }}</a>
-  <p class="kicker">{{ inicio[section_id].nav | escape }}</p>
+  <p class="kicker">{{ section.nav | escape }}</p>
   <h1>{{ page.title | escape }}</h1>
   <p class="intro">{{ page.description | escape }}</p>
   {% if page.author and page.author != "" %}

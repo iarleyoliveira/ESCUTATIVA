@@ -1,56 +1,4 @@
 title: Jornalismo, pessoas e direitos
-hero:
-  kicker: Nossa pauta são as pessoas
-  title: Histórias ouvidas.
-  accent: Novos capítulos.
-  description: Quando uma história ganha espaço na imprensa, ela pode encontrar
-    novos caminhos. Um projeto sobre pessoas, direitos e a força de ser ouvido.
-  button: Explore as reportagens
-  quote: |-
-    Por trás de cada notícia,
-    uma vida.
-materias:
-  action: Ler reportagem
-  nav: Reportagens
-  title: Histórias para ler de perto.
-  description: Reportagens, entrevistas e bastidores.
-  empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e
-    as entrevistas do projeto.
-entrevistas:
-  action: Ler entrevista
-  nav: Entrevistas
-  title: Entrevistas
-  empty: As entrevistas estão em preparação.
-bastidores:
-  action: Ler os bastidores
-  nav: Bastidores
-  title: Bastidores
-  empty: Os bastidores do projeto estão em preparação.
-documentario:
-  action: Assistir ao minidocumentário
-  nav: Minidocumentário
-  title: Quando a notícia faz parte da história.
-  description: Histórias em minidocumentários.
-  empty: O minidocumentário está em preparação.
-videocast:
-  action: Ouvir o podcast
-  nav: Podcast
-  title: Conversas que aproximam
-  description: Por trás de cada notícia, existem decisões, responsabilidades e histórias
-  empty: O podcast está em preparação.
-projeto:
-  nav: O projeto
-  kicker: Sobre o projeto
-  title: O Jornalismo como ferramenta social e voz da população.
-  presentation: >-
-    Escutativa é um trabalho de conclusão de curso que investiga a contribuição
-    do Jornalismo para a defesa dos direitos da população, a partir de histórias
-    de pessoas que encontraram apoio na imprensa.
-
-
-    O projeto reúne minidocumentário, videocast e reportagem escrita.
-  credits_title: Créditos da equipe
-  credits: Os créditos completos da equipe serão acrescentados na versão final.
 read_more: Abrir publicação
 video_summary: Ver sinopse
 video_pending: Em breve
@@ -58,7 +6,7 @@ byline: Por
 back: Voltar à seção
 continue: Continuar explorando
 destaque:
-  publication: _materias/2026-11-12-black-charme-ice.md
+  publication: _materias/leia/2026-11-12-black-charme-ice.md
   kicker: Em destaque
 acervo:
   nav: Acervo

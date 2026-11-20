@@ -1,0 +1,16 @@
+materias:
+  action: Ler reportagem
+  nav: Reportagens
+  title: Histórias para ler de perto.
+  description: Reportagens, entrevistas e bastidores.
+  empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e as entrevistas do projeto.
+entrevistas:
+  action: Ler entrevista
+  nav: Entrevistas
+  title: Entrevistas
+  empty: As entrevistas estão em preparação.
+bastidores:
+  action: Ler os bastidores
+  nav: Bastidores
+  title: Bastidores
+  empty: Os bastidores do projeto estão em preparação.

@@ -1,7 +1,7 @@
 {% assign entry = include.publication %}
 {% assign category_name = entry.category | default: "Reportagem" %}
 {% assign category = site.data.categorias | where: "name", category_name | first %}
-{% assign section = site.data.inicio[category.section] %}
+{% include section-settings.html category=category %}
 {% assign action = section.action | default: site.data.inicio.read_more %}
 {% capture video_id %}{% include youtube-id.html value=entry.youtube_id %}{% endcapture %}
 {% assign video_id = video_id | strip %}

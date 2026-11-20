@@ -26,12 +26,18 @@ jobs:
       - name: Verificar formulários e preparar publicações de teste
         run: |
           ruby -ryaml -rdate <<'RUBY'
-          cms = YAML.safe_load_file('.pages.yml').fetch('content')
+          def content_entries(entries)
+            entries.flat_map { |entry| entry['type'] == 'group' ? content_entries(entry.fetch('items')) : [entry] }
+          end
+          cms = content_entries(YAML.safe_load_file('.pages.yml').fetch('content'))
           categories = YAML.safe_load_file('_data/categorias.yml')
-          publication = cms.find { |entry| entry['type'] == 'collection' }
-          field = publication.fetch('fields').find { |item| item['name'] == 'category' }
-          abort 'Categorias divergentes' unless field.dig('options', 'values') == categories.map { |item| item.fetch('name') }
-          abort 'Envio de áudio indisponível' unless publication.fetch('fields').find { |item| item['name'] == 'audio_url' }['type'] == 'file'
+          collections = cms.select { |entry| entry['type'] == 'collection' }
+          field_categories = collections.flat_map { |entry| entry.fetch('fields').find { |item| item['name'] == 'category' }.dig('options', 'values') }
+          abort 'Categorias divergentes' unless field_categories == categories.map { |item| item.fetch('name') }
+          podcast = collections.find { |entry| entry['name'] == 'escute' }
+          abort 'Envio de áudio indisponível' unless podcast.fetch('fields').find { |item| item['name'] == 'audio_url' }['type'] == 'file'
+          abort 'Campos de áudio em Leia' if collections.find { |entry| entry['name'] == 'materias' }.fetch('fields').any? { |item| item['name'] == 'audio_url' }
+          abort 'Campos de áudio em Assista' if collections.find { |entry| entry['name'] == 'assista' }.fetch('fields').any? { |item| item['name'] == 'audio_url' }
           def validate_fields(fields, data)
             names = fields.map { |field| field.fetch('name') }
             abort 'Campos do CMS e conteúdo divergentes' unless (data.keys - names).empty?
@@ -59,7 +65,7 @@ jobs:
           current_cases = YAML.safe_load_file('_data/casos.yml')
           case_ids = current_cases.map { |entry| entry['id'].to_s.empty? ? entry.fetch('name').downcase.gsub(/[^a-z0-9]+/, '-') : entry['id'] }
           abort 'Existem casos com identificadores repetidos' unless case_ids.uniq.length == case_ids.length
-          Dir.glob('_materias/*.md').each do |path|
+          Dir.glob('_materias/**/*.md').each do |path|
             front = File.read(path).match(/\A---\s*\n(.*?)\n---/m)
             abort "Publicação sem cabeçalho: #{path}" unless front
             data = YAML.safe_load(front[1], permitted_classes: [Date, Time])
@@ -69,7 +75,7 @@ jobs:
             end
           end
           # Os testes usam somente publicações de exemplo no checkout temporário do CI.
-          Dir.glob('_materias/*.md').each { |path| File.delete(path) }
+          Dir.glob('_materias/**/*.md').each { |path| File.delete(path) }
           File.write('_materias/2026-11-12-black-charme-ice.md', {
             'title' => 'Black Charme Ice', 'description' => 'Reportagem de teste editorial', 'date' => '2026-11-12',
             'category' => 'Reportagem', 'author' => 'Circy Shara', 'cover' => '/assets/icon.svg',
@@ -126,6 +132,11 @@ jobs:
             fixture = { 'title' => "Teste #{slug}", 'description' => 'Teste dos campos de mídia', 'date' => '2030-01-01', 'category' => 'Podcast', 'cover' => '/assets/icon.svg', 'published' => true }.merge(media)
             File.write("_materias/validacao-#{slug}.md", fixture.to_yaml + "---\n")
           end
+          Dir.mkdir('_materias/escute') unless Dir.exist?('_materias/escute')
+          File.write('_materias/escute/validacao-categoria-automatica.md', {
+            'title' => 'Podcast com categoria automática', 'description' => 'Teste do cadastro pela aba Escute',
+            'date' => '2029-01-01', 'published' => true
+          }.to_yaml + "---\n")
           cases = [
             { 'name' => 'Caso Hillary Souza Valadares', 'id' => 'caso-hillary', 'published' => true },
             { 'name' => 'Caso Karl Andre Van Roon', 'id' => 'caso-canadense-cal', 'published' => true },
@@ -147,11 +158,17 @@ jobs:
           cases << { 'name' => 'Caso de rascunho', 'id' => 'caso-rascunho', 'published' => false }
           File.write('_data/casos.yml', cases.to_yaml)
           home = YAML.safe_load_file('_data/inicio.yml')
-          home['videocast']['description'] = 'Descrição editada no Pages'
-          home['documentario']['title'] = 'Quando a notícia faz parte da história.'
-          home['materias']['action'] = 'Ler reportagem'
-          home['entrevistas']['action'] = 'Ler entrevista'
-          home['entrevistas']['nav'] = 'Entrevistas'
+          escute = YAML.safe_load_file('_data/escute.yml')
+          escute['description'] = 'Descrição editada no Pages'
+          File.write('_data/escute.yml', escute.to_yaml)
+          assista = YAML.safe_load_file('_data/assista.yml')
+          assista['title'] = 'Quando a notícia faz parte da história.'
+          File.write('_data/assista.yml', assista.to_yaml)
+          leia = YAML.safe_load_file('_data/leia.yml')
+          leia['materias']['action'] = 'Ler reportagem'
+          leia['entrevistas']['action'] = 'Ler entrevista'
+          leia['entrevistas']['nav'] = 'Entrevistas'
+          File.write('_data/leia.yml', leia.to_yaml)
           home['destaque'] = { 'publication' => '_materias/2026-11-12-black-charme-ice.md', 'kicker' => 'Em destaque' }
           File.write('_data/inicio.yml', home.to_yaml)
           RUBY
@@ -314,6 +331,9 @@ jobs:
                   page.goto(root + 'materias/validacao-midia-vazia/')
                   expect(page.locator('.video-status')).to_be_visible()
                   expect(page.locator('audio')).to_have_count(0)
+                  page.goto(root + 'materias/validacao-categoria-automatica/')
+                  expect(page.get_by_role('heading', level=1)).to_have_text('Podcast com categoria automática')
+                  expect(page.locator('.article > .kicker')).to_have_text('Podcast')
                   page.goto(root + 'admin/')
                   expect(page.get_by_role('heading', name='Do painel para o site')).to_be_visible()
                   expect(page.get_by_role('link', name='Cadastrar ou editar casos')).to_have_attribute('href', 'https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/casos')

@@ -3,7 +3,6 @@ layout: default
 home: true
 ---
 {% assign inicio = site.data.inicio %}
-{% assign hero = inicio.hero %}
 {% assign publications = site.materias | where: 'published', true | sort: 'date' | reverse %}
 {% assign feature_path = inicio.destaque.publication %}
 {% assign feature = publications | where: 'path', feature_path | first %}
@@ -30,6 +29,9 @@ home: true
 {% endif %}
 
 {% for format in site.data.formatos %}
+  {% assign format_settings = site.data.leia.materias %}
+  {% if format.id == 'assista' %}{% assign format_settings = site.data.assista %}{% endif %}
+  {% if format.id == 'escute' %}{% assign format_settings = site.data.escute %}{% endif %}
   {% if format.dark %}<div class="dark">{% endif %}
   <section class="wrap section format-section" id="{{ format.id }}" aria-labelledby="heading-{{ format.id }}">
     {% for category in site.data.categorias %}
@@ -38,8 +40,8 @@ home: true
     <div class="format-heading">
       <div>
         <span class="kicker">{{ format.label | escape }}</span>
-        <h2 id="heading-{{ format.id }}">{{ inicio[format.heading].title | escape }}</h2>
-        <p>{{ inicio[format.heading].description | default: format.description | escape }}</p>
+        <h2 id="heading-{{ format.id }}">{{ format_settings.title | escape }}</h2>
+        <p>{{ format_settings.description | default: format.description | escape }}</p>
       </div>
       <a class="text-action section-archive" href="{{ '/acervo/' | relative_url }}?formato={{ format.id }}">Ver tudo em {{ format.label | downcase | escape }} <span aria-hidden="true">→</span></a>
     </div>
@@ -72,7 +74,7 @@ home: true
 
 {% include casos.html %}
 
-{% assign project = inicio.projeto %}
+{% assign project = site.data.projeto %}
 <section class="wrap section about" id="projeto">
   <div>
     <span class="kicker">{{ project.kicker | escape }}</span>

@@ -21,11 +21,12 @@ permalink: /acervo/
     <button type="button" data-filter="assista" data-format="true" aria-pressed="false">Assista</button>
     <button type="button" data-filter="escute" data-format="true" aria-pressed="false">Escute</button>
     {% for category in site.data.categorias %}
-      <button type="button" data-filter="{{ category.section }}" aria-pressed="false">{{ inicio[category.section].nav | escape }}</button>
+      {% include section-settings.html category=category %}
+      <button type="button" data-filter="{{ category.section }}" aria-pressed="false">{{ section.nav | escape }}</button>
     {% endfor %}
   </div>
   {% for category in site.data.categorias %}
-    {% assign section = inicio[category.section] %}
+    {% include section-settings.html category=category %}
     <section class="archive-group" data-category="{{ category.section }}" data-format="{{ category.format }}">
       <h2>{{ section.nav | escape }}</h2>
       {% assign has_publications = false %}

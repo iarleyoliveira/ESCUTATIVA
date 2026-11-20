@@ -3,13 +3,15 @@ Projeto multimídia de jornalismo em Jekyll e GitHub Pages.
 
 No [Pages CMS](https://app.pagescms.org), selecione `iarleyoliveira/ESCUTATIVA` e a branch `main`. A área da equipe fica em `/ESCUTATIVA/admin/`.
 
-- **Publicações** reúne reportagens, entrevistas, bastidores, minidocumentários e podcasts. Preencha título, categoria, resumo, autoria e data; acrescente o texto e a capa. Para podcast, envie o arquivo de áudio pelo formulário ou use o link direto de um áudio hospedado. Para vídeo, cole o link completo do YouTube ou o ID de 11 caracteres. Os caminhos das imagens enviadas pelo Pages são ajustados automaticamente no site.
-- **Página inicial e projeto** permite escolher a matéria da abertura, editar os títulos e as apresentações de Leia, Assista e Escute e atualizar o texto do projeto. Limpar a matéria em destaque seleciona automaticamente a publicação mais recente. A frase “Quando a notícia faz parte da história” fica no grupo **Minidocumentário**, no campo **Título**.
-- **Nome, logo e assinatura** reúne a identidade visível do site e a descrição para buscadores.
+- **Leia** reúne reportagens, entrevistas e bastidores. Cadastre os textos e edite a apresentação dessa seção dentro da mesma área do menu.
+- **Assista** reúne os minidocumentários e os textos de apresentação da seção. Cole o link completo do YouTube ou o ID de 11 caracteres. A frase “Quando a notícia faz parte da história” fica em **Assista → Textos da seção Assista → Título**.
+- **Escute** reúne os podcasts e a apresentação da seção. Envie o arquivo de áudio pelo formulário ou use o link direto de um áudio hospedado. Os campos de áudio ficam apenas nessa área.
+- **Página inicial** permite escolher a matéria da abertura. Limpar a matéria em destaque seleciona automaticamente a publicação mais recente. **Projeto** reúne os textos sobre o trabalho.
+- **Equipe, redes e contato** reúne os integrantes, as redes e os e-mails. **Identidade** reúne nome, logo, assinatura e descrição para buscadores.
 
 Ative **Publicar no site** e salve quando o conteúdo estiver pronto. A data é informativa: a opção **Publicar no site** controla a exibição, inclusive para datas futuras. Aguarde a geração do GitHub Pages, normalmente de 30 segundos a alguns minutos. Rascunhos ficam fora do site e do sitemap. Seus arquivos e histórico são públicos no GitHub. O guia e os atalhos da equipe ficam em `/ESCUTATIVA/admin/`.
 
-Ao atualizar uma publicação existente, edite o mesmo registro para preservar seu endereço. Alterar a categoria muda a seção, e alterar o título muda o texto exibido.
+Ao atualizar uma publicação existente, edite o mesmo registro dentro de Leia, Assista ou Escute para preservar seu endereço. Em Leia, a categoria diferencia reportagem, entrevista e bastidores. Em Assista e Escute, o tipo é preenchido automaticamente. As publicações ficam nas subpastas de `_materias`, mantendo os endereços públicos existentes.
 
 ## Casos
 
