@@ -203,6 +203,8 @@ jobs:
                   existing.click()
                   expect(page.get_by_role('heading', level=1)).to_have_text('Black Charme Ice')
                   page.wait_for_function('document.querySelector("figure img").naturalWidth > 0')
+                  if page.evaluate('document.documentElement.scrollWidth') > width:
+                      print(page.evaluate('Array.from(document.querySelectorAll("body *")).map(e => ({tag:e.tagName, cls:e.className, width:e.getBoundingClientRect().width, right:e.getBoundingClientRect().right})).filter(e => e.right > innerWidth || e.width > innerWidth)'), flush=True)
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   expect(page.locator('meta[property="og:type"]')).to_have_attribute('content', 'article')
                   expect(page.locator('meta[property="og:image"]')).to_have_attribute(
