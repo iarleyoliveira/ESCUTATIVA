@@ -334,7 +334,7 @@ jobs:
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   expect(page.locator('meta[property="og:type"]')).to_have_attribute('content', 'article')
                   expect(page.locator('meta[property="og:image"]')).to_have_attribute(
-                      'content', 'https://escutativa.com.br/assets/social/black-charme-ice.png'
+                      'content', 'https://oescutativa.com.br/assets/social/black-charme-ice.png'
                   )
                   current_path = page.url.split('8000')[-1]
                   related_links = page.locator('.related-publications .card-link').evaluate_all(
