@@ -57,16 +57,21 @@ function observeSections() {
       revealedElements.add(entry.target);
       if (entry.target.contains(document.activeElement)) continue;
       const animation = entry.target.animate(
-        [{ opacity: 0.92, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
-        { duration: 360, easing: 'cubic-bezier(.22,1,.36,1)' },
+        [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'translateY(0)' }],
+        { duration: 720, delay: Number(entry.target.dataset.revealDelay || 0), fill: 'backwards', easing: 'cubic-bezier(.22,1,.36,1)' },
       );
       runningAnimations.add(animation);
       animation.finished.catch(() => {}).finally(() => runningAnimations.delete(animation));
     }
   }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
 
-  // Reveal each block as a unit. Keep the initial viewport and visited content stable.
-  document.querySelectorAll('.case-block, .format-heading, .format-section > .cards, .format-section > .video-list, .about, .team-grid, .related-publications > .cards')
+  // Animate individual items, rather than hiding whole sections of the page.
+  document.querySelectorAll('.cards, .video-list, .team-grid, .newsroom-create').forEach((group) => {
+    [...group.children].forEach((item, index) => {
+      item.dataset.revealDelay = String((index % 3) * 100);
+    });
+  });
+  document.querySelectorAll('.format-heading, .cards > article, .video-list > article, .case-block > h3, .case-intro, .case-gallery, .case-report, .about > div, .team-grid > article, .team-grid > div, .contact-section > *, .related-publications > h2, .newsroom-create > a')
     .forEach((element) => {
       if (element.getBoundingClientRect().top < window.innerHeight) {
         revealedElements.add(element);
@@ -83,6 +88,30 @@ motionPreference.addEventListener('change', () => {
   searchDialog?.getAnimations().forEach((animation) => animation.cancel());
   if (!motionPreference.matches) observeSections();
 });
+
+// A discreet reading indicator follows native scrolling, including on touchscreens.
+if (document.querySelector('.home-hero, .article')) {
+  const progress = document.createElement('div');
+  progress.className = 'reading-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.append(progress);
+  let framePending = false;
+  function updateProgress() {
+    const distance = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0})`;
+    framePending = false;
+  }
+  function scheduleProgress() {
+    if (!framePending) {
+      framePending = true;
+      requestAnimationFrame(updateProgress);
+    }
+  }
+  window.addEventListener('scroll', scheduleProgress, { passive: true });
+  window.addEventListener('resize', scheduleProgress);
+  window.addEventListener('load', scheduleProgress);
+  updateProgress();
+}
 document.addEventListener('focusin', (event) => {
   for (const animation of runningAnimations) {
     if (animation.effect.target.contains(event.target)) animation.finish();

@@ -566,6 +566,28 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .newsroom-list li { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .newsroom-list small { color: #41575b; }
 .newsroom-settings { display: flex; flex-wrap: wrap; gap: 14px 24px; }
+/* Movimento: mantém a composição e acrescenta respostas aos gestos. */
+.reading-progress{position:fixed;inset:0 0 auto;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;z-index:20;pointer-events:none}
+.button,.login-link,.newsroom-create a,.publication-links a,.case-carousel-toolbar button,.archive-filters button,.search-close{transition:transform 220ms cubic-bezier(.22,1,.36,1),background-color 220ms,color 220ms,box-shadow 220ms}
+.card{transition:transform 320ms cubic-bezier(.22,1,.36,1),border-color 220ms,box-shadow 320ms}
+.hero-feature{transition:box-shadow 350ms}
+header nav a::after{transition-duration:320ms}
+.text-action>span[aria-hidden]{display:inline-block;transition:transform 280ms cubic-bezier(.22,1,.36,1)}
+.button:active,.login-link:active,.newsroom-create a:active,.publication-links a:active,.case-carousel-toolbar button:active,.archive-filters button:active{transform:scale(.97)}
+.button:focus-visible,.newsroom-create a:focus-visible{box-shadow:0 5px 0 #142d3b20}
+@media(hover:hover) and (pointer:fine){
+  .button:hover,.login-link:hover,.newsroom-create a:hover,.publication-links a:hover{transform:translateY(-3px);box-shadow:0 8px 20px #142d3b18}
+  .card:hover{transform:translateY(-5px);box-shadow:0 12px 28px #142d3b15}
+  .hero-feature:hover{box-shadow:0 12px 28px #142d3b14}
+  .card:hover .card-media:not(.media-contained) img,.hero-feature:hover .feature-media:not(.media-contained) img{transform:scale(1.04)}
+  .case-carousel-toolbar button:hover{background:var(--ink);color:var(--paper)}
+  .text-action:hover>span[aria-hidden],.card-link:hover .text-action>span[aria-hidden]{transform:translateX(5px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .button,.login-link,.newsroom-create a,.publication-links a,.case-carousel-toolbar button,.archive-filters button,.search-close,.card,.hero-feature,header nav a::after,.text-action>span[aria-hidden]{transition:none!important}
+  .button:hover,.login-link:hover,.newsroom-create a:hover,.publication-links a:hover,.card:hover,.button:active,.login-link:active,.newsroom-create a:active,.publication-links a:active,.case-carousel-toolbar button:active,.archive-filters button:active,.text-action:hover>span[aria-hidden],.card-link:hover .text-action>span[aria-hidden]{transform:none}
+  .card:hover .card-media:not(.media-contained) img,.hero-feature:hover .feature-media:not(.media-contained) img{transform:none}
+}
 @media(max-width:700px) {
   .newsroom-create { grid-template-columns: repeat(2,1fr); }
   .newsroom-list li { grid-template-columns: auto 1fr; gap: 8px 20px; }
