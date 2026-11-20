@@ -2,6 +2,67 @@ media:
   input: assets/uploads
   output: /ESCUTATIVA/assets/uploads
 content:
+  - name: fotos_casos
+    label: Fotos dos casos
+    type: file
+    path: _data/fotos_casos.yml
+    operations:
+      delete: false
+    fields:
+      - name: caso-hillary
+        label: Caso Hillary Souza Valadares
+        type: object
+        fields:
+          - name: fotos
+            label: Fotos
+            type: object
+            list: true
+            fields:
+              - name: imagem
+                label: Foto
+                type: image
+              - name: descricao
+                label: Descrição da imagem
+                type: string
+              - name: credito
+                label: Crédito da foto
+                type: string
+      - name: caso-canadense-cal
+        label: Caso Karl Andre Van Roon
+        type: object
+        fields:
+          - name: fotos
+            label: Fotos
+            type: object
+            list: true
+            fields:
+              - name: imagem
+                label: Foto
+                type: image
+              - name: descricao
+                label: Descrição da imagem
+                type: string
+              - name: credito
+                label: Crédito da foto
+                type: string
+      - name: caso-felipe
+        label: Caso Felipe Rodrigues da Silva Ribeiro
+        type: object
+        fields:
+          - name: fotos
+            label: Fotos
+            type: object
+            list: true
+            fields:
+              - name: imagem
+                label: Foto
+                type: image
+              - name: descricao
+                label: Descrição da imagem
+                type: string
+              - name: credito
+                label: Crédito da foto
+                type: string
   - name: reportagens_casos
     label: Reportagens dos casos
     type: file

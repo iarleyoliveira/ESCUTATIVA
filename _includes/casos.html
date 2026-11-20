@@ -6,6 +6,22 @@
     {% for case in site.data.casos %}
       <article class="case-block" aria-labelledby="{{ case.id }}">
         <h3 id="{{ case.id }}">{{ case.name | escape }}</h3>
+        {% assign case_photos = site.data.fotos_casos[case.id].fotos %}
+        {% if case_photos.size > 0 %}
+          <div class="case-gallery" aria-label="Fotos de {{ case.name | escape }}">
+            {% for photo in case_photos %}
+              {% if photo.imagem and photo.imagem != '' %}
+                {% assign photo_url = photo.imagem %}{% unless photo_url contains '://' %}{% assign photo_url = photo_url | remove_first: site.baseurl | relative_url %}{% endunless %}
+                <figure>
+                  <a href="{{ photo_url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Ampliar: {{ photo.descricao | escape }} (abre em nova aba)">
+                    <img src="{{ photo_url | escape }}" alt="{{ photo.descricao | escape }}" width="600" height="800" loading="lazy">
+                  </a>
+                  {% if photo.credito and photo.credito != '' %}<figcaption>{{ photo.credito | escape }}</figcaption>{% endif %}
+                </figure>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
         <h4>Matérias completas</h4>
         {% assign case_reports = reports | where: 'caso', case.name %}
         {% assign shown_reports = 0 %}
