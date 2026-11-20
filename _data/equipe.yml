@@ -1,28 +1,32 @@
-title: "Quem faz o Escutativa"
-description: "As pessoas por trás das histórias."
+title: Quem faz o Escutativa
+description: As pessoas por trás das histórias.
 members:
-  - name: "Circy Shara"
-    role: ""
-    bio: "Pernambucana que descobriu no jornalismo uma nova forma de impactar vidas. Adora conhecer pessoas e viajar por novas histórias."
-    portrait: "/assets/uploads/equipe/integrante-04.jpeg"
-    url: ""
-  - name: "Bruna Sousa"
-    role: ""
-    bio: "Formada em Direito, encontrou na comunicação e no jornalismo uma nova forma de contar histórias e enxergar o mundo. Sonhadora, curiosa e apaixonada por tudo aquilo que desperta sentimentos e inspira novas ideias."
-    portrait: "/assets/uploads/equipe/integrante-01.jpeg"
-    url: ""
-  - name: "Felipe Roque"
-    role: ""
-    bio: "É formado em Direito, mas foi na comunicação que encontrou seu caminho. Apaixonado por esporte, conseguiu unir a profissão ao clube do coração. É curioso, comunicativo e acredita no poder das boas histórias e das pessoas. Está sempre com um sorriso no rosto e procura levar um pouco dele às pessoas ao seu redor."
-    portrait: "/assets/uploads/equipe/integrante-02.jpeg"
-    url: ""
-  - name: "Breno Sant’Anna"
-    role: ""
-    bio: "Saiu de Iguape para morar em Santos e seguir seu caminho no Jornalismo. Prefere ouvir do que falar. É quieto por fora, mas inquieto por dentro. Acredita na escrita como forma de manter memórias vivas."
-    portrait: "/assets/uploads/equipe/breno-fundo-branco.png"
-    url: ""
+  - name: Circy Shara
+    bio: Pernambucana que descobriu no jornalismo uma nova forma de impactar vidas.
+      Adora conhecer pessoas e viajar por novas histórias.
+    portrait: /assets/uploads/equipe/integrante-04.jpeg
+  - name: Bruna Sousa
+    bio: Formada em Direito, encontrou na comunicação e no jornalismo uma nova forma
+      de contar histórias e enxergar o mundo. Sonhadora, curiosa e apaixonada
+      por tudo aquilo que desperta sentimentos e inspira novas ideias.
+    portrait: /assets/uploads/equipe/integrante-01.jpeg
+  - name: Felipe Roque
+    bio: É formado em Direito, mas foi na comunicação que encontrou seu caminho.
+      Apaixonado por esporte, conseguiu unir a profissão ao clube do coração. É
+      curioso, comunicativo e acredita no poder das boas histórias e das
+      pessoas. Está sempre com um sorriso no rosto e procura levar um pouco dele
+      às pessoas ao seu redor.
+    portrait: /assets/uploads/equipe/integrante-02.jpeg
+  - name: Breno Sant’Anna
+    bio: Saiu de Iguape para morar em Santos e seguir seu caminho no Jornalismo.
+      Prefere ouvir do que falar. É quieto por fora, mas inquieto por dentro.
+      Acredita na escrita como forma de manter memórias vivas.
+    portrait: /assets/uploads/equipe/breno-fundo-branco.png
 socials:
   - name: Facebook
-    url: "https://www.facebook.com/profile.php?id=61596955162786"
-contact: "escutativanews@gmail.com"
-advertising: ""
+    url: https://www.facebook.com/profile.php?id=61596955162786
+  - name: instagram
+    url: https://www.instagram.com/oescutativa/
+  - name: twitter
+    url: https://x.com/oescutativa
+contact: escutativanews@gmail.com
