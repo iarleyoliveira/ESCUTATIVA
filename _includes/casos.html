@@ -2,11 +2,12 @@
   <span class="kicker">As histórias na imprensa</span>
   <h2 id="heading-casos">Casos</h2>
   <div class="cases-list">
-    {% assign reports = site.data.reportagens_casos.reportagens | where: 'published', true %}
     {% for case in site.data.casos %}
+      {% unless case.published == false %}
       <article class="case-block" aria-labelledby="{{ case.id }}">
         <h3 id="{{ case.id }}">{{ case.name | escape }}</h3>
-        {% assign case_photos = site.data.fotos_casos[case.id].fotos %}
+        {% if case.descricao and case.descricao != '' %}<p class="case-intro">{{ case.descricao | escape | newline_to_br }}</p>{% endif %}
+        {% assign case_photos = case.fotos %}
         {% if case_photos.size > 0 %}
           <div class="case-gallery" aria-label="Fotos de {{ case.name | escape }}">
             {% for photo in case_photos %}
@@ -23,7 +24,7 @@
           </div>
         {% endif %}
         <h4>Matérias completas</h4>
-        {% assign case_reports = reports | where: 'caso', case.name %}
+        {% assign case_reports = case.reportagens | where: 'published', true %}
         {% assign shown_reports = 0 %}
         {% capture report_items %}
           {% for report in case_reports %}
@@ -46,6 +47,7 @@
           <p class="case-empty">Em breve, reportagens sobre este caso.</p>
         {% endif %}
       </article>
+      {% endunless %}
     {% endfor %}
   </div>
 </section>

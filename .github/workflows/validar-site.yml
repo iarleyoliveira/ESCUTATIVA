@@ -43,7 +43,12 @@ jobs:
             end
           end
           cms.select { |entry| entry['type'] == 'file' }.each do |entry|
-            validate_fields(entry.fetch('fields'), YAML.safe_load_file(entry.fetch('path')))
+            data = YAML.safe_load_file(entry.fetch('path'))
+            if entry['list']
+              data.each { |item| validate_fields(entry.fetch('fields'), item) }
+            else
+              validate_fields(entry.fetch('fields'), data)
+            end
           end
           File.write('_materias/validacao-capa.md', <<~POST)
             ---
@@ -71,17 +76,20 @@ jobs:
             POST
           end
           File.write('_materias/validacao-rascunho.md', "---\ntitle: Rascunho de teste\ncategory: Reportagem\npublished: false\n---\n")
-          cases = YAML.safe_load_file('_data/casos.yml').map { |item| item.fetch('name') }
-          case_cms = cms.find { |entry| entry['name'] == 'reportagens_casos' }
-          case_fields = case_cms.fetch('fields').first.fetch('fields')
-          abort 'Casos divergentes no CMS' unless case_fields.find { |field| field['name'] == 'caso' }.dig('options', 'values') == cases
-          reports = cases.first(2).each_with_index.map do |name, index|
-            { 'caso' => name, 'formato' => ['Texto', 'Vídeo'][index], 'title' => "Matéria original #{index}",
-              'veiculo' => "Veículo #{index}", 'resumo' => "Resumo da reportagem #{index}", 'link' => "https://example.com/reportagem-#{index}", 'published' => true }
+          cases = YAML.safe_load_file('_data/casos.yml')
+          cases.each_with_index do |entry, index|
+            entry['reportagens'] = if index < 2
+              [{ 'formato' => ['Texto', 'Vídeo'][index], 'title' => "Matéria original #{index}",
+                 'veiculo' => "Veículo #{index}", 'resumo' => "Resumo da reportagem #{index}", 'link' => "https://example.com/reportagem-#{index}", 'published' => true }]
+            else
+              []
+            end
           end
-          reports << reports.first.merge('title' => 'Rascunho do caso', 'published' => false)
-          reports << reports.first.merge('title' => 'Link inválido do caso', 'link' => 'javascript:alert(1)')
-          File.write('_data/reportagens_casos.yml', { 'reportagens' => reports }.to_yaml)
+          sample = cases.first.fetch('reportagens').first
+          cases.first['reportagens'] << sample.merge('title' => 'Rascunho do caso', 'published' => false)
+          cases.first['reportagens'] << sample.merge('title' => 'Link inválido do caso', 'link' => 'javascript:alert(1)')
+          cases << { 'name' => 'Caso de rascunho', 'id' => 'caso-rascunho', 'published' => false }
+          File.write('_data/casos.yml', cases.to_yaml)
           RUBY
       - name: Gerar site com Jekyll
         run: jekyll build --strict_front_matter

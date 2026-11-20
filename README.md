@@ -15,9 +15,9 @@ Ao atualizar uma publicação existente, edite o mesmo registro para preservar s
 
 O item **Casos** do menu abre uma seção única na página inicial, com **Caso Hillary**, **Caso canadense Cal** e **Caso Felipe**, nessa ordem. Os três blocos permanecem visíveis enquanto não houver reportagens cadastradas.
 
-No Pages CMS, abra **Reportagens dos casos**, adicione um item em **Reportagens**, escolha **Caso** e **Formato** (Texto ou Vídeo) e preencha **Título**, **Veículo** e **Link da matéria original** com o endereço completo. Ative **Publicar no site** e salve. Após a geração do GitHub Pages, a reportagem aparece automaticamente no caso escolhido. Desative essa opção para manter um rascunho ou retirar uma reportagem do site. Os títulos abrem os links originais em nova aba.
+No Pages CMS, abra **Casos** para adicionar ou editar um caso. Preencha **Nome do caso**, um **Identificador do caso** único e a **Apresentação do caso**. Em **Fotos**, adicione imagens, descrições e créditos. Em **Reportagens do caso**, cadastre título, veículo, resumo, formato e link da matéria original. Ative **Publicar no site** no caso e nas reportagens desejadas e salve. Arraste os casos para alterar a ordem. Depois de publicar, preserve o identificador para manter os links existentes. Os títulos das reportagens abrem as fontes originais em nova aba.
 
-Os cadastros ficam em `_data/reportagens_casos.yml`; a ordem dos blocos fica em `_data/casos.yml`.
+Todos os dados, fotos e reportagens dos casos ficam em `_data/casos.yml`.
 
 ## Navegação, equipe e comentários
 
