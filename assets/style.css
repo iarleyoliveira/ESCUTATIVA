@@ -159,7 +159,7 @@ header nav{gap:clamp(24px,10vw,100px);font:22px Georgia,serif}
 .team-section .section{border-top:4px double var(--ink)}
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;margin-top:36px}
 .team-member{border-top:1px solid var(--line);padding-top:24px}
-.team-member img{width:100%;max-width:240px;height:auto;aspect-ratio:1;object-fit:contain;background:#fff}
+.team-member img{width:100%;max-width:240px;height:auto;aspect-ratio:1;object-fit:contain}
 .team-member h3{font-size:30px;margin-bottom:12px}
 .team-member p{font-size:14px}
 .footer-brand{font:bold clamp(28px,6vw,50px) Georgia,serif;text-decoration:none;letter-spacing:-1px}
