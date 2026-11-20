@@ -27,9 +27,14 @@ jobs:
           field = publication.fetch('fields').find { |item| item['name'] == 'category' }
           abort 'Categorias divergentes' unless field.dig('options', 'values') == categories.map { |item| item.fetch('name') }
           def validate_fields(fields, data)
-            abort 'Campos do CMS e conteúdo divergentes' unless fields.map { |field| field.fetch('name') }.sort == data.keys.sort
+            names = fields.map { |field| field.fetch('name') }
+            abort 'Campos do CMS e conteúdo divergentes' unless (data.keys - names).empty?
+            fields.select { |field| field['required'] }.each do |field|
+              abort "Campo obrigatório ausente: #{field['name']}" unless data.key?(field.fetch('name'))
+            end
             fields.select { |field| field['type'] == 'object' }.each do |field|
-              value = data.fetch(field.fetch('name'))
+              value = data[field.fetch('name')]
+              next if value.nil?
               if field['list']
                 value.each { |item| validate_fields(field.fetch('fields'), item) }
               else
