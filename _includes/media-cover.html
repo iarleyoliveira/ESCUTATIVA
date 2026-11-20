@@ -2,13 +2,16 @@
 {% assign cover_category_name = cover_entry.category | default: 'Minidocumentário' %}
 {% assign cover_category = site.data.categorias | where: 'name', cover_category_name | first %}
 {% assign media_image = cover_entry.cover | default: '' | strip %}
-{% assign media_video_id = cover_entry.youtube_id | default: '' | strip %}
+{% capture media_video_id %}{% include youtube-id.html value=cover_entry.youtube_id %}{% endcapture %}
+{% assign media_video_id = media_video_id | strip %}
+{% assign media_audio_url = cover_entry.audio_url | default: cover_entry.audio_link | default: '' | strip %}
 <span class="media-cover{% if cover_category.format == 'escute' %} media-cover-audio{% if media_image != '' %} podcast-artwork{% endif %}{% endif %}{% if media_image != '' %} media-cover-photo{% endif %}{% if cover_entry.cover_fit == 'contain' %} media-contained{% endif %}">
   {% if media_image != '' %}
-    <img src="{{ cover_entry.cover | escape }}" alt="{{ cover_entry.cover_alt | escape }}" loading="lazy">
+    {% capture media_cover_url %}{% include asset-url.html path=cover_entry.cover %}{% endcapture %}
+    <img src="{{ media_cover_url | strip | escape }}" alt="{{ cover_entry.cover_alt | escape }}" loading="lazy">
   {% endif %}
   <span class="media-cover-label">{{ cover_category_name | escape }}</span>
   <span class="media-cover-symbol" aria-hidden="true">{% if cover_category.format == 'escute' %}<i></i><i></i><i></i><i></i><i></i><i></i><i></i>{% else %}<span class="play-triangle"></span>{% endif %}</span>
   <span class="media-cover-title" aria-hidden="true">{{ cover_entry.title | escape }}</span>
-  {% if media_video_id == '' and cover_entry.audio_url == nil %}<span class="media-cover-status">{{ site.data.inicio.video_pending | escape }}</span>{% endif %}
+  {% if media_video_id == '' and media_audio_url == '' %}<span class="media-cover-status">{{ site.data.inicio.video_pending | escape }}</span>{% endif %}
 </span>

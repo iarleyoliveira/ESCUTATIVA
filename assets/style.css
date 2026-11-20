@@ -504,7 +504,12 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .contact-actions .button { margin: 0; }
 .footer-socials a { display: inline-flex; align-items: center; gap: 8px; }
 .social-icon { flex-shrink: 0; }
-.podcast-player { display: block; width: 100%; margin: 24px 0; }
+.podcast-player { display: block; width: 100%; max-width: 100%; min-width: 0; margin: 24px 0; }
+.access-shortcuts { display: grid; gap: 8px; margin: 24px 0; }
+.access-shortcuts a { display: flex; align-items: center; min-height: 44px; font-size: 14px; text-underline-offset: 4px; }
+.publishing-help { max-width: 900px; }
+.publishing-help li { padding-left: 8px; margin-bottom: 18px; }
+.publishing-help strong { color: var(--ink); }
 .media-cover.podcast-artwork { aspect-ratio: 1; padding: 0; min-height: 0; }
 .podcast-artwork::before, .podcast-artwork::after, .podcast-artwork > span { display: none; }
 .media-cover.podcast-artwork img { position: static; display: block; width: 100%; height: auto; z-index: auto; aspect-ratio: 1; object-fit: contain; }

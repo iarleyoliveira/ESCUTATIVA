@@ -3,14 +3,19 @@
 {% assign category = site.data.categorias | where: "name", category_name | first %}
 {% assign section = site.data.inicio[category.section] %}
 {% assign action = section.action | default: site.data.inicio.read_more %}
-{% assign video_id = entry.youtube_id | default: "" %}
-{% if category.video and video_id == "" and entry.audio_url == nil %}
+{% capture video_id %}{% include youtube-id.html value=entry.youtube_id %}{% endcapture %}
+{% assign video_id = video_id | strip %}
+{% assign audio_url = entry.audio_url | default: entry.audio_link | default: '' | strip %}
+{% if category.video and video_id == "" and audio_url == '' %}
   {% assign action = site.data.inicio.video_summary | default: site.data.inicio.read_more %}
 {% endif %}
 {% if include.video %}
   <article class="video-grid" data-publication-category="{{ category.section }}">
     <div>
-      {% if entry.youtube_id and entry.youtube_id != "" %}
+      {% if audio_url != '' %}
+        {% include media-cover.html publication=entry %}
+        {% include audio.html publication=entry %}
+      {% elsif video_id != "" %}
         {% include video.html publication=entry %}
       {% else %}
         {% include video-pending.html publication=entry lazy=true %}
@@ -29,7 +34,8 @@
       {% if category.video %}
         {% include media-cover.html publication=entry %}
       {% elsif entry.cover and entry.cover != "" %}
-        <span class="card-media{% if entry.cover_fit == 'contain' %} media-contained{% endif %}"><img src="{{ entry.cover | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy"></span>
+        {% capture card_cover_url %}{% include asset-url.html path=entry.cover %}{% endcapture %}
+        <span class="card-media{% if entry.cover_fit == 'contain' %} media-contained{% endif %}"><img src="{{ card_cover_url | strip | escape }}" alt="{{ entry.cover_alt | escape }}" loading="lazy"></span>
       {% endif %}
       <div class="card-copy">
       <small>{{ category_name | escape }}</small>

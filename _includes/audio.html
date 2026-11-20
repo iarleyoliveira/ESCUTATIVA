@@ -1,0 +1,9 @@
+{% assign audio_location = include.publication.audio_url | default: include.publication.audio_link %}
+{% capture audio_source %}{% include asset-url.html path=audio_location %}{% endcapture %}
+{% assign audio_source = audio_source | strip %}
+{% if audio_source != '' %}
+<audio class="podcast-player" controls preload="metadata" aria-label="Ouvir {{ include.publication.title | escape }}">
+  <source src="{{ audio_source | escape }}">
+  Seu navegador não suporta áudio. <a href="{{ audio_source | escape }}">Baixar episódio</a>.
+</audio>
+{% endif %}

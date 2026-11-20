@@ -1,7 +1,144 @@
 media:
   input: assets/uploads
   output: /ESCUTATIVA/assets/uploads
+actions:
+  - name: verificar_site
+    label: Verificar site
+    workflow: validar-site.yml
+    ref: current
+    confirm: false
 content:
+  - name: materias
+    label: Publicações
+    type: collection
+    path: _materias
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    operations:
+      rename: false
+    view:
+      primary: title
+      fields:
+        - title
+        - category
+        - published
+        - date
+      sort:
+        - date
+        - title
+        - category
+        - published
+      search:
+        - title
+        - description
+        - author
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+        description: Título que aparece no site. O endereço é criado ao salvar e permanece o mesmo nas próximas edições.
+      - name: category
+        label: Categoria
+        type: select
+        required: true
+        options:
+          values:
+            - Reportagem
+            - Entrevista
+            - Bastidores
+            - Minidocumentário
+            - Podcast
+        default: Reportagem
+        description: Reportagem, Entrevista e Bastidores entram em Leia. Minidocumentário entra em Assista. Podcast entra em Escute.
+      - name: description
+        label: Resumo da publicação
+        type: text
+        required: true
+        description: Escreva uma apresentação curta. Ela aparece nos cartões e no início da publicação.
+      - name: author
+        label: Autor ou autores
+        type: string
+      - name: date
+        label: Data
+        type: date
+        required: true
+        description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+      - name: cover
+        label: Capa — enviar ou escolher imagem
+        type: image
+        description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+        options:
+          rename: safe
+      - name: cover_alt
+        label: O que aparece na capa?
+        type: string
+        description: Descreva a imagem em uma frase para quem usa leitor de tela.
+      - name: cover_caption
+        label: Legenda da imagem de capa
+        type: string
+      - name: credit
+        label: Crédito da imagem
+        type: string
+      - name: cover_fit
+        label: Como mostrar a capa
+        type: select
+        default: cover
+        options:
+          values:
+            - name: cover
+              label: Preencher o espaço (com recorte)
+            - name: contain
+              label: Mostrar a imagem inteira (cartazes e artes)
+        description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
+      - name: body
+        label: Conteúdo da publicação
+        type: rich-text
+        description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
+      - name: audio_url
+        label: Podcast — enviar arquivo de áudio
+        type: file
+        description: Para podcast, envie ou selecione o MP3, M4A, OGG ou WAV. O player aparece automaticamente no site. Deixe vazio em textos e vídeos.
+        options:
+          categories:
+            - audio
+          extensions:
+            - mp3
+            - m4a
+            - ogg
+            - wav
+            - aac
+            - flac
+          rename: safe
+      - name: audio_link
+        label: Podcast — link direto do áudio (opcional)
+        type: string
+        description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
+        pattern:
+          regex: "^(https?://[^\\s]+)?$"
+          message: Cole o link completo do arquivo de áudio ou deixe em branco.
+      - name: youtube_id
+        label: Vídeo — link do YouTube ou ID
+        type: string
+        description: Cole o link completo do YouTube (normal ou compartilhado) ou o ID de 11 caracteres. Deixe vazio se não houver vídeo.
+        pattern:
+          regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
+          message: Cole um link do YouTube ou um ID de 11 caracteres.
+      - name: credits
+        label: Créditos da publicação
+        type: text
+      - name: share_image
+        label: Imagem para compartilhamento
+        type: image
+        description: Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa.
+      - name: published
+        label: Publicar no site
+        type: boolean
+        default: false
+        description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
   - name: casos
     label: Casos
     type: file
@@ -14,44 +151,59 @@ content:
         label: Nome do caso
         type: string
         required: true
+        description: Nome exibido na seção Casos. Para um caso novo, basta preencher o nome; o link é criado automaticamente.
       - name: id
         label: Identificador do caso
         type: string
-        required: true
+        required: false
         description: Use um identificador único, sem espaços ou acentos, como caso-karl. Depois de publicar, mantenha este identificador para preservar os links.
         pattern:
           regex: ^[a-z0-9]+(?:-[a-z0-9]+)*$
           message: Use letras minúsculas, números e hífens.
+        hidden: true
       - name: descricao
-        label: Apresentação do caso
+        label: Sobre este caso
         type: text
+        description: Apresente a história em um ou mais parágrafos. Esse texto aparece acima das fotos e reportagens.
       - name: fotos
         label: Fotos
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.descricao}"
         fields:
           - name: imagem
             label: Foto
             type: image
+            required: true
+            options:
+              rename: safe
           - name: descricao
             label: Descrição da imagem
             type: string
+            required: true
           - name: credito
             label: Crédito da foto
             type: string
+        description: Adicione quantas fotos precisar e arraste para mudar a ordem. Cada imagem pode ser ampliada no site.
       - name: reportagens
         label: Reportagens do caso
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
         fields:
           - name: formato
-            label: Formato
+            label: Tipo de reportagem
             type: select
             required: true
             options:
               values:
                 - Texto
                 - Vídeo
+            default: Texto
           - name: title
             label: Título
             type: string
@@ -64,6 +216,7 @@ content:
             label: Resumo da reportagem
             type: text
             description: Frase que explica o assunto da reportagem e aparece abaixo do título no site.
+            required: true
           - name: link
             label: Link da matéria original
             type: string
@@ -76,306 +229,187 @@ content:
             type: boolean
             default: false
             description: Ative e salve para exibir a reportagem no caso escolhido após a atualização do site.
+        description: Adicione aqui as matérias publicadas por outros veículos sobre este caso.
       - name: published
         label: Publicar no site
         type: boolean
         default: false
-        description: Ative para exibir este caso na seção Casos. Arraste os casos para alterar a ordem no site.
-  - name: comentarios
-    label: Comentários
-    type: file
-    path: _data/comentarios.yml
-    fields:
-      - name: provider
-        label: Serviço de comentários
-        type: select
-        options:
-          values: [giscus, disqus]
-      - name: disqus_shortname
-        label: Identificador do site no Disqus (shortname)
-        type: string
-        description: "Antes de selecionar disqus, cadastre o site, habilite Guest Commenting em Settings → Moderation e configure a aprovação prévia dos comentários."
-        pattern:
-          regex: "^([A-Za-z0-9][A-Za-z0-9-]*)?$"
-          message: "Use o identificador do Disqus, com letras, números e hífens."
-      - name: repo
-        label: Repositório do Giscus
-        type: string
-      - name: repo_id
-        label: ID do repositório do Giscus
-        type: string
-      - name: category
-        label: Categoria do Giscus
-        type: string
-      - name: category_id
-        label: ID da categoria do Giscus
-        type: string
-  - name: materias
-    label: Publicações
-    type: collection
-    path: _materias
-    format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{primary}.md"
-    operations:
-      rename: false
-    view:
-      primary: title
-      fields: [title, category, date, published]
-    fields:
-      - name: title
-        label: Título
-        type: string
-        required: true
-      - name: description
-        label: Resumo
-        type: text
-        required: true
-      - name: author
-        label: Autor ou autores
-        type: string
-      - name: date
-        label: Data
-        type: date
-        required: true
-      - name: category
-        label: Categoria
-        type: select
-        required: true
-        options:
-          values: [Reportagem, Entrevista, Bastidores, Minidocumentário, Podcast]
-      - name: cover
-        label: Imagem de capa
-        type: image
-      - name: cover_alt
-        label: Descrição da imagem para acessibilidade
-        type: string
-      - name: cover_fit
-        label: Exibição da capa
-        type: select
-        default: cover
-        options:
-          values: [cover, contain]
-        description: "cover preenche o espaço com recorte. contain mostra a imagem inteira, indicado para cartazes."
-      - name: share_image
-        label: Imagem para compartilhamento
-        type: image
-        description: "Opcional. Prefira 1200 × 630 pixels. Se estiver vazia, será usada a capa ou a imagem do Escutativa."
-      - name: cover_caption
-        label: Legenda da imagem de capa
-        type: string
-      - name: credit
-        label: Crédito da imagem
-        type: string
-      - name: credits
-        label: Créditos da publicação
-        type: text
-      - name: audio_url
-        label: Arquivo de áudio do podcast
-        type: string
-        description: "Endereço completo do MP3 ou caminho do áudio enviado para a biblioteca."
-      - name: youtube_id
-        label: ID do vídeo no YouTube
-        type: string
-        description: "Informe os 11 caracteres do ID do vídeo. Para uma publicação de texto, deixe em branco."
-        pattern:
-          regex: "^([A-Za-z0-9_-]{11})?$"
-          message: "Informe apenas o ID de 11 caracteres do YouTube."
-      - name: published
-        label: Publicar no site
-        type: boolean
-        default: false
-        description: "Desativado: rascunho fora do site. Atenção: os arquivos do repositório são públicos."
-      - name: body
-        label: Texto da publicação
-        type: rich-text
-  - name: identidade
-    label: Identidade
-    type: file
-    path: _data/identidade.yml
-    operations:
-      delete: false
-    fields:
-      - name: name
-        label: "Nome do projeto"
-        type: string
-      - name: signature
-        label: "Assinatura"
-        type: string
-      - name: topics
-        label: "Temas do cabeçalho"
-        type: string
-      - name: format
-        label: "Identificação do projeto"
-        type: string
-      - name: description
-        label: "Descrição para buscadores"
-        type: text
-      - name: team_link
-        label: "Link da área da equipe"
-        type: string
-      - name: logo
-        label: "Logotipo alternativo"
-        type: image
+        description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. A ordem desta lista é a ordem no site.
   - name: inicio
-    label: Página inicial e créditos
+    label: Página inicial e projeto
     type: file
     path: _data/inicio.yml
     operations:
       delete: false
     fields:
       - name: title
-        label: "Título da página"
+        label: Título da página
         type: string
       - name: hero
-        label: "Abertura"
+        label: Abertura
         type: object
         fields:
           - name: kicker
-            label: "Chamada"
+            label: Chamada
             type: string
           - name: title
-            label: "Primeira linha do título"
+            label: Primeira linha do título
             type: string
           - name: accent
-            label: "Linha em destaque"
+            label: Linha em destaque
             type: string
           - name: description
-            label: "Apresentação"
+            label: Apresentação
             type: text
           - name: button
-            label: "Texto do botão"
+            label: Texto do botão
             type: string
           - name: quote
-            label: "Frase em destaque"
+            label: Frase em destaque
             type: text
+        hidden: true
       - name: materias
-        label: "Reportagem"
+        label: Reportagem
         type: object
         fields:
           - name: action
             label: Chamada da publicação
             type: string
           - name: nav
-            label: "Menu e categoria"
+            label: Menu e categoria
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
           - name: empty
-            label: "Mensagem sem publicações"
+            label: Mensagem sem publicações
             type: text
       - name: entrevistas
-        label: "Entrevista"
+        label: Entrevista
         type: object
         fields:
           - name: action
             label: Chamada da publicação
             type: string
           - name: nav
-            label: "Menu e categoria"
+            label: Menu e categoria
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
+            hidden: true
           - name: empty
-            label: "Mensagem sem publicações"
+            label: Mensagem sem publicações
             type: text
       - name: bastidores
-        label: "Bastidores"
+        label: Bastidores
         type: object
         fields:
           - name: action
             label: Chamada da publicação
             type: string
           - name: nav
-            label: "Menu e categoria"
+            label: Menu e categoria
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
+            hidden: true
           - name: empty
-            label: "Mensagem sem publicações"
+            label: Mensagem sem publicações
             type: text
       - name: documentario
-        label: "Minidocumentário"
+        label: Minidocumentário
         type: object
         fields:
           - name: action
             label: Chamada da publicação
             type: string
           - name: nav
-            label: "Menu e categoria"
+            label: Menu e categoria
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
           - name: empty
-            label: "Mensagem sem publicações"
+            label: Mensagem sem publicações
             type: text
       - name: videocast
-        label: "Podcast"
+        label: Podcast
         type: object
         fields:
           - name: action
             label: Chamada da publicação
             type: string
           - name: nav
-            label: "Menu e categoria"
+            label: Menu e categoria
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
           - name: empty
-            label: "Mensagem sem publicações"
+            label: Mensagem sem publicações
             type: text
       - name: projeto
-        label: "Sobre o projeto"
+        label: Sobre o projeto
         type: object
         fields:
           - name: nav
-            label: "Menu"
+            label: Menu
             type: string
+            hidden: true
           - name: kicker
-            label: "Chamada"
+            label: Chamada
             type: string
           - name: title
-            label: "Título"
+            label: Título
             type: string
           - name: presentation
-            label: "Apresentação"
+            label: Apresentação
             type: rich-text
           - name: credits_title
-            label: "Título dos créditos"
+            label: Título dos créditos
             type: string
+            hidden: true
           - name: credits
-            label: "Créditos"
+            label: Créditos
             type: rich-text
+            hidden: true
       - name: read_more
-        label: "Link para abrir publicação"
+        label: Link para abrir publicação
         type: string
       - name: video_summary
-        label: Chamada do vídeo em preparação
+        label: Link para mídia ainda não disponível
         type: string
       - name: video_pending
-        label: "Aviso de vídeo em preparação"
+        label: Aviso de mídia ainda não disponível
         type: string
       - name: byline
-        label: "Rótulo antes da autoria"
+        label: Rótulo antes da autoria
         type: string
       - name: back
-        label: "Link de volta à seção"
+        label: Link de volta à seção
         type: string
       - name: continue
         label: Link ao fim da publicação
         type: string
       - name: destaque
-        label: Publicação em destaque
+        label: Matéria de abertura da página inicial
         type: object
         fields:
           - name: publication
             label: Escolher publicação
             type: reference
-            description: Selecione uma publicação no ar. Limpe o campo para voltar a mostrar a frase da abertura.
+            description: Escolha uma publicação com Publicar no site ativado. Se limpar este campo, a publicação mais recente será usada automaticamente.
             options:
               collection: materias
               value: "{path}"
@@ -402,6 +436,7 @@ content:
           - name: nav
             label: Rótulo no menu
             type: string
+            hidden: true
           - name: title
             label: Título
             type: string
@@ -417,7 +452,7 @@ content:
           - name: more
             label: Link da inicial para o acervo
             type: string
-
+            hidden: true
   - name: equipe
     label: Equipe, redes e contatos
     type: file
@@ -432,11 +467,15 @@ content:
       - name: members
         label: Integrantes
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
         fields:
           - name: name
             label: Nome
             type: string
+            required: true
           - name: role
             label: Função
             type: string
@@ -444,25 +483,121 @@ content:
             label: Biografia curta
             type: text
           - name: portrait
-            label: Caricatura
+            label: Foto ou ilustração
             type: image
+            options:
+              rename: safe
           - name: url
             label: Link pessoal
             type: string
+        description: Adicione ou edite os integrantes. Arraste para mudar a ordem no site.
       - name: socials
         label: Redes sociais
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
         fields:
           - name: name
             label: Nome da rede
             type: string
+            required: true
+            description: "Exemplos: Instagram, Facebook, Twitter ou WhatsApp."
           - name: url
             label: Endereço completo
             type: string
+            required: true
+            pattern:
+              regex: ^https?://[^\s]+$
+              message: Cole um link completo, começando com https://.
+            description: Cole o endereço completo do perfil. Para WhatsApp, use o link https://wa.me/ com o número.
+        description: Adicione a rede e o link completo. Arraste para escolher a ordem no rodapé. Ícones automáticos para Instagram, Facebook, Twitter/X e WhatsApp.
       - name: contact
         label: E-mail de contato
         type: string
+        pattern:
+          regex: ^([^\s@]+@[^\s@]+\.[^\s@]+)?$
+          message: Informe um e-mail válido ou deixe em branco.
       - name: advertising
         label: E-mail para anúncios
         type: string
+        pattern:
+          regex: ^([^\s@]+@[^\s@]+\.[^\s@]+)?$
+          message: Informe um e-mail válido ou deixe em branco.
+    operations:
+      delete: false
+  - name: identidade
+    label: Nome, logo e assinatura
+    type: file
+    path: _data/identidade.yml
+    operations:
+      delete: false
+    fields:
+      - name: name
+        label: Nome do projeto
+        type: string
+      - name: signature
+        label: Assinatura
+        type: string
+      - name: topics
+        label: Temas do cabeçalho
+        type: string
+        hidden: true
+      - name: format
+        label: Identificação do projeto
+        type: string
+        hidden: true
+      - name: description
+        label: Descrição para buscadores
+        type: text
+      - name: team_link
+        label: Link da área da equipe
+        type: string
+        hidden: true
+      - name: logo
+        label: Logo do site
+        type: image
+        description: Envie ou escolha a logo completa, de preferência em PNG com fundo transparente.
+        options:
+          rename: safe
+  - name: comentarios
+    label: Comentários — configuração
+    type: file
+    path: _data/comentarios.yml
+    fields:
+      - name: provider
+        label: Serviço de comentários
+        type: select
+        options:
+          values:
+            - name: giscus
+              label: Giscus — comentários com GitHub
+            - name: disqus
+              label: Disqus — requer configuração no serviço
+        description: Giscus já está configurado e exige conta GitHub. Disqus só funciona depois de cadastrar o site no Disqus e preencher o identificador abaixo.
+      - name: disqus_shortname
+        label: Identificador do site no Disqus (shortname)
+        type: string
+        description: Antes de selecionar disqus, cadastre o site, habilite Guest Commenting em Settings → Moderation e configure a aprovação prévia dos comentários.
+        pattern:
+          regex: ^([A-Za-z0-9][A-Za-z0-9-]*)?$
+          message: Use o identificador do Disqus, com letras, números e hífens.
+      - name: repo
+        label: Repositório do Giscus
+        type: string
+        hidden: true
+      - name: repo_id
+        label: ID do repositório do Giscus
+        type: string
+        hidden: true
+      - name: category
+        label: Categoria do Giscus
+        type: string
+        hidden: true
+      - name: category_id
+        label: ID da categoria do Giscus
+        type: string
+        hidden: true
+    operations:
+      delete: false

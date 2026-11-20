@@ -4,8 +4,9 @@
   <div class="cases-list">
     {% for case in site.data.casos %}
       {% unless case.published == false %}
-      <article class="case-block" aria-labelledby="{{ case.id }}">
-        <h3 id="{{ case.id }}">{{ case.name | escape }}</h3>
+      {% assign case_id = case.id | default: case.name | slugify %}
+      <article class="case-block" aria-labelledby="{{ case_id }}">
+        <h3 id="{{ case_id }}">{{ case.name | escape }}</h3>
         {% if case.descricao and case.descricao != '' %}<p class="case-intro">{{ case.descricao | escape | newline_to_br }}</p>{% endif %}
         {% assign case_photos = case.fotos %}
         {% if case_photos.size > 0 %}

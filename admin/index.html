@@ -14,10 +14,29 @@ team_access: true
     <h2>Entrar na redação</h2>
     <p>Use o e-mail convidado pela administração para acessar o painel de publicações.</p>
     <a class="button access-button" href="{{ site.editor_url | escape }}">Abrir publicações <span aria-hidden="true">↗</span></a>
+    <div class="access-shortcuts" aria-label="Atalhos do painel">
+      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/materias/new">Nova publicação ↗</a>
+      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/casos">Cadastrar ou editar casos ↗</a>
+      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/inicio">Escolher a matéria da abertura ↗</a>
+      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/equipe">Equipe, redes e contatos ↗</a>
+    </div>
     <p class="access-provider">O painel abre nas publicações do Escutativa. Se solicitado, entre com seu e-mail convidado.</p>
     <div class="access-help">
       <h3>Primeiro acesso?</h3>
       <p>Peça à administração da equipe um convite para o seu e-mail. O acesso é liberado após esse convite.</p>
     </div>
   </div>
+</section>
+<section class="wrap section publishing-help" aria-labelledby="publishing-help-title">
+  <span class="kicker">Como publicar</span>
+  <h2 id="publishing-help-title">Do painel para o site</h2>
+  <ol>
+    <li><strong>Abra Publicações e adicione uma publicação.</strong> Preencha título, categoria, resumo, autoria e data.</li>
+    <li><strong>Acrescente o conteúdo.</strong> Escreva o texto, escolha a capa e informe os créditos. Em Podcast, envie o áudio; em Minidocumentário, cole o link do YouTube.</li>
+    <li><strong>Salve como rascunho ou publique.</strong> Com “Publicar no site” desligado, o conteúdo fica fora do site. Ligue essa opção e salve quando estiver pronto.</li>
+    <li><strong>Aguarde a atualização.</strong> Salvar no Pages inicia a publicação automática. Normalmente leva de 30 segundos a alguns minutos. Depois, atualize o site com Ctrl+F5 se ainda aparecer a versão anterior.</li>
+  </ol>
+  <p>Para editar uma publicação, abra o mesmo cadastro. Para retirar do site, desative “Publicar no site” e salve.</p>
+  <p>Em <strong>Casos</strong>, cada cadastro reúne apresentação, fotos e reportagens. Você pode mudar a ordem arrastando os itens. Ative a publicação do caso e de cada reportagem que deve aparecer.</p>
+  <p><a href="https://github.com/iarleyoliveira/ESCUTATIVA/actions/workflows/pages/pages-build-deployment">Ver andamento da atualização no GitHub ↗</a> · <a href="{{ '/' | relative_url }}">Abrir site →</a></p>
 </section>

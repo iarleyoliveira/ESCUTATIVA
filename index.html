@@ -17,7 +17,8 @@ home: true
         {% if inicio.destaque.cover and inicio.destaque.cover != "" %}
           {% assign feature_alt = inicio.destaque.cover_alt %}
         {% endif %}
-        <a class="feature-media{% if feature.cover_fit == 'contain' %} media-contained{% endif %}" href="{{ feature.url | relative_url }}" aria-label="{{ feature.title | escape }}"><img src="{{ feature_cover | escape }}" alt="{{ feature_alt | escape }}" fetchpriority="high"></a>
+        {% capture feature_cover_url %}{% include asset-url.html path=feature_cover %}{% endcapture %}
+        <a class="feature-media{% if feature.cover_fit == 'contain' %} media-contained{% endif %}" href="{{ feature.url | relative_url }}" aria-label="{{ feature.title | escape }}"><img src="{{ feature_cover_url | strip | escape }}" alt="{{ feature_alt | escape }}" fetchpriority="high"></a>
       {% endif %}
       <div>
         <span class="kicker">{{ inicio.destaque.kicker | escape }}</span>
@@ -38,7 +39,7 @@ home: true
       <div>
         <span class="kicker">{{ format.label | escape }}</span>
         <h2 id="heading-{{ format.id }}">{{ inicio[format.heading].title | escape }}</h2>
-        <p>{{ format.description | escape }}</p>
+        <p>{{ inicio[format.heading].description | default: format.description | escape }}</p>
       </div>
       <a class="text-action section-archive" href="{{ '/acervo/' | relative_url }}?formato={{ format.id }}">Ver tudo em {{ format.label | downcase | escape }} <span aria-hidden="true">→</span></a>
     </div>
@@ -50,8 +51,11 @@ home: true
         {% if category.format == format.id %}
           {% assign shown = shown | plus: 1 %}
           {% assign show_video = false %}
-          {% assign publication_video_id = publication.youtube_id | default: '' | strip %}
+          {% capture publication_video_id %}{% include youtube-id.html value=publication.youtube_id %}{% endcapture %}
+          {% assign publication_video_id = publication_video_id | strip %}
+          {% assign publication_audio_url = publication.audio_url | default: publication.audio_link | default: '' | strip %}
           {% if category.video and publication_video_id != '' %}{% assign show_video = true %}{% endif %}
+          {% if category.video and publication_audio_url != '' %}{% assign show_video = true %}{% endif %}
           {% include publication-card.html publication=publication video=show_video %}
           {% if shown == 6 %}{% break %}{% endif %}
         {% endif %}

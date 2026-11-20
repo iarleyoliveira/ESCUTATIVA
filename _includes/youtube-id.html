@@ -1,0 +1,16 @@
+{%- assign youtube_value = include.value | default: '' | strip -%}
+{%- if youtube_value contains '://' -%}
+  {%- assign youtube_host = youtube_value | split: '://' | last | split: '/' | first | downcase -%}
+  {%- assign youtube_host = youtube_host | remove_first: 'www.' | remove_first: 'm.' -%}
+  {%- if youtube_host == 'youtu.be' -%}
+    {%- assign youtube_value = youtube_value | split: '://' | last | split: '/' | last -%}
+  {%- elsif youtube_host == 'youtube.com' or youtube_host == 'youtube-nocookie.com' -%}
+    {%- if youtube_value contains 'v=' -%}
+      {%- assign youtube_value = youtube_value | split: 'v=' | last -%}
+    {%- elsif youtube_value contains '/embed/' or youtube_value contains '/shorts/' or youtube_value contains '/live/' -%}
+      {%- assign youtube_value = youtube_value | split: '://' | last | split: '/' | last -%}
+    {%- else -%}{%- assign youtube_value = '' -%}{%- endif -%}
+  {%- else -%}{%- assign youtube_value = '' -%}{%- endif -%}
+{%- endif -%}
+{%- assign youtube_value = youtube_value | split: '&' | first | split: '?' | first | split: '#' | first -%}
+{%- if youtube_value.size == 11 -%}{{- youtube_value -}}{%- endif -%}

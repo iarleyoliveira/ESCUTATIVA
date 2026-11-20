@@ -1,6 +1,7 @@
 {% if include.publication.cover and include.publication.cover != "" %}
   <div class="video-poster{% if include.publication.cover_fit == 'contain' %} media-contained{% endif %}">
-    <img class="video-cover" src="{{ include.publication.cover | escape }}" alt="{{ include.publication.cover_alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %}>
+    {% capture poster_url %}{% include asset-url.html path=include.publication.cover %}{% endcapture %}
+    <img class="video-cover" src="{{ poster_url | strip | escape }}" alt="{{ include.publication.cover_alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %}>
     <span class="video-status">{{ site.data.inicio.video_pending | escape }}</span>
   </div>
 {% else %}

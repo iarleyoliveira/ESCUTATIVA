@@ -1,7 +1,11 @@
+{% capture player_video_id %}{% include youtube-id.html value=include.publication.youtube_id %}{% endcapture %}
+{% assign player_video_id = player_video_id | strip %}
+{% if player_video_id != '' %}
 <iframe
-  src="https://www.youtube-nocookie.com/embed/{{ include.publication.youtube_id | uri_escape | escape }}"
+  src="https://www.youtube-nocookie.com/embed/{{ player_video_id | uri_escape | escape }}"
   title="{{ include.publication.title | escape }}"
   loading="lazy"
   allowfullscreen
   allow="encrypted-media; picture-in-picture">
 </iframe>
+{% endif %}

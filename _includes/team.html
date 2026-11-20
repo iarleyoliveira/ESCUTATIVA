@@ -7,7 +7,7 @@
       <div class="team-grid">
         {% for member in site.data.equipe.members %}
           <article class="team-member"{% if member.name and member.name != '' %} id="autor-{{ member.name | slugify }}"{% endif %}>
-            {% if member.portrait and member.portrait != "" %}<img src="{{ member.portrait | remove_first: site.baseurl | relative_url | escape }}" alt="{% if member.name and member.name != "" %}Caricatura de {{ member.name | escape }}{% else %}Caricatura de integrante da equipe Escutativa{% endif %}" width="240" height="240" loading="lazy">{% endif %}
+            {% if member.portrait and member.portrait != "" %}{% capture portrait_url %}{% include asset-url.html path=member.portrait %}{% endcapture %}<img src="{{ portrait_url | strip | escape }}" alt="{% if member.name and member.name != "" %}Retrato de {{ member.name | escape }}{% else %}Retrato de integrante da equipe Escutativa{% endif %}" width="240" height="240" loading="lazy">{% endif %}
             {% if member.name and member.name != "" %}<h3>{{ member.name | escape }}</h3>{% endif %}
             {% if member.role and member.role != "" %}<p class="kicker">{{ member.role | escape }}</p>{% endif %}
             {% if member.name and member.name != '' %}

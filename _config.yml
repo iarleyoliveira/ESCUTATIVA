@@ -5,6 +5,7 @@ baseurl: "/ESCUTATIVA"
 editor_url: "https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/materias"
 lang: pt-BR
 timezone: America/Sao_Paulo
+future: true
 markdown: kramdown
 plugins:
   - jekyll-sitemap

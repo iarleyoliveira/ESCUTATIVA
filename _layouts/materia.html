@@ -5,8 +5,10 @@ layout: default
 {% assign category_name = page.category | default: "Reportagem" %}
 {% assign category = site.data.categorias | where: "name", category_name | first %}
 {% assign section_id = category.section | default: "materias" %}
-{% assign video_id = page.youtube_id | default: "" %}
-{% assign cover = page.cover | default: "" %}
+{% capture video_id %}{% include youtube-id.html value=page.youtube_id %}{% endcapture %}
+{% assign video_id = video_id | strip %}
+{% assign audio_url = page.audio_url | default: page.audio_link | default: '' | strip %}
+{% assign cover = page.cover | default: "" | strip %}
 <article class="wrap article">
   <a href="{{ '/' | relative_url }}#{{ section_id }}">← {{ inicio.back | escape }}</a>
   <p class="kicker">{{ inicio[section_id].nav | escape }}</p>
@@ -20,10 +22,11 @@ layout: default
   {% endif %}
   {% if cover != "" %}
     <figure class="article-cover">
-      {% if category.video and video_id == "" and page.audio_url == nil %}
+      {% if category.video and video_id == "" and audio_url == '' %}
         {% include video-pending.html publication=page %}
       {% else %}
-        <img src="{{ page.cover | escape }}" alt="{{ page.cover_alt | escape }}">
+        {% capture cover_url %}{% include asset-url.html path=page.cover %}{% endcapture %}
+        <img src="{{ cover_url | strip | escape }}" alt="{{ page.cover_alt | escape }}">
       {% endif %}
       {% if page.cover_caption or page.credit %}
         {% capture caption %}
@@ -35,12 +38,8 @@ layout: default
       {% endif %}
     </figure>
   {% endif %}
-  {% if page.audio_url and page.audio_url != '' %}
-    <audio class="podcast-player" controls preload="metadata" aria-label="Ouvir {{ page.title | escape }}">
-      {% assign audio_source = page.audio_url %}{% unless audio_source contains '://' %}{% assign audio_source = audio_source | remove_first: site.baseurl | relative_url %}{% endunless %}
-      <source src="{{ audio_source | escape }}">
-      Seu navegador não suporta áudio. <a href="{{ page.audio_url | escape }}">Baixar episódio</a>.
-    </audio>
+  {% if audio_url != '' %}
+    {% include audio.html publication=page %}
   {% elsif video_id != "" %}
     {% include video.html publication=page %}
   {% elsif category.video and cover == "" %}

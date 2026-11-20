@@ -3,11 +3,11 @@ Projeto multimídia de jornalismo em Jekyll e GitHub Pages.
 
 No [Pages CMS](https://app.pagescms.org), selecione `iarleyoliveira/ESCUTATIVA` e a branch `main`. A área da equipe fica em `/ESCUTATIVA/admin/`.
 
-- **Publicações** reúne reportagens, entrevistas, bastidores, minidocumentários e videocasts. Escolha a categoria para posicionar a publicação na página inicial. Informe título, resumo, data, autoria, texto, imagem de capa, descrição alternativa e créditos conforme o material. Em publicações com vídeo, cole somente o ID de 11 caracteres do YouTube.
-- **Página inicial e créditos** reúne os textos de abertura, títulos, menu, mensagens das seções, apresentação e créditos da equipe. A frase “Quando a notícia faz parte da história” fica no grupo **Minidocumentário**, no campo **Título**.
-- **Identidade** reúne nome, assinatura, textos do cabeçalho e descrição para buscadores. O campo de logotipo é opcional.
+- **Publicações** reúne reportagens, entrevistas, bastidores, minidocumentários e podcasts. Preencha título, categoria, resumo, autoria e data; acrescente o texto e a capa. Para podcast, envie o arquivo de áudio pelo formulário ou use o link direto de um áudio hospedado. Para vídeo, cole o link completo do YouTube ou o ID de 11 caracteres. Os caminhos das imagens enviadas pelo Pages são ajustados automaticamente no site.
+- **Página inicial e projeto** permite escolher a matéria da abertura, editar os títulos e as apresentações de Leia, Assista e Escute e atualizar o texto do projeto. Limpar a matéria em destaque seleciona automaticamente a publicação mais recente. A frase “Quando a notícia faz parte da história” fica no grupo **Minidocumentário**, no campo **Título**.
+- **Nome, logo e assinatura** reúne a identidade visível do site e a descrição para buscadores.
 
-Ative **Publicar no site** e salve quando o conteúdo estiver pronto. Aguarde a geração do GitHub Pages. Rascunhos ficam fora do site e do sitemap. Seus arquivos e histórico são públicos no GitHub.
+Ative **Publicar no site** e salve quando o conteúdo estiver pronto. A data é informativa: a opção **Publicar no site** controla a exibição, inclusive para datas futuras. Aguarde a geração do GitHub Pages, normalmente de 30 segundos a alguns minutos. Rascunhos ficam fora do site e do sitemap. Seus arquivos e histórico são públicos no GitHub. O guia e os atalhos da equipe ficam em `/ESCUTATIVA/admin/`.
 
 Ao atualizar uma publicação existente, edite o mesmo registro para preservar seu endereço. Alterar a categoria muda a seção, e alterar o título muda o texto exibido.
 
@@ -15,13 +15,13 @@ Ao atualizar uma publicação existente, edite o mesmo registro para preservar s
 
 O item **Casos** do menu abre uma seção única na página inicial, com **Caso Hillary**, **Caso canadense Cal** e **Caso Felipe**, nessa ordem. Os três blocos permanecem visíveis enquanto não houver reportagens cadastradas.
 
-No Pages CMS, abra **Casos** para adicionar ou editar um caso. Preencha **Nome do caso**, um **Identificador do caso** único e a **Apresentação do caso**. Em **Fotos**, adicione imagens, descrições e créditos. Em **Reportagens do caso**, cadastre título, veículo, resumo, formato e link da matéria original. Ative **Publicar no site** no caso e nas reportagens desejadas e salve. Arraste os casos para alterar a ordem. Depois de publicar, preserve o identificador para manter os links existentes. Os títulos das reportagens abrem as fontes originais em nova aba.
+No Pages CMS, abra **Casos** para adicionar ou editar um caso. Preencha **Nome do caso** e **Sobre este caso**. Em **Fotos**, adicione imagens, descrições e créditos. Em **Reportagens do caso**, cadastre título, veículo, resumo, formato e link da matéria original. Ative **Publicar no site** no caso e nas reportagens desejadas e salve. Arraste os casos para alterar a ordem. Os identificadores dos casos existentes são preservados; casos novos recebem um link a partir do nome. Os títulos das reportagens abrem as fontes originais em nova aba.
 
 Todos os dados, fotos e reportagens dos casos ficam em `_data/casos.yml`.
 
 ## Navegação, equipe e comentários
 
-O menu reúne textos em **Leia**, minidocumentários em **Assista** e videocasts em **Escute**. O acervo permite buscar por título, resumo e autoria, com filtros compartilháveis pela URL. Escute mantém o player do videocast; não há uma faixa de áudio separada cadastrada. O Login abre a área da equipe e a autenticação continua no Pages CMS.
+O menu reúne textos em **Leia**, minidocumentários em **Assista** e podcasts em **Escute**. O acervo permite buscar por título, resumo e autoria, com filtros compartilháveis pela URL. O áudio pode ser enviado pelo Pages ou informado por link direto; o player aparece na publicação e na página inicial. O Login abre o Pages CMS. A área `/admin/` reúne atalhos e instruções de publicação.
 
 Em _data/equipe.yml, preencha members com name, role, bio, portrait (caminho local como /assets/uploads/nome.png) e url (opcional). Preencha socials com name e url e os e-mails contact e advertising para exibir redes e contatos no rodapé. Não são exibidos links sem destino.
 
