@@ -1,0 +1,12 @@
+{% if site.data.equipe.contact and site.data.equipe.contact != '' %}
+<section class="wrap section contact-section" id="contato" aria-labelledby="contact-title">
+  <span class="kicker">Fale conosco</span>
+  <h2 id="contact-title">Vamos conversar?</h2>
+  <p>Envie sua mensagem para a equipe do Escutativa.</p>
+  <p class="contact-email"><a href="mailto:{{ site.data.equipe.contact | escape }}">{{ site.data.equipe.contact | escape }}</a></p>
+  <div class="contact-actions">
+    <a class="button" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ site.data.equipe.contact | uri_escape }}" target="_blank" rel="noopener noreferrer">Escrever pelo Gmail ↗</a>
+    <a class="text-action" href="mailto:{{ site.data.equipe.contact | escape }}">Abrir aplicativo de e-mail →</a>
+  </div>
+</section>
+{% endif %}

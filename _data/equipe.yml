@@ -19,8 +19,10 @@ members:
   - name: "Breno Sant’Anna"
     role: ""
     bio: "Saiu de Iguape para morar em Santos e seguir seu caminho no Jornalismo. Prefere ouvir do que falar. É quieto por fora, mas inquieto por dentro. Acredita na escrita como forma de manter memórias vivas."
-    portrait: "/assets/uploads/equipe/breno-santanna.jpeg"
+    portrait: "/assets/uploads/equipe/breno-fundo-branco.png"
     url: ""
-socials: []
+socials:
+  - name: Facebook
+    url: "https://www.facebook.com/profile.php?id=61596955162786"
 contact: "escutativanews@gmail.com"
 advertising: ""

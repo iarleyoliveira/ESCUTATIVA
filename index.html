@@ -8,14 +8,8 @@ home: true
 {% assign feature_path = inicio.destaque.publication %}
 {% assign feature = publications | where: 'path', feature_path | first %}
 {% unless feature %}{% assign feature = publications | first %}{% endunless %}
-<section class="wrap hero home-hero">
-  <div>
-    <span class="kicker">{{ hero.kicker | escape }}</span>
-    <h1>{{ hero.title | escape }}<br><em>{{ hero.accent | escape }}</em></h1>
-    <p>{{ hero.description | escape }}</p>
-    <a class="button" href="#leia">{{ hero.button | escape }}</a>
-  </div>
-  {% if feature %}
+{% if feature %}
+<section class="wrap hero home-hero home-news">
     <article class="hero-feature">
       {% assign feature_cover = inicio.destaque.cover | default: feature.cover %}
       {% if feature_cover and feature_cover != "" %}
@@ -31,13 +25,8 @@ home: true
         <p>{{ inicio.destaque.description | default: feature.description | escape }}</p>
       </div>
     </article>
-  {% else %}
-  <aside class="quote">
-    <b aria-hidden="true">“</b>
-    <p>{{ hero.quote | escape | newline_to_br }}</p>
-  </aside>
-  {% endif %}
 </section>
+{% endif %}
 
 {% for format in site.data.formatos %}
   {% if format.dark %}<div class="dark">{% endif %}

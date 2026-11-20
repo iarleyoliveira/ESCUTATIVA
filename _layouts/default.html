@@ -37,7 +37,7 @@
   <header class="wrap">
     <div class="topline">
       <a class="search-link" href="{{ '/acervo/' | relative_url }}#busca" aria-label="Pesquisar publicações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Pesquisar</span></a>
-      <a class="login-link" href="{{ '/admin/' | relative_url }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg> Login <span class="login-detail">da equipe</span></a>
+      <a class="login-link" href="{{ site.editor_url | escape }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg> Login <span class="login-detail">da equipe</span></a>
     </div>
     <a class="brand{% if custom_logo != '' %} brand-logo{% endif %}" href="{{ '/' | relative_url }}">{% if custom_logo != '' %}<img src="{{ logo | escape }}" alt="{{ identity.name | escape }}" width="4096" height="529">{% else %}<img src="{{ logo | escape }}" alt="" width="65" height="65">{{ identity.name | escape }}{% endif %}</a>
     <p class="signature">{{ identity.signature | escape }}</p>
@@ -62,20 +62,21 @@
   <main id="conteudo">{{ content }}</main>
   {% unless page.team_access %}
   {% include team.html %}
+  {% include contact.html %}
   <footer>
     <div class="wrap">
       <a class="footer-brand" href="{{ '/' | relative_url }}">{{ identity.name | escape }}</a>
       <p class="footer-signature">{{ identity.signature | escape }}</p>
       <div class="footer-bottom">
         <div class="footer-socials" aria-label="Redes sociais">
-          {% for social in site.data.equipe.socials %}<a href="{{ social.url | escape }}" rel="me">{{ social.name | escape }} ↗</a>{% endfor %}
+          {% for social in site.data.equipe.socials %}<a href="{{ social.url | escape }}" rel="me">{% include social-icon.html name=social.name %}<span>{{ social.name | escape }}</span> ↗</a>{% endfor %}
         </div>
         <nav class="footer-nav" aria-label="Rodapé">
           <a href="#quem-faz">Quem faz</a>
           {% include format-links.html %}
           <a href="{{ '/acervo/' | relative_url }}">Acervo</a>
           <a href="{{ '/' | relative_url }}#projeto">O projeto</a>
-          {% if site.data.equipe.contact and site.data.equipe.contact != "" %}<a href="mailto:{{ site.data.equipe.contact | escape }}">Fale conosco</a>{% endif %}
+          {% if site.data.equipe.contact and site.data.equipe.contact != "" %}<a href="{{ '/' | relative_url }}#contato">Fale conosco</a>{% endif %}
           {% if site.data.equipe.advertising and site.data.equipe.advertising != "" %}<a href="mailto:{{ site.data.equipe.advertising | escape }}">Anuncie aqui</a>{% endif %}
         </nav>
       </div>

@@ -45,7 +45,7 @@ jobs:
             title: Vídeo com capa de teste
             description: Sinopse de teste
             date: 2020-01-01
-            category: Videocast
+            category: Podcast
             cover: /ESCUTATIVA/assets/icon.svg
             cover_alt: Ícone do projeto
             published: true
@@ -127,7 +127,7 @@ jobs:
                   expect(cases_link).to_have_attribute('href', '/ESCUTATIVA/#casos')
                   cases_link.click()
                   expect(page.locator('#casos')).to_be_visible()
-                  expect(page.locator('#casos h3')).to_have_text(['Caso Hillary', 'Caso canadense Cal', 'Caso Felipe'])
+                  expect(page.locator('#casos h3')).to_have_text(['Caso Hillary Souza Valadares', 'Caso Karl Andre Van Roon', 'Caso Felipe Rodrigues da Silva Ribeiro'])
                   expect(page.locator('#casos h4')).to_have_text(['Matérias completas'] * 3)
                   for index, case_id in enumerate(['caso-hillary', 'caso-canadense-cal']):
                       block = page.locator(f'article[aria-labelledby="{case_id}"]')
@@ -145,6 +145,10 @@ jobs:
                   assert min(page.locator('nav a').evaluate_all('(links) => links.map(link => link.offsetHeight)')) >= 44
                   expect(page.locator('#assista').get_by_role('link', name='Quando a escuta abre caminhos', exact=False)).to_be_visible()
                   expect(page.locator('.hero-feature h2')).to_have_text('Black Charme Ice')
+                  expect(page.locator('.home-hero')).not_to_contain_text('Nossa pauta são as pessoas')
+                  expect(page.locator('#contato a').first).to_have_attribute('href', 'mailto:escutativanews@gmail.com')
+                  expect(page.locator('.login-link')).to_have_attribute('href', 'https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/materias')
+                  expect(page.locator('.footer-socials').get_by_role('link', name='Facebook', exact=False)).to_have_attribute('href', 'https://www.facebook.com/profile.php?id=61596955162786')
                   archive = page.locator('#leia a.section-archive')
                   expect(archive).to_have_attribute('href', '/ESCUTATIVA/acervo/?formato=leia')
                   archive.click()
@@ -212,7 +216,8 @@ jobs:
                   assert len(related_links) == len(set(related_links))
                   assert related_links[0] == '/ESCUTATIVA/materias/validacao-0/'
                   page.goto(root + 'materias/conversas-que-aproximam/')
-                  expect(page.locator('.pending-cover .media-cover')).to_be_visible()
+                  expect(page.locator('.video-poster img')).to_be_visible()
+                  expect(page.locator('.article .intro')).to_contain_text('O que acontece antes de uma notícia chegar ao público?')
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
               page.emulate_media(reduced_motion='reduce')
               page.goto(root)

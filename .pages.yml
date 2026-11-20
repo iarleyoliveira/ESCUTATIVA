@@ -19,7 +19,7 @@ content:
             type: select
             required: true
             options:
-              values: [Caso Hillary, Caso canadense Cal, Caso Felipe]
+              values: [Caso Hillary Souza Valadares, Caso Karl Andre Van Roon, Caso Felipe Rodrigues da Silva Ribeiro]
           - name: formato
             label: Formato
             type: select
@@ -107,7 +107,7 @@ content:
         type: select
         required: true
         options:
-          values: [Reportagem, Entrevista, Bastidores, Minidocumentário, Videocast]
+          values: [Reportagem, Entrevista, Bastidores, Minidocumentário, Podcast]
       - name: cover
         label: Imagem de capa
         type: image
@@ -134,6 +134,10 @@ content:
       - name: credits
         label: Créditos da publicação
         type: text
+      - name: audio_url
+        label: Arquivo de áudio do podcast
+        type: string
+        description: "Endereço completo do MP3 ou caminho do áudio enviado para a biblioteca."
       - name: youtube_id
         label: ID do vídeo no YouTube
         type: string
@@ -274,7 +278,7 @@ content:
             label: "Mensagem sem publicações"
             type: text
       - name: videocast
-        label: "Videocast"
+        label: "Podcast"
         type: object
         fields:
           - name: action
