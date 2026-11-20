@@ -172,6 +172,7 @@ header nav{gap:clamp(24px,10vw,100px);font:22px Georgia,serif}
 .comments{margin-top:45px;border-top:3px solid var(--ink);padding-top:24px}
 .comments h2{font-size:32px}
 .comments>p{font:15px/1.6 Arial,sans-serif;color:#4e6169}
+.comments .giscus, .comments .giscus-frame { width: 100%; max-width: 100%; min-width: 0 !important; }
 @media(max-width:700px){.search-link span,.login-detail{display:none}header nav{font-size:20px;gap:28px}.footer-bottom{flex-direction:column}.footer-nav{gap:4px 16px}.team-section .section h2{font-size:32px}}
 
 /* Página inicial por formato */
