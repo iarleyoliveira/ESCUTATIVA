@@ -13,9 +13,9 @@ materias:
   action: Ler reportagem
   nav: Reportagens
   title: Histórias para ler de perto.
+  description: Reportagens, entrevistas e bastidores.
   empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e
     as entrevistas do projeto.
-  description: Reportagens, entrevistas e bastidores.
 entrevistas:
   action: Ler entrevista
   nav: Entrevistas
@@ -30,18 +30,18 @@ documentario:
   action: Assistir ao minidocumentário
   nav: Minidocumentário
   title: Quando a notícia faz parte da história.
-  empty: O minidocumentário está em preparação.
   description: Histórias em minidocumentários.
+  empty: O minidocumentário está em preparação.
 videocast:
   action: Ouvir o podcast
   nav: Podcast
   title: Conversas que aproximam
-  empty: O podcast está em preparação.
   description: Por trás de cada notícia, existem decisões, responsabilidades e histórias
+  empty: O podcast está em preparação.
 projeto:
   nav: O projeto
   kicker: Sobre o projeto
-  title: O jornalismo como ferramenta social e voz da população.
+  title: O Jornalismo como ferramenta social e voz da população.
   presentation: >-
     Escutativa é um trabalho de conclusão de curso que investiga a contribuição
     do Jornalismo para a defesa dos direitos da população, a partir de histórias
@@ -60,10 +60,6 @@ continue: Continuar explorando
 destaque:
   publication: _materias/2026-11-12-black-charme-ice.md
   kicker: Em destaque
-  title: ""
-  description: ""
-  cover: ""
-  cover_alt: ""
 acervo:
   nav: Acervo
   title: Acervo de publicações
