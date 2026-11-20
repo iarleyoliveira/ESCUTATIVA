@@ -1,54 +1,44 @@
 - name: Caso Hillary Souza Valadares
   id: caso-hillary
-  descricao: ""
-  fotos: []
-  reportagens: []
   published: true
 - name: Caso Karl Andre Van Roon
   id: caso-canadense-cal
-  descricao: ""
   fotos:
     - imagem: /assets/uploads/casos/karl-andre-van-roon.png
       descricao: Karl Andre Van Roon de gorro, junto à água.
-      credito: ""
     - imagem: /assets/uploads/casos/karl-andre-van-roon-2.png
       descricao: Karl Andre Van Roon sentado, com um prato de comida.
-      credito: ""
     - imagem: /assets/uploads/casos/karl-andre-van-roon-3.png
       descricao: Karl Andre Van Roon ao ar livre, em uma área arborizada.
-      credito: ""
   reportagens:
     - formato: Texto
       title: Homem pede ajuda para encontrar familiares de morador em situação de rua
         em Santos
+      veiculo: "A Tribuna "
       resumo: Publicada em junho de 2024, a reportagem mostra Karl vivendo em situação
         de rua em Santos, ainda sem identificação. A matéria foi encontrada
         posteriormente pela família e permitiu reconhecê-lo.
-      veiculo: A Tribuna Online
       link: https://www.atribuna.com.br/cidades/santos/homem-pede-ajuda-para-encontrar-familiares-de-morador-em-situac-o-de-rua-em-santos-1.422289
       published: true
     - formato: Texto
       title: Casal do Canadá descobre morte de filho em Santos, no litoral de São
         Paulo, após anos de busca; entenda
+      veiculo: "A Tribuna "
       resumo: A reportagem conta como a família encontrou Karl após anos de buscas e
         descobriu que ele havia morrido em Santos em 2024, pouco depois da
         publicação da primeira matéria.
-      veiculo: A Tribuna Online
       link: https://www.atribuna.com.br/cidades/santos/casal-do-canada-descobre-morte-de-filho-em-santos-no-litoral-de-s-o-paulo-apos-anos-de-busca-entenda-1.505718
       published: true
     - formato: Texto
       title: Canadense encontrado morto em Santos pela família tentava ir a Jerusalém
         pelo Porto sem dinheiro e sem documentos
+      veiculo: "A Tribuna "
       resumo: A reportagem apresenta os desdobramentos sobre o período em que Karl
         esteve em Santos, incluindo a tentativa de viajar a Jerusalém pelo
         porto, sem dinheiro e sem documentos.
-      veiculo: A Tribuna Online
       link: https://www.atribuna.com.br/cidades/santos/canadense-encontrado-morto-em-santos-pela-familia-tentava-ir-a-jerusalem-pelo-porto-sem-dinheiro-e-sem-documentos-1.506705
       published: true
   published: true
 - name: Caso Felipe Rodrigues da Silva Ribeiro
   id: caso-felipe
-  descricao: ""
-  fotos: []
-  reportagens: []
   published: true
