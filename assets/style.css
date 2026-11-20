@@ -523,9 +523,9 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .case-gallery a { display: block; }
 .case-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; background: var(--paper); }
 .case-gallery figcaption { margin-top: 8px; color: #4e6169; font-size: 12px; overflow-wrap: anywhere; }
-.case-gallery.is-carousel { max-width: 900px; margin-inline: auto; }
-.case-gallery.is-carousel .case-slides { display: block; touch-action: pan-y pinch-zoom; }
-.case-gallery.is-carousel img { height: clamp(280px, 45vw, 500px); aspect-ratio: auto; }
+.case-gallery.is-carousel { margin-inline: auto; }
+.case-gallery.is-carousel .case-slides { display: grid; grid-template-columns: repeat(var(--case-visible, 3), minmax(0, 1fr)); touch-action: pan-y pinch-zoom; }
+.case-gallery.is-carousel img { height: auto; aspect-ratio: 3 / 4; }
 .case-carousel-controls { margin-top: 16px; }
 .case-carousel-toolbar, .case-photo-dots { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
 .case-carousel-toolbar button { min-width: 44px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: #faf8f2; color: var(--ink); font: 15px Arial, sans-serif; cursor: pointer; }

@@ -143,7 +143,7 @@ jobs:
             { 'name' => 'Caso Felipe Rodrigues da Silva Ribeiro', 'id' => 'caso-felipe', 'published' => true }
           ]
           cases[0]['fotos'] = [{ 'imagem' => '/assets/icon.svg', 'descricao' => 'Foto única do caso' }]
-          cases[1]['fotos'] = (1..3).map { |index| { 'imagem' => '/assets/icon.svg', 'descricao' => "Foto de teste #{index}" } }
+          cases[1]['fotos'] = (1..5).map { |index| { 'imagem' => '/assets/icon.svg', 'descricao' => "Foto de teste #{index}" } }
           cases.each_with_index do |entry, index|
             entry['reportagens'] = if index < 2
               [{ 'formato' => ['Texto', 'Vídeo'][index], 'title' => "Matéria original #{index}",
@@ -225,24 +225,32 @@ jobs:
                   expect(page.locator('#casos h3')).to_have_text(['Caso Hillary Souza Valadares', 'Caso Karl Andre Van Roon', 'Caso Felipe Rodrigues da Silva Ribeiro'])
                   expect(page.locator('#casos h4')).to_have_text(['Matérias completas'] * 3)
                   gallery = page.locator('[aria-labelledby="caso-canadense-cal"] [data-case-carousel]')
+                  visible_photos = 3 if width >= 900 else 2 if width >= 600 else 1
+                  def photo_counter(start):
+                      positions = [(start + offset) % 5 + 1 for offset in range(visible_photos)]
+                      return f'Foto {positions[0]} de 5' if visible_photos == 1 else 'Fotos ' + ', '.join(map(str, positions)) + ' de 5'
                   gallery.get_by_role('button', name='Ir para a foto 1', exact=True).click()
-                  expect(gallery.locator('.case-slides > figure:visible')).to_have_count(1)
-                  expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 1 de 3')
+                  expect(gallery.locator('.case-slides > figure:visible')).to_have_count(visible_photos)
+                  expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(0))
+                  if width >= 900:
+                      boxes = gallery.locator('.case-slides > figure:visible').evaluate_all('(items) => items.map(item => ({x:item.getBoundingClientRect().x, y:item.getBoundingClientRect().y}))')
+                      assert max(item['y'] for item in boxes) - min(item['y'] for item in boxes) < 2
+                      assert boxes[0]['x'] < boxes[1]['x'] < boxes[2]['x']
                   gallery.get_by_role('button', name='Próxima foto', exact=True).click()
-                  expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 2 de 3')
+                  expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(1))
                   gallery.get_by_role('button', name='Foto anterior', exact=True).click()
-                  expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 1 de 3')
+                  expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(0))
                   gallery.get_by_role('button', name='Foto anterior', exact=True).click()
-                  expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 3 de 3')
+                  expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(4))
                   gallery.get_by_role('button', name='Ir para a foto 2', exact=True).click()
                   gallery.get_by_role('button', name='Ir para a foto 2', exact=True).press('ArrowRight')
-                  expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 3 de 3')
+                  expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(2))
                   expect(page.locator('[aria-labelledby="caso-hillary"] .case-carousel-controls')).to_be_hidden()
                   if width == 1280:
                       gallery.get_by_role('button', name='Ir para a foto 1', exact=True).click()
                       gallery.get_by_role('button', name='Reproduzir fotos automaticamente', exact=True).click()
                       page.mouse.move(0, 0)
-                      expect(gallery.locator('.case-photo-counter')).to_have_text('Foto 2 de 3', timeout=10000)
+                      expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(1), timeout=10000)
                       gallery.get_by_role('button', name='Pausar passagem automática', exact=True).click()
                       expect(gallery.get_by_role('button', name='Reproduzir fotos automaticamente', exact=True)).to_be_visible()
                   for index, case_id in enumerate(['caso-hillary', 'caso-canadense-cal']):
@@ -369,6 +377,6 @@ jobs:
               expect(reduced_gallery.get_by_role('button', name='Reproduzir fotos automaticamente', exact=True)).to_be_visible()
               no_script = browser.new_page(java_script_enabled=False)
               no_script.goto(root)
-              expect(no_script.locator('[aria-labelledby="caso-canadense-cal"] .case-slides > figure:visible')).to_have_count(3)
+              expect(no_script.locator('[aria-labelledby="caso-canadense-cal"] .case-slides > figure:visible')).to_have_count(5)
               expect(no_script.locator('[aria-labelledby="caso-canadense-cal"] .case-carousel-controls')).to_be_hidden()
           PY

@@ -7,6 +7,10 @@
     const counter = gallery.querySelector('.case-photo-counter');
     const playback = gallery.querySelector('.case-playback');
     const dots = gallery.querySelector('.case-photo-dots');
+    const track = gallery.querySelector('.case-slides');
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const tablet = window.matchMedia('(min-width: 600px)');
+    let visibleCount = Math.min(slides.length, desktop.matches ? 3 : tablet.matches ? 2 : 1);
     let index = 0;
     let playing = !motion.matches;
     let hovered = false;
@@ -29,7 +33,7 @@
 
     function schedule() {
       window.clearTimeout(timer);
-      if (playing && visible && !hovered && !document.hidden) {
+      if (playing && slides.length > visibleCount && visible && !hovered && !document.hidden) {
         timer = window.setTimeout(() => show(index + 1), 6000);
       }
     }
@@ -44,20 +48,47 @@
     function show(next, manual = false) {
       index = (next + slides.length) % slides.length;
       if (manual) playing = false;
+      const focused = document.activeElement;
+      const focusWasInTrack = track.contains(focused);
       slides.forEach((slide, position) => {
-        slide.hidden = position !== index;
         indicators[position].setAttribute('aria-current', String(position === index));
       });
+      const visiblePositions = [];
+      for (let offset = 0; offset < slides.length; offset += 1) {
+        const position = (index + offset) % slides.length;
+        const slide = slides[position];
+        slide.hidden = offset >= visibleCount;
+        track.append(slide);
+        if (offset < visibleCount) {
+          visiblePositions.push(position + 1);
+          const image = slide.querySelector('img');
+          if (image) image.loading = 'eager';
+        }
+      }
+      gallery.style.setProperty('--case-visible', String(visibleCount));
+      gallery.dataset.visiblePhotos = String(visibleCount);
       gallery.dataset.photoIndex = String(index);
       updatePlayback();
-      counter.textContent = `Foto ${index + 1} de ${slides.length}`;
-      const image = slides[index].querySelector('img');
-      if (image) image.loading = 'eager';
+      counter.textContent = visibleCount === 1
+        ? `Foto ${index + 1} de ${slides.length}`
+        : `Fotos ${visiblePositions.join(', ')} de ${slides.length}`;
+      controls.hidden = slides.length <= visibleCount;
+      if (focusWasInTrack) {
+        const target = focused.closest('figure')?.hidden ? slides[index].querySelector('a') : focused;
+        target?.focus({ preventScroll: true });
+      }
+    }
+
+    function resize() {
+      visibleCount = Math.min(slides.length, desktop.matches ? 3 : tablet.matches ? 2 : 1);
+      show(index);
     }
 
     gallery.classList.add('is-carousel');
     gallery.setAttribute('aria-roledescription', 'carrossel');
     controls.hidden = false;
+    desktop.addEventListener('change', resize);
+    tablet.addEventListener('change', resize);
     gallery.querySelector('.case-previous').addEventListener('click', () => show(index - 1, true));
     gallery.querySelector('.case-next').addEventListener('click', () => show(index + 1, true));
     playback.addEventListener('click', () => {
