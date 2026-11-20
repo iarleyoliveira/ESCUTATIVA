@@ -229,7 +229,7 @@ jobs:
                   def photo_counter(start):
                       positions = [(start + offset) % 5 + 1 for offset in range(visible_photos)]
                       return f'Foto {positions[0]} de 5' if visible_photos == 1 else 'Fotos ' + ', '.join(map(str, positions)) + ' de 5'
-                  gallery.get_by_role('button', name='Ir para a foto 1', exact=True).click()
+                  gallery.locator('.case-next').press('Home')
                   expect(gallery.locator('.case-slides > figure:visible')).to_have_count(visible_photos)
                   expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(0))
                   if width >= 900:
@@ -242,12 +242,13 @@ jobs:
                   expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(0))
                   gallery.get_by_role('button', name='Foto anterior', exact=True).click()
                   expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(4))
-                  gallery.get_by_role('button', name='Ir para a foto 2', exact=True).click()
-                  gallery.get_by_role('button', name='Ir para a foto 2', exact=True).press('ArrowRight')
+                  gallery.locator('.case-next').press('Home')
+                  gallery.locator('.case-next').click()
+                  gallery.locator('.case-next').press('ArrowRight')
                   expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(2))
                   expect(page.locator('[aria-labelledby="caso-hillary"] .case-carousel-controls')).to_be_hidden()
                   if width == 1280:
-                      gallery.get_by_role('button', name='Ir para a foto 1', exact=True).click()
+                      gallery.locator('.case-next').press('Home')
                       gallery.get_by_role('button', name='Reproduzir fotos automaticamente', exact=True).click()
                       page.mouse.move(0, 0)
                       expect(gallery.locator('.case-photo-counter')).to_have_text(photo_counter(1), timeout=10000)

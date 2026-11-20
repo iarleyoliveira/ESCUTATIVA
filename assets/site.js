@@ -66,7 +66,7 @@ function observeSections() {
   }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
 
   // Reveal each block as a unit. Keep the initial viewport and visited content stable.
-  document.querySelectorAll('.format-heading, .format-section > .cards, .format-section > .video-list, .about, .team-grid, .related-publications > .cards')
+  document.querySelectorAll('.case-block, .format-heading, .format-section > .cards, .format-section > .video-list, .about, .team-grid, .related-publications > .cards')
     .forEach((element) => {
       if (element.getBoundingClientRect().top < window.innerHeight) {
         revealedElements.add(element);

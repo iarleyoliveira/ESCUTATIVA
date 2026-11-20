@@ -6,7 +6,6 @@
     const controls = gallery.querySelector('.case-carousel-controls');
     const counter = gallery.querySelector('.case-photo-counter');
     const playback = gallery.querySelector('.case-playback');
-    const dots = gallery.querySelector('.case-photo-dots');
     const track = gallery.querySelector('.case-slides');
     const desktop = window.matchMedia('(min-width: 900px)');
     const tablet = window.matchMedia('(min-width: 600px)');
@@ -19,16 +18,10 @@
     let touch;
     let lastSwipe = 0;
 
-    const indicators = slides.map((slide, position) => {
+    slides.forEach((slide, position) => {
       slide.setAttribute('role', 'group');
       slide.setAttribute('aria-roledescription', 'slide');
       slide.setAttribute('aria-label', `${position + 1} de ${slides.length}`);
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.setAttribute('aria-label', `Ir para a foto ${position + 1}`);
-      button.addEventListener('click', () => show(position, true));
-      dots.append(button);
-      return button;
     });
 
     function schedule() {
@@ -39,20 +32,18 @@
     }
 
     function updatePlayback() {
-      playback.textContent = playing ? 'Pausar' : 'Reproduzir';
+      playback.textContent = playing ? '\u23f8' : '\u25b6';
       playback.setAttribute('aria-label', playing ? 'Pausar passagem automática' : 'Reproduzir fotos automaticamente');
       counter.setAttribute('aria-live', playing ? 'off' : 'polite');
       schedule();
     }
 
     function show(next, manual = false) {
+      const direction = Math.sign(next - index);
       index = (next + slides.length) % slides.length;
       if (manual) playing = false;
       const focused = document.activeElement;
       const focusWasInTrack = track.contains(focused);
-      slides.forEach((slide, position) => {
-        indicators[position].setAttribute('aria-current', String(position === index));
-      });
       const visiblePositions = [];
       for (let offset = 0; offset < slides.length; offset += 1) {
         const position = (index + offset) % slides.length;
@@ -60,6 +51,13 @@
         slide.hidden = offset >= visibleCount;
         track.append(slide);
         if (offset < visibleCount) {
+          if (direction && !motion.matches && slide.animate) {
+            slide.getAnimations().forEach(animation => animation.cancel());
+            slide.animate([
+              { opacity: 0.78, transform: 'translateX(' + direction * 12 + 'px)' },
+              { opacity: 1, transform: 'translateX(0)' }
+            ], { duration: 320, easing: 'ease-out' });
+          }
           visiblePositions.push(position + 1);
           const image = slide.querySelector('img');
           if (image) image.loading = 'eager';
@@ -104,6 +102,10 @@
     });
     gallery.addEventListener('keydown', (event) => {
       if (event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.key === 'Home') {
+        event.preventDefault();
+        show(0, true);
+      }
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
         event.preventDefault();
         show(index + (event.key === 'ArrowRight' ? 1 : -1), true);
