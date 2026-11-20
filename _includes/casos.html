@@ -2,7 +2,10 @@
   <span class="kicker">As histórias na imprensa</span>
   <h2 id="heading-casos">Casos</h2>
   <div class="cases-list">
-    {% for case in site.data.casos %}
+    {% assign cases = '' | split: '' %}
+    {% for record in site.data.casos %}{% assign cases = cases | push: record[1] %}{% endfor %}
+    {% assign cases = cases | sort: 'ordem', 'last' %}
+    {% for case in cases %}
       {% unless case.published == false %}
       {% assign case_id = case.id | default: case.name | slugify %}
       <article class="case-block" aria-labelledby="{{ case_id }}">

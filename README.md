@@ -19,7 +19,7 @@ O item **Casos** do menu abre uma seção única na página inicial, com **Caso 
 
 No Pages CMS, abra **Casos** para adicionar ou editar um caso. Preencha **Nome do caso** e **Sobre este caso**. Em **Fotos**, adicione imagens, descrições e créditos. Em **Reportagens do caso**, cadastre título, veículo, resumo, formato e link da matéria original. Ative **Publicar no site** no caso e nas reportagens desejadas e salve. Arraste os casos para alterar a ordem. Os identificadores dos casos existentes são preservados; casos novos recebem um link a partir do nome. Os títulos das reportagens abrem as fontes originais em nova aba.
 
-Todos os dados, fotos e reportagens dos casos ficam em `_data/casos.yml`.
+Todos os dados, fotos e reportagens dos casos ficam em arquivos individuais na pasta `_data/casos/`.
 
 ## Navegação, equipe e comentários
 

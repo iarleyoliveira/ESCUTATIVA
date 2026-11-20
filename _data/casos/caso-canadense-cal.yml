@@ -1,0 +1,54 @@
+name: Caso Karl Andre Van Roon
+id: caso-canadense-cal
+fotos:
+  - imagem: /assets/uploads/casos/karl-andre-van-roon.png
+    descricao: Karl Andre Van Roon de gorro, junto à água.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-2.png
+    descricao: Karl Andre Van Roon sentado, com um prato de comida.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-3.png
+    descricao: Karl Andre Van Roon ao ar livre, em uma área arborizada.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-4.jpg
+    descricao: Karl mais jovem, sentado junto à água em uma cadeira de praia.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-5.jpg
+    descricao: Karl em uma fotografia de grupo ao ar livre.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-6.jpg
+    descricao: Karl na infância, com o rosto apoiado nos braços.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-7.jpg
+    descricao: Karl na infância, com a mão junto ao rosto.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-8.jpg
+    descricao: Karl pequeno, usando um boné rosa e branco.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-9.jpg
+    descricao: Karl escrevendo ao ar livre, em uma fotografia em preto e branco.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-10.jpg
+    descricao: Karl junto à entrada de uma construção de pedra e madeira.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-11.jpg
+    descricao: Karl de gorro, com neve no rosto e na barba.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-12.jpg
+    descricao: Karl mais jovem, entre grandes pedras.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-13.jpg
+    descricao: Karl mais jovem, em uma paisagem com neve.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-14.jpg
+    descricao: Karl na infância, usando paletó e chapéu.
+  - imagem: /assets/uploads/casos/karl-andre-van-roon-15.jpg
+    descricao: Karl diante de um lago e de montanhas.
+reportagens:
+  - formato: Texto
+    title: Homem pede ajuda para encontrar familiares de morador em situação de rua em Santos
+    veiculo: "A Tribuna "
+    resumo: Publicada em junho de 2024, a reportagem mostra Karl vivendo em situação de rua em Santos, ainda sem identificação. A matéria foi encontrada posteriormente pela família e permitiu reconhecê-lo.
+    link: https://www.atribuna.com.br/cidades/santos/homem-pede-ajuda-para-encontrar-familiares-de-morador-em-situac-o-de-rua-em-santos-1.422289
+    published: true
+  - formato: Texto
+    title: Casal do Canadá descobre morte de filho em Santos, no litoral de São Paulo, após anos de busca; entenda
+    veiculo: "A Tribuna "
+    resumo: A reportagem conta como a família encontrou Karl após anos de buscas e descobriu que ele havia morrido em Santos em 2024, pouco depois da publicação da primeira matéria.
+    link: https://www.atribuna.com.br/cidades/santos/casal-do-canada-descobre-morte-de-filho-em-santos-no-litoral-de-s-o-paulo-apos-anos-de-busca-entenda-1.505718
+    published: true
+  - formato: Texto
+    title: Canadense encontrado morto em Santos pela família tentava ir a Jerusalém pelo Porto sem dinheiro e sem documentos
+    veiculo: "A Tribuna "
+    resumo: A reportagem apresenta os desdobramentos sobre o período em que Karl esteve em Santos, incluindo a tentativa de viajar a Jerusalém pelo porto, sem dinheiro e sem documentos.
+    link: https://www.atribuna.com.br/cidades/santos/canadense-encontrado-morto-em-santos-pela-familia-tentava-ir-a-jerusalem-pelo-porto-sem-dinheiro-e-sem-documentos-1.506705
+    published: true
+published: true
+ordem: 2

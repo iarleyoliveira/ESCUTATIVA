@@ -10,9 +10,13 @@ actions:
 content:
   - name: casos
     label: Casos
-    type: file
-    path: _data/casos.yml
-    list: true
+    type: collection
+    path: _data/casos
+    format: yaml
+    filename: "{primary}.yml"
+    view:
+      primary: name
+      fields: [name, published, ordem]
     operations:
       delete: false
     fields:
@@ -21,6 +25,11 @@ content:
         type: string
         required: true
         description: Nome exibido na seção Casos. Para um caso novo, basta preencher o nome; o link é criado automaticamente.
+      - name: ordem
+        label: Ordem de exibição
+        type: number
+        default: 100
+        description: Números menores aparecem primeiro no site.
       - name: id
         label: Identificador do caso
         type: string
@@ -103,7 +112,7 @@ content:
         label: Publicar no site
         type: boolean
         default: false
-        description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. A ordem desta lista é a ordem no site.
+        description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. Use a ordem de exibição para posicionar o caso.
   - name: area_leia
     label: Leia
     type: group

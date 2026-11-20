@@ -32,7 +32,7 @@ jobs:
           cms = content_entries(YAML.safe_load_file('.pages.yml').fetch('content'))
           categories = YAML.safe_load_file('_data/categorias.yml')
           collections = cms.select { |entry| entry['type'] == 'collection' }
-          field_categories = collections.flat_map { |entry| entry.fetch('fields').find { |item| item['name'] == 'category' }.dig('options', 'values') }
+          field_categories = collections.reject { |entry| entry['name'] == 'casos' }.flat_map { |entry| entry.fetch('fields').find { |item| item['name'] == 'category' }.dig('options', 'values') }
           abort 'Categorias divergentes' unless field_categories == categories.map { |item| item.fetch('name') }
           podcast = collections.find { |entry| entry['name'] == 'escute' }
           abort 'Envio de áudio indisponível' unless podcast.fetch('fields').find { |item| item['name'] == 'audio_url' }['type'] == 'file'
@@ -62,7 +62,9 @@ jobs:
               validate_fields(entry.fetch('fields'), data)
             end
           end
-          current_cases = YAML.safe_load_file('_data/casos.yml')
+          case_files = Dir.glob('_data/casos/*.yml')
+          current_cases = case_files.map { |file| YAML.safe_load_file(file) }.sort_by { |entry| entry.fetch('ordem', 100) }
+          current_cases.each { |entry| validate_fields(collections.find { |item| item['name'] == 'casos' }.fetch('fields'), entry) }
           case_ids = current_cases.map { |entry| entry['id'].to_s.empty? ? entry.fetch('name').downcase.gsub(/[^a-z0-9]+/, '-') : entry['id'] }
           abort 'Existem casos com identificadores repetidos' unless case_ids.uniq.length == case_ids.length
           Dir.glob('_materias/**/*.md').each do |path|
@@ -157,7 +159,8 @@ jobs:
           cases.first['reportagens'] << sample.merge('title' => 'Link inválido do caso', 'link' => 'javascript:alert(1)')
           cases[2].delete('id')
           cases << { 'name' => 'Caso de rascunho', 'id' => 'caso-rascunho', 'published' => false }
-          File.write('_data/casos.yml', cases.to_yaml)
+          case_files.each { |file| File.delete(file) }
+          cases.each_with_index { |entry, i| File.write("_data/casos/caso-#{i}.yml", entry.merge('ordem' => i + 1).to_yaml) }
           home = YAML.safe_load_file('_data/inicio.yml')
           escute = YAML.safe_load_file('_data/escute.yml')
           escute['description'] = 'Descrição editada no Pages'
@@ -365,7 +368,7 @@ jobs:
                   expect(page.locator('.article > .kicker')).to_have_text('Podcast')
                   page.goto(root + 'admin/')
                   expect(page.get_by_role('heading', name='Do painel para o site')).to_be_visible()
-                  expect(page.get_by_role('link', name='Cadastrar ou editar casos')).to_have_attribute('href', 'https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/casos')
+                  expect(page.get_by_role('link', name='Editar casos')).to_have_attribute('href', 'https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/casos')
               page.emulate_media(reduced_motion='reduce')
               page.goto(root)
               page.locator('#quem-faz').scroll_into_view_if_needed()
