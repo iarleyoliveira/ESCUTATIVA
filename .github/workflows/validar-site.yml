@@ -99,7 +99,7 @@ jobs:
             description: Sinopse de teste
             date: 2020-01-01
             category: Podcast
-            cover: /ESCUTATIVA/assets/icon.svg
+            cover: /assets/icon.svg
             cover_alt: Ícone do projeto
             published: true
             ---
@@ -125,7 +125,7 @@ jobs:
           File.binwrite('assets/uploads/validacao-audio.wav', wav)
           {
             'audio-local' => { 'audio_url' => '/assets/uploads/validacao-audio.wav' },
-            'audio-prefixo' => { 'audio_url' => '/ESCUTATIVA/assets/uploads/validacao-audio.wav' },
+            'audio-prefixo' => { 'audio_url' => '/assets/uploads/validacao-audio.wav' },
             'audio-externo' => { 'audio_url' => '', 'audio_link' => 'https://example.com/episodio.mp3' },
             'midia-vazia' => { 'audio_url' => '', 'youtube_id' => '' }
           }.each do |slug, media|
@@ -181,18 +181,16 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Verificar navegação, sitemap e layout no celular
         run: |
-          mkdir -p /tmp/escutativa-preview
-          ln -s "$PWD/_site" /tmp/escutativa-preview/ESCUTATIVA
-          python -m http.server 8000 --directory /tmp/escutativa-preview &
-          curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:8000/ESCUTATIVA/ -o /dev/null
+          python -m http.server 8000 --directory _site &
+          curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:8000/ -o /dev/null
           python <<'PY'
           from pathlib import Path
           from playwright.sync_api import expect, sync_playwright
 
-          root = 'http://127.0.0.1:8000/ESCUTATIVA/'
+          root = 'http://127.0.0.1:8000/'
           sections = ['materias', 'entrevistas', 'bastidores', 'documentario', 'videocast']
           sitemap = Path('_site/sitemap.xml').read_text()
-          assert '/ESCUTATIVA/acervo/' in sitemap
+          assert '/acervo/' in sitemap
           assert 'validacao-rascunho' not in sitemap
           assert not list(Path('_site').rglob('*validacao-rascunho*'))
 
@@ -219,7 +217,7 @@ jobs:
                   )
                   expect(page.locator('#assista h2')).to_have_text('Quando a notícia faz parte da história.')
                   cases_link = page.locator('header nav').get_by_role('link', name='Casos', exact=True)
-                  expect(cases_link).to_have_attribute('href', '/ESCUTATIVA/#casos')
+                  expect(cases_link).to_have_attribute('href', '/#casos')
                   cases_link.click()
                   expect(page.locator('#casos')).to_be_visible()
                   expect(page.locator('#casos h3')).to_have_text(['Caso Hillary Souza Valadares', 'Caso Karl Andre Van Roon', 'Caso Felipe Rodrigues da Silva Ribeiro'])
@@ -278,7 +276,7 @@ jobs:
                   expect(page.locator('.login-link')).to_have_attribute('href', 'https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/materias')
                   expect(page.locator('.footer-socials').get_by_role('link', name='Facebook', exact=False)).to_have_attribute('href', 'https://www.facebook.com/profile.php?id=61596955162786')
                   archive = page.locator('#leia a.section-archive')
-                  expect(archive).to_have_attribute('href', '/ESCUTATIVA/acervo/?formato=leia')
+                  expect(archive).to_have_attribute('href', '/acervo/?formato=leia')
                   archive.click()
                   expect(page.locator('[data-category="materias"]')).to_be_visible()
                   expect(page.locator('[data-category="entrevistas"]')).to_be_visible()
@@ -294,7 +292,7 @@ jobs:
                   for index, section_id in enumerate(sections):
                       section = page.locator(f'[data-publication-category="{section_id}"]')
                       for label, target in [("Leia", "leia"), ("Assista", "assista"), ("Escute", "escute")]:
-                          expect(page.locator('header nav').get_by_role("link", name=label, exact=True)).to_have_attribute("href", f"/ESCUTATIVA/acervo/?formato={target}")
+                          expect(page.locator('header nav').get_by_role("link", name=label, exact=True)).to_have_attribute("href", f"/acervo/?formato={target}")
                       link = section.get_by_role('link', name=f'Publicação de teste {index}', exact=False).first
                       expect(link).to_be_visible()
                       path = link.get_attribute('href')
@@ -309,7 +307,7 @@ jobs:
                           )
                       page.goto('http://127.0.0.1:8000' + path)
                       expect(page.get_by_role('heading', level=1)).to_have_text(f'Publicação de teste {index}')
-                      expect(page.locator('.article-end a')).to_have_attribute('href', f'/ESCUTATIVA/#{section_id}')
+                      expect(page.locator('.article-end a')).to_have_attribute('href', f'/#{section_id}')
                       assert page.evaluate('document.documentElement.scrollWidth') <= width
                       page.goto(root)
                   page.goto(root + 'acervo/?formato=escute')
@@ -336,7 +334,7 @@ jobs:
                   assert page.evaluate('document.documentElement.scrollWidth') <= width
                   expect(page.locator('meta[property="og:type"]')).to_have_attribute('content', 'article')
                   expect(page.locator('meta[property="og:image"]')).to_have_attribute(
-                      'content', 'https://iarleyoliveira.github.io/ESCUTATIVA/assets/social/black-charme-ice.png'
+                      'content', 'https://escutativa.com.br/assets/social/black-charme-ice.png'
                   )
                   current_path = page.url.split('8000')[-1]
                   related_links = page.locator('.related-publications .card-link').evaluate_all(
@@ -344,7 +342,7 @@ jobs:
                   )
                   assert current_path not in related_links
                   assert len(related_links) == len(set(related_links))
-                  assert related_links[0] == '/ESCUTATIVA/materias/validacao-0/'
+                  assert related_links[0] == '/materias/validacao-0/'
                   page.goto(root + 'materias/conversas-que-aproximam/')
                   expect(page.locator('.video-poster img')).to_be_visible()
                   expect(page.locator('.article .intro')).to_contain_text('O que acontece antes de uma notícia chegar ao público?')
@@ -352,9 +350,9 @@ jobs:
                   for slug in ['audio-local', 'audio-prefixo', 'audio-externo']:
                       page.goto(root + f'materias/validacao-{slug}/')
                       expect(page.locator('audio.podcast-player')).to_be_visible()
-                      expected_audio = 'https://example.com/episodio.mp3' if slug == 'audio-externo' else '/ESCUTATIVA/assets/uploads/validacao-audio.wav'
+                      expected_audio = 'https://example.com/episodio.mp3' if slug == 'audio-externo' else '/assets/uploads/validacao-audio.wav'
                       expect(page.locator('audio source')).to_have_attribute('src', expected_audio)
-                      expect(page.locator('.article-cover img')).to_have_attribute('src', '/ESCUTATIVA/assets/icon.svg')
+                      expect(page.locator('.article-cover img')).to_have_attribute('src', '/assets/icon.svg')
                       expect(page.locator('.video-status')).to_have_count(0)
                       if slug != 'audio-externo':
                           page.wait_for_function('document.querySelector("audio").readyState >= 1')

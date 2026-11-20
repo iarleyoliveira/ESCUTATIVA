@@ -4,7 +4,7 @@ description: "Em Santos, o Black Charme Ice reúne R&B, hip-hop e dança em grup
 author: Circy Shara
 date: 2026-11-12
 category: Reportagem
-cover: /ESCUTATIVA/assets/uploads/WhatsApp Image 2026-11-12 at 15.27.09.jpeg
+cover: /assets/uploads/WhatsApp Image 2026-11-12 at 15.27.09.jpeg
 cover_alt: "Cartaz do Black Charme Ice, com a identidade visual do baile."
 cover_caption: "Material de divulgação do Black Charme Ice."
 cover_fit: contain

@@ -1,6 +1,6 @@
 media:
   input: assets/uploads
-  output: /ESCUTATIVA/assets/uploads
+  output: /assets/uploads
 actions:
   - name: verificar_site
     label: Verificar site
