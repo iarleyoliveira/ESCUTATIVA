@@ -1,18 +1,16 @@
 ---
 title: "Pinguins-de-magalhães reabilitados são devolvidos ao oceano no litoral
   de São Paulo; "
+category: Reportagem
 description: Soltura ocorreu no domingo (15), a mais de 40 quilômetros da costa;
   operação também teve fiscalização ambiental, monitoramento de espécies
   invasoras e busca por redes de pesca abandonadas
 author: Breno Sant’anna
 date: 2026-11-18
-category: Reportagem
 cover_fit: cover
-published: false
+published: true
 ---
 
-
-&nbsp;
 
 Doze pinguins-de-magalhães (Spheniscus magellanicus) que passaram por meses de reabilitação após serem encontrados debilitados no litoral de São Paulo foram devolvidos ao oceano no domingo (15), nas proximidades do Parque Estadual Marinho da Laje de Santos (PEMLS). A soltura foi realizada em uma operação conjunta da Fundação Florestal (FF), Polícia Militar Ambiental, Instituto Gremar e operadora de mergulho Pé de Pato.
 
