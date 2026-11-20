@@ -1,0 +1,5 @@
+<li data-title="{{ include.title | escape }}">
+  <div><small>{{ include.format | escape }}</small><strong>{{ include.title | escape }}</strong></div>
+  <a href="{{ include.edit | escape }}" aria-label="Editar {{ include.title | escape }}">Editar</a>
+  <a href="{{ include.url | relative_url }}" aria-label="Ver no site: {{ include.title | escape }}">Ver no site</a>
+</li>

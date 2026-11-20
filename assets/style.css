@@ -552,3 +552,22 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 .access-card .access-shortcuts { margin: 0; }
 .publication-links a { padding: 8px 14px; border: 1px solid var(--line); text-decoration: none; }
 .publication-links a:hover, .publication-links a:focus-visible { border-color: var(--ink); text-decoration: underline; }
+
+.newsroom { padding-block: 36px 64px; }
+.newsroom h2 { font-size: clamp(24px, 4vw, 34px); margin: 0 0 16px; }
+.newsroom section { padding-block: 24px; border-bottom: 1px solid var(--line); }
+.newsroom-create { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.newsroom-create a { padding: 16px 8px; background: #08565a; color: white; text-align: center; text-decoration: none; font-weight: bold; }
+.newsroom-create a:hover { background: #063f43; }
+.newsroom-drafts { margin-top: 24px; border-left: 4px solid #a64422; padding-inline: 20px; background: #faf4eb; }
+.newsroom label, .newsroom-list strong { display: block; }
+.newsroom input { width: min(100%, 32rem); padding: 12px; font: inherit; border: 1px solid var(--line); }
+.newsroom-list { list-style: none; padding: 0; }
+.newsroom-list li { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.newsroom-list small { color: #41575b; }
+.newsroom-settings { display: flex; flex-wrap: wrap; gap: 14px 24px; }
+@media(max-width:700px) {
+  .newsroom-create { grid-template-columns: repeat(2,1fr); }
+  .newsroom-list li { grid-template-columns: auto 1fr; gap: 8px 20px; }
+  .newsroom-list li div { grid-column: 1/-1; }
+}

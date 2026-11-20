@@ -21,6 +21,8 @@ content:
         view:
           primary: name
           fields: [name, published, ordem]
+          sort: [published, ordem, name]
+          default: { sort: published, order: asc }
         operations:
           delete: false
         fields:
@@ -142,8 +144,8 @@ content:
             - description
             - author
           default:
-            sort: date
-            order: desc
+            sort: published
+            order: asc
         fields:
           - name: title
             label: Título
@@ -242,8 +244,8 @@ content:
             - description
             - author
           default:
-            sort: date
-            order: desc
+            sort: published
+            order: asc
         fields:
           - name: title
             label: Título
@@ -348,8 +350,8 @@ content:
             - description
             - author
           default:
-            sort: date
-            order: desc
+            sort: published
+            order: asc
         fields:
           - name: title
             label: Título

@@ -4,44 +4,60 @@ title: Área da equipe
 sitemap: false
 team_access: true
 ---
-<section class="wrap team-access" aria-labelledby="access-title">
-  <div class="access-intro">
-    <span class="kicker">Redação Escutativa</span>
-    <h1 id="access-title">Fazer publicação</h1>
-    <p>Escolha um formato para começar. Para continuar um rascunho, abra o painel e selecione a publicação.</p>
+{% assign cms = site.editor_url | split: '/collection/' | first %}
+<section class="wrap newsroom">
+  <h1>Painel de redação</h1>
+  <h2>Fazer publicação</h2>
+  <div class="newsroom-create">
+    <a href="{{ cms }}/collection/casos/new">Novo caso</a>
+    <a href="{{ cms }}/collection/materias/new">Nova matéria</a>
+    <a href="{{ cms }}/collection/assista/new">Novo vídeo</a>
+    <a href="{{ cms }}/collection/escute/new">Novo podcast</a>
   </div>
-  <div class="access-card">
-    <h2>Escolha o tipo de publicação</h2>
-    <div class="access-shortcuts publication-links">
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/casos/new">Cadastrar caso ↗</a>
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/materias/new">Escrever matéria ↗</a>
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/assista/new">Adicionar vídeo ↗</a>
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/escute/new">Adicionar episódio de podcast ↗</a>
+  <section class="newsroom-drafts">
+    <h2>Continuar escrevendo</h2>
+    <p>Escolha o formato e abra o título no Pages para retomar a edição. A coluna “Publicar no site” indica o estado de cada item.</p>
+    <div class="newsroom-settings">
+      <a href="{{ cms }}/collection/casos">Continuar caso</a>
+      <a href="{{ cms }}/collection/materias">Continuar matéria</a>
+      <a href="{{ cms }}/collection/assista">Continuar vídeo</a>
+      <a href="{{ cms }}/collection/escute">Continuar podcast</a>
     </div>
-    <h3>Editar conteúdo existente</h3>
-    <a class="button access-button" href="{{ site.editor_url | escape }}">Abrir painel ↗</a>
-    <div class="access-shortcuts">
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/collection/casos">Editar casos ↗</a>
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/inicio">Escolher a matéria da abertura ↗</a>
-      <a href="https://app.pagescms.org/iarleyoliveira/ESCUTATIVA/main/file/equipe">Equipe, redes e contatos ↗</a>
+  </section>
+  <section>
+    <h2>Publicados</h2>
+    <label for="publication-search">Buscar por título</label>
+    <input id="publication-search" type="search" autocomplete="off">
+    <ul class="newsroom-list">
+    {% assign articles = site.materias | sort: 'date' | reverse %}
+    {% for article in articles %}{% if article.published == true %}
+      {% assign folder = article.path | split: '/' | slice: -2 | first %}
+      {% assign collection = folder %}{% if folder == 'leia' %}{% assign collection = 'materias' %}{% endif %}
+      {% assign source = article.path | split: '_materias/' | last | prepend: '_materias/' %}
+      {% assign edit_path = source | url_encode | replace: '+', '%20' %}
+      {% assign edit_url = cms | append: '/collection/' | append: collection | append: '/edit/' | append: edit_path %}
+      {% include newsroom-row.html title=article.title format=article.category edit=edit_url url=article.url %}
+    {% endif %}{% endfor %}
+    {% for record in site.data.casos %}{% assign caso = record[1] %}{% unless caso.published == false %}
+      {% assign source = record[0] | prepend: '_data/casos/' | append: '.yml' | url_encode | replace: '+', '%20' %}
+      {% assign edit_url = cms | append: '/collection/casos/edit/' | append: source %}
+      {% assign case_url = caso.id | default: caso.name | slugify | prepend: '/#' %}
+      {% include newsroom-row.html title=caso.name format='Caso' edit=edit_url url=case_url %}
+    {% endunless %}{% endfor %}
+    </ul>
+    <p id="publication-empty" hidden>Nenhuma publicação encontrada.</p>
+  </section>
+  <section><h2>Ajustes do site</h2>
+    <div class="newsroom-settings">
+      <a href="{{ cms }}/file/inicio">Destaque da página inicial</a>
+      <a href="{{ cms }}/file/equipe">Equipe, redes e contato</a>
+      <a href="{{ cms }}/file/config_leia">Textos de matérias</a>
+      <a href="{{ cms }}/file/config_assista">Textos de vídeos</a>
+      <a href="{{ cms }}/file/config_escute">Textos de podcasts</a>
+      <a href="{{ cms }}/file/projeto">Sobre o projeto</a>
+      <a href="{{ cms }}/file/identidade">Identidade do site</a>
+      <a href="{{ cms }}/file/comentarios">Comentários</a>
     </div>
-    <div class="access-help">
-      <h3>Primeiro acesso?</h3>
-      <p>Peça à administração da equipe um convite para o seu e-mail. O acesso é liberado após esse convite.</p>
-    </div>
-  </div>
+  </section>
 </section>
-<section class="wrap section publishing-help" aria-labelledby="publishing-help-title">
-  <span class="kicker">Como publicar</span>
-  <h2 id="publishing-help-title">Do painel para o site</h2>
-  <ol>
-    <li><strong>Escolha o tipo de publicação acima.</strong> Para uma reportagem, entrevista ou bastidor, clique em “Escrever matéria”. Preencha título, resumo, autoria e data.</li>
-    <li><strong>Acrescente o conteúdo.</strong> Escreva o texto, escolha a capa e informe os créditos. Em Podcast, envie o áudio; em Minidocumentário, cole o link do YouTube.</li>
-    <li><strong>Salve como rascunho ou publique.</strong> Com “Publicar no site” desligado, o conteúdo fica fora do site. Ligue essa opção e salve quando estiver pronto.</li>
-    <li><strong>Aguarde a atualização.</strong> Salvar no Pages inicia a publicação automática. Normalmente leva de 30 segundos a alguns minutos. Depois, atualize o site com Ctrl+F5 se ainda aparecer a versão anterior.</li>
-  </ol>
-  <p>Para editar uma publicação, abra o mesmo cadastro. Para retirar do site, desative “Publicar no site” e salve.</p>
-  <p>Em <strong>Casos</strong>, cada cadastro reúne apresentação, fotos e reportagens. Arraste as fotos ou reportagens para mudar sua ordem dentro do caso. Defina a posição do caso no campo “Ordem de exibição”. Ative a publicação do caso e de cada reportagem que deve aparecer.</p>
-  <p>No painel, abra <strong>Editar seções do site</strong> para editar a apresentação dessa área. <strong>Página inicial</strong> controla o destaque da abertura; <strong>Projeto</strong> reúne a apresentação do trabalho; <strong>Equipe, redes e contato</strong> reúne os perfis e os links do rodapé.</p>
-  <p><a href="https://github.com/iarleyoliveira/ESCUTATIVA/actions/workflows/pages/pages-build-deployment">Ver andamento da atualização no GitHub ↗</a> · <a href="{{ '/' | relative_url }}">Abrir site →</a></p>
-</section>
+<script src="{{ '/assets/newsroom.js' | relative_url }}" defer></script>
