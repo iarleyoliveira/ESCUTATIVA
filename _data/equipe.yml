@@ -23,10 +23,10 @@ members:
       Acredita na escrita como forma de manter memórias vivas.
     portrait: /assets/uploads/equipe/breno-fundo-creme.png
 socials:
-  - name: Facebook
-    url: https://www.facebook.com/profile.php?id=61596955162786
   - name: instagram
     url: https://www.instagram.com/oescutativa/
   - name: twitter
     url: https://x.com/oescutativa
+  - name: Facebook
+    url: https://www.facebook.com/profile.php?id=61596955162786
 contact: escutativanews@gmail.com
