@@ -6,7 +6,8 @@
 {% assign description = page.description | default: identity.description %}
 {% assign default_icon = '/assets/icon.svg' | relative_url %}
 {% assign custom_logo = identity.logo | strip %}
-{% assign logo = custom_logo | default: '/assets/icon.svg' | relative_url %}
+{% assign logo = custom_logo | default: '/assets/icon.svg' %}
+{% unless logo contains '://' %}{% assign logo = logo | remove_first: site.baseurl | relative_url %}{% endunless %}
 <!doctype html>
 <html lang="{{ site.lang }}">
 <head>
