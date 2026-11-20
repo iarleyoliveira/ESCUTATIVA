@@ -517,11 +517,24 @@ header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX
 
 /* Casos: matérias originais reunidas por história. */
 .cases-list { display: grid; gap: 28px; }
-.case-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 18px; margin: 24px 0 32px; }
+.case-gallery { margin: 24px 0 32px; }
+.case-slides { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 18px; }
 .case-gallery figure { margin: 0; min-width: 0; }
 .case-gallery a { display: block; }
 .case-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; background: var(--paper); }
 .case-gallery figcaption { margin-top: 8px; color: #4e6169; font-size: 12px; overflow-wrap: anywhere; }
+.case-gallery.is-carousel { max-width: 900px; margin-inline: auto; }
+.case-gallery.is-carousel .case-slides { display: block; touch-action: pan-y pinch-zoom; }
+.case-gallery.is-carousel img { height: clamp(280px, 45vw, 500px); aspect-ratio: auto; }
+.case-carousel-controls { margin-top: 16px; }
+.case-carousel-toolbar, .case-photo-dots { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
+.case-carousel-toolbar button { min-width: 44px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: #faf8f2; color: var(--ink); font: 15px Arial, sans-serif; cursor: pointer; }
+.case-carousel-toolbar button:hover { border-color: var(--ink); background: var(--paper); }
+.case-photo-counter { font-size: 13px; min-width: 80px; text-align: center; }
+.case-photo-dots { gap: 0; margin-top: 6px; }
+.case-photo-dots button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.case-photo-dots button::before { content: ''; width: 8px; height: 8px; border: 1px solid var(--ink); border-radius: 50%; }
+.case-photo-dots button[aria-current="true"]::before { background: var(--ink); }
 .case-block { min-width: 0; padding: 28px; border: 1px solid var(--line); border-top: 3px solid var(--ink); background: #faf8f2; }
 .case-block h3 { margin: 0 0 18px; font-size: clamp(28px, 4vw, 36px); }
 .case-block h4 { margin: 0 0 18px; color: var(--orange); font: bold 12px/1.5 Arial, sans-serif; letter-spacing: 1px; text-transform: uppercase; }

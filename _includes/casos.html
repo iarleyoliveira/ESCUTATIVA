@@ -10,7 +10,8 @@
         {% if case.descricao and case.descricao != '' %}<p class="case-intro">{{ case.descricao | escape | newline_to_br }}</p>{% endif %}
         {% assign case_photos = case.fotos %}
         {% if case_photos.size > 0 %}
-          <div class="case-gallery" aria-label="Fotos de {{ case.name | escape }}">
+          <div class="case-gallery" data-case-carousel role="region" aria-label="Fotos de {{ case.name | escape }}">
+            <div class="case-slides" id="fotos-{{ case_id }}">
             {% for photo in case_photos %}
               {% if photo.imagem and photo.imagem != '' %}
                 {% assign photo_url = photo.imagem %}{% unless photo_url contains '://' %}{% assign photo_url = photo_url | remove_first: site.baseurl | relative_url %}{% endunless %}
@@ -22,6 +23,16 @@
                 </figure>
               {% endif %}
             {% endfor %}
+            </div>
+            <div class="case-carousel-controls" hidden>
+              <div class="case-carousel-toolbar">
+                <button type="button" class="case-previous" aria-label="Foto anterior" aria-controls="fotos-{{ case_id }}">←</button>
+                <span class="case-photo-counter" aria-live="off" aria-atomic="true"></span>
+                <button type="button" class="case-next" aria-label="Próxima foto" aria-controls="fotos-{{ case_id }}">→</button>
+                <button type="button" class="case-playback" aria-controls="fotos-{{ case_id }}">Pausar</button>
+              </div>
+              <div class="case-photo-dots" aria-label="Escolher foto"></div>
+            </div>
           </div>
         {% endif %}
         <h4>Matérias completas</h4>
@@ -52,3 +63,4 @@
     {% endfor %}
   </div>
 </section>
+<script src="{{ '/assets/cases.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
