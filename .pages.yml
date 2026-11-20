@@ -165,10 +165,14 @@ content:
             type: date
             required: true
             description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: body
+            label: Texto da matéria
+            type: rich-text
+            description: Escreva a matéria aqui. Use o editor para inserir subtítulos, imagens e links.
           - name: cover
             label: Capa — enviar ou escolher imagem
             type: image
-            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            description: Envie uma imagem horizontal ou escolha uma da biblioteca.
             options:
               rename: safe
           - name: cover_alt
@@ -192,10 +196,6 @@ content:
                 - name: contain
                   label: Mostrar a imagem inteira (cartazes e artes)
             description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
-          - name: body
-            label: Conteúdo da publicação
-            type: rich-text
-            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
           - name: credits
             label: Créditos da publicação
             type: text
@@ -328,10 +328,21 @@ content:
             type: date
             required: true
             description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: body
+            label: Apresentação do minidocumentário
+            type: rich-text
+            description: Apresente o tema do vídeo e quem participa.
+          - name: youtube_id
+            label: Vídeo — link do YouTube ou ID
+            type: string
+            description: Cole o link completo do YouTube (normal ou compartilhado) ou o ID de 11 caracteres. Deixe vazio se não houver vídeo.
+            pattern:
+              regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
+              message: Cole um link do YouTube ou um ID de 11 caracteres.
           - name: cover
             label: Capa — enviar ou escolher imagem
             type: image
-            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            description: Envie uma imagem horizontal ou escolha uma da biblioteca.
             options:
               rename: safe
           - name: cover_alt
@@ -355,17 +366,6 @@ content:
                 - name: contain
                   label: Mostrar a imagem inteira (cartazes e artes)
             description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
-          - name: body
-            label: Conteúdo da publicação
-            type: rich-text
-            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
-          - name: youtube_id
-            label: Vídeo — link do YouTube ou ID
-            type: string
-            description: Cole o link completo do YouTube (normal ou compartilhado) ou o ID de 11 caracteres. Deixe vazio se não houver vídeo.
-            pattern:
-              regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
-              message: Cole um link do YouTube ou um ID de 11 caracteres.
           - name: credits
             label: Créditos da publicação
             type: text
@@ -460,10 +460,36 @@ content:
             type: date
             required: true
             description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
+          - name: body
+            label: Apresentação do episódio
+            type: rich-text
+            description: Conte o que o ouvinte vai encontrar neste episódio.
+          - name: audio_url
+            label: Arquivo de áudio
+            type: file
+            description: Envie um MP3, M4A, OGG ou WAV para o leitor ouvir o episódio no site.
+            options:
+              categories:
+                - audio
+              extensions:
+                - mp3
+                - m4a
+                - ogg
+                - wav
+                - aac
+                - flac
+              rename: safe
+          - name: audio_link
+            label: Link do áudio (alternativa ao arquivo)
+            type: string
+            description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
+            pattern:
+              regex: ^(https?://[^\s]+)?$
+              message: Cole o link completo do arquivo de áudio ou deixe em branco.
           - name: cover
             label: Capa — enviar ou escolher imagem
             type: image
-            description: Selecione uma imagem da biblioteca ou envie uma nova. Prefira uma imagem horizontal; para podcast, uma capa quadrada também funciona.
+            description: Envie a arte do episódio ou escolha uma imagem da biblioteca.
             options:
               rename: safe
           - name: cover_alt
@@ -487,32 +513,6 @@ content:
                 - name: contain
                   label: Mostrar a imagem inteira (cartazes e artes)
             description: Escolha se a imagem deve ocupar o espaço com recorte ou aparecer inteira.
-          - name: body
-            label: Conteúdo da publicação
-            type: rich-text
-            description: Escreva e formate o texto. Você também pode inserir imagens pelo editor. Para podcast ou vídeo, use este espaço para a apresentação, a sinopse ou os créditos.
-          - name: audio_url
-            label: Podcast — enviar arquivo de áudio
-            type: file
-            description: Para podcast, envie ou selecione o MP3, M4A, OGG ou WAV. O player aparece automaticamente no site. Deixe vazio em textos e vídeos.
-            options:
-              categories:
-                - audio
-              extensions:
-                - mp3
-                - m4a
-                - ogg
-                - wav
-                - aac
-                - flac
-              rename: safe
-          - name: audio_link
-            label: Podcast — link direto do áudio (opcional)
-            type: string
-            description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
-            pattern:
-              regex: ^(https?://[^\s]+)?$
-              message: Cole o link completo do arquivo de áudio ou deixe em branco.
           - name: credits
             label: Créditos da publicação
             type: text
