@@ -36,6 +36,7 @@ nav a{padding:8px 2px}
 nav{flex-wrap:wrap;column-gap:clamp(12px,3vw,38px);row-gap:4px}
 .brand{overflow-wrap:anywhere}
 .brand img{object-fit:contain}
+.brand.brand-logo img{display:block;width:100%;max-width:1000px;height:auto;min-width:0}
 .video-list{display:grid;gap:32px}
 .video-grid iframe,.article>iframe,.video-cover{display:block;width:100%;aspect-ratio:16/9;border:0}
 .video-cover{object-fit:cover}
