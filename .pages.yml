@@ -8,115 +8,115 @@ actions:
     ref: current
     confirm: false
 content:
-  - name: casos
-    label: Casos
-    type: collection
-    path: _data/casos
-    format: yaml
-    filename: "{primary}.yml"
-    view:
-      primary: name
-      fields: [name, published, ordem]
-    operations:
-      delete: false
-    fields:
-      - name: name
-        label: Nome do caso
-        type: string
-        required: true
-        description: Nome exibido na seção Casos. Para um caso novo, basta preencher o nome; o link é criado automaticamente.
-      - name: ordem
-        label: Ordem de exibição
-        type: number
-        default: 100
-        description: Números menores aparecem primeiro no site.
-      - name: id
-        label: Identificador do caso
-        type: string
-        required: false
-        description: Use um identificador único, sem espaços ou acentos, como caso-karl. Depois de publicar, mantenha este identificador para preservar os links.
-        pattern:
-          regex: ^[a-z0-9]+(?:-[a-z0-9]+)*$
-          message: Use letras minúsculas, números e hífens.
-        hidden: true
-      - name: descricao
-        label: Sobre este caso
-        type: text
-        description: Apresente a história em um ou mais parágrafos. Esse texto aparece acima das fotos e reportagens.
-      - name: fotos
-        label: Fotos
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.descricao}"
+  - name: publicacoes
+    label: Fazer publicação
+    type: group
+    items:
+      - name: casos
+        label: Casos
+        type: collection
+        path: _data/casos
+        format: yaml
+        filename: "{primary}.yml"
+        view:
+          primary: name
+          fields: [name, published, ordem]
+        operations:
+          delete: false
         fields:
-          - name: imagem
-            label: Foto
-            type: image
-            required: true
-            options:
-              rename: safe
-          - name: descricao
-            label: Descrição da imagem
+          - name: name
+            label: Nome do caso
             type: string
             required: true
-          - name: credito
-            label: Crédito da foto
+            description: Nome exibido na seção Casos. Para um caso novo, basta preencher o nome; o link é criado automaticamente.
+          - name: ordem
+            label: Ordem de exibição
+            type: number
+            default: 100
+            description: Números menores aparecem primeiro no site.
+          - name: id
+            label: Identificador do caso
             type: string
-        description: Adicione quantas fotos precisar e arraste para mudar a ordem. Cada imagem pode ser ampliada no site.
-      - name: reportagens
-        label: Reportagens do caso
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.title}"
-        fields:
-          - name: formato
-            label: Tipo de reportagem
-            type: select
-            required: true
-            options:
-              values:
-                - Texto
-                - Vídeo
-            default: Texto
-          - name: title
-            label: Título
-            type: string
-            required: true
-          - name: veiculo
-            label: Veículo
-            type: string
-            required: true
-          - name: resumo
-            label: Resumo da reportagem
-            type: text
-            description: Frase que explica o assunto da reportagem e aparece abaixo do título no site.
-            required: true
-          - name: link
-            label: Link da matéria original
-            type: string
-            required: true
+            required: false
+            description: Use um identificador único, sem espaços ou acentos, como caso-karl. Depois de publicar, mantenha este identificador para preservar os links.
             pattern:
-              regex: ^https?://[^\s]+$
-              message: Cole o endereço completo da matéria, começando com https:// ou http://.
+              regex: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+              message: Use letras minúsculas, números e hífens.
+            hidden: true
+          - name: descricao
+            label: Sobre este caso
+            type: text
+            description: Apresente a história em um ou mais parágrafos. Esse texto aparece acima das fotos e reportagens.
+          - name: fotos
+            label: Fotos
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.descricao}"
+            fields:
+              - name: imagem
+                label: Foto
+                type: image
+                required: true
+                options:
+                  rename: safe
+              - name: descricao
+                label: Descrição da imagem
+                type: string
+                required: true
+              - name: credito
+                label: Crédito da foto
+                type: string
+            description: Adicione quantas fotos precisar e arraste para mudar a ordem. Cada imagem pode ser ampliada no site.
+          - name: reportagens
+            label: Reportagens do caso
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.title}"
+            fields:
+              - name: formato
+                label: Tipo de reportagem
+                type: select
+                required: true
+                options:
+                  values:
+                    - Texto
+                    - Vídeo
+                default: Texto
+              - name: title
+                label: Título
+                type: string
+                required: true
+              - name: veiculo
+                label: Veículo
+                type: string
+                required: true
+              - name: resumo
+                label: Resumo da reportagem
+                type: text
+                description: Frase que explica o assunto da reportagem e aparece abaixo do título no site.
+                required: true
+              - name: link
+                label: Link da matéria original
+                type: string
+                required: true
+                pattern:
+                  regex: ^https?://[^\s]+$
+                  message: Cole o endereço completo da matéria, começando com https:// ou http://.
+              - name: published
+                label: Publicar no site
+                type: boolean
+                default: false
+                description: Ative e salve para exibir a reportagem no caso escolhido após a atualização do site.
+            description: Adicione aqui as matérias publicadas por outros veículos sobre este caso.
           - name: published
             label: Publicar no site
             type: boolean
             default: false
-            description: Ative e salve para exibir a reportagem no caso escolhido após a atualização do site.
-        description: Adicione aqui as matérias publicadas por outros veículos sobre este caso.
-      - name: published
-        label: Publicar no site
-        type: boolean
-        default: false
-        description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. Use a ordem de exibição para posicionar o caso.
-  - name: area_leia
-    label: Leia
-    type: group
-    items:
+            description: Ative para exibir o caso no site. Ative também cada reportagem que deve aparecer. Use a ordem de exibição para posicionar o caso.
       - name: materias
         label: Reportagens, entrevistas e bastidores
         type: collection
@@ -218,70 +218,6 @@ content:
             default: false
             description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
         subfolders: false
-      - name: config_leia
-        label: Textos da seção Leia
-        type: file
-        path: _data/leia.yml
-        operations:
-          delete: false
-        fields:
-          - name: materias
-            label: Reportagem
-            type: object
-            fields:
-              - name: action
-                label: Chamada da publicação
-                type: string
-              - name: nav
-                label: Menu e categoria
-                type: string
-              - name: title
-                label: Título
-                type: string
-              - name: description
-                label: Texto abaixo do título da seção
-                type: text
-              - name: empty
-                label: Mensagem sem publicações
-                type: text
-          - name: entrevistas
-            label: Entrevista
-            type: object
-            fields:
-              - name: action
-                label: Chamada da publicação
-                type: string
-              - name: nav
-                label: Menu e categoria
-                type: string
-              - name: title
-                label: Título
-                type: string
-                hidden: true
-              - name: empty
-                label: Mensagem sem publicações
-                type: text
-          - name: bastidores
-            label: Bastidores
-            type: object
-            fields:
-              - name: action
-                label: Chamada da publicação
-                type: string
-              - name: nav
-                label: Menu e categoria
-                type: string
-              - name: title
-                label: Título
-                type: string
-                hidden: true
-              - name: empty
-                label: Mensagem sem publicações
-                type: text
-  - name: area_assista
-    label: Assista
-    type: group
-    items:
       - name: assista
         label: Minidocumentários
         type: collection
@@ -388,32 +324,6 @@ content:
             default: false
             description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
         subfolders: false
-      - name: config_assista
-        label: Textos da seção Assista
-        type: file
-        path: _data/assista.yml
-        operations:
-          delete: false
-        fields:
-          - name: action
-            label: Chamada da publicação
-            type: string
-          - name: nav
-            label: Menu e categoria
-            type: string
-          - name: title
-            label: Título
-            type: string
-          - name: description
-            label: Texto abaixo do título da seção
-            type: text
-          - name: empty
-            label: Mensagem sem publicações
-            type: text
-  - name: area_escute
-    label: Escute
-    type: group
-    items:
       - name: escute
         label: Podcasts
         type: collection
@@ -535,6 +445,92 @@ content:
             default: false
             description: "Desativado: salva como rascunho. Ativado: aparece no site depois de salvar e aguardar a atualização (normalmente de 30 segundos a alguns minutos)."
         subfolders: false
+  - name: textos_secoes
+    label: Editar seções do site
+    type: group
+    items:
+      - name: config_leia
+        label: Textos da seção Leia
+        type: file
+        path: _data/leia.yml
+        operations:
+          delete: false
+        fields:
+          - name: materias
+            label: Reportagem
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+              - name: description
+                label: Texto abaixo do título da seção
+                type: text
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+          - name: entrevistas
+            label: Entrevista
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+                hidden: true
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+          - name: bastidores
+            label: Bastidores
+            type: object
+            fields:
+              - name: action
+                label: Chamada da publicação
+                type: string
+              - name: nav
+                label: Menu e categoria
+                type: string
+              - name: title
+                label: Título
+                type: string
+                hidden: true
+              - name: empty
+                label: Mensagem sem publicações
+                type: text
+      - name: config_assista
+        label: Textos da seção Assista
+        type: file
+        path: _data/assista.yml
+        operations:
+          delete: false
+        fields:
+          - name: action
+            label: Chamada da publicação
+            type: string
+          - name: nav
+            label: Menu e categoria
+            type: string
+          - name: title
+            label: Título
+            type: string
+          - name: description
+            label: Texto abaixo do título da seção
+            type: text
+          - name: empty
+            label: Mensagem sem publicações
+            type: text
       - name: config_escute
         label: Textos da seção Escute
         type: file
