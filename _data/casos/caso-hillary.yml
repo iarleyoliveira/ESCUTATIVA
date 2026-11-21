@@ -2,3 +2,39 @@ name: Caso Hillary Souza Valadares
 id: caso-hillary
 published: true
 ordem: 1
+descricao: >-
+  Hillary Souza Valadares tinha dois anos quando foi atingida na cabeça
+  durante uma perseguição policial em Peruíbe, em 12 de fevereiro de 2019,
+  e morreu. O caso chegou a ser arquivado, mas foi reaberto após investigações
+  particulares da família. Em 4 de março de 2026, o policial militar Luis de
+  Farias Pacheco foi condenado a 16 anos e 4 meses de prisão em regime fechado.
+fotos:
+  - imagem: /assets/uploads/casos/caso-hillary-1.jpg
+    descricao: Hillary sentada em um brinquedo colorido de madeira.
+  - imagem: /assets/uploads/casos/caso-hillary-2.jpg
+    descricao: Hillary com a família dentro de um carro.
+  - imagem: /assets/uploads/casos/caso-hillary-3.jpg
+    descricao: Hillary ao lado de uma mulher em uma fotografia ao ar livre.
+  - imagem: /assets/uploads/casos/caso-hillary-4.jpg
+    descricao: Hillary usando um casaco rosa e um laço no cabelo.
+reportagens:
+  - formato: Vídeo
+    title: Criança de dois anos atingida por bala perdida em Peruíbe está em estado grave (2019)
+    veiculo: g1 / Jornal da Tribuna 1ª Edição
+    link: https://g1.globo.com/sp/santos-regiao/videos-jornal-tribuna-1-edicao/video/crianca-de-dois-anos-atingida-por-bala-perdida-em-peruibe-esta-em-estado-grave-7382089.ghtml
+    published: true
+  - formato: Vídeo
+    title: Carro dos pais de Hillary passa por perícia (2021)
+    veiculo: Globoplay
+    link: https://globoplay.globo.com/v/9404679/
+    published: true
+  - formato: Vídeo
+    title: Justiça decide que suspeito de matar a menina Hilary vai a júri popular; entenda (2024)
+    veiculo: Globoplay
+    link: https://globoplay.globo.com/v/13075227/
+    published: true
+  - formato: Vídeo
+    title: PM acusado de matar menina Hillary vai a julgamento (2026)
+    veiculo: Globoplay
+    link: https://globoplay.globo.com/v/14400652/
+    published: true
