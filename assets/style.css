@@ -616,6 +616,6 @@ html[data-theme="dark"] :is(.button:hover,.login-link:hover){background:#d1ece5;
 html[data-theme="dark"] :is(.case-carousel-toolbar button,.skip:focus){background:#21353d;color:var(--ink)}
 html[data-theme="dark"] .case-carousel-toolbar button:hover{background:#b7ded5;color:#102e31}
 html[data-theme="dark"] .theme-toggle:hover{background:#ffffff12}
-html[data-theme="dark"] .brand-logo{background:#f4f1e9;border-radius:5px;padding:12px 18px}
+html[data-theme="dark"] .brand-logo img{filter:invert(1) hue-rotate(180deg)}
 html[data-theme="dark"] .quote p{color:var(--ink)}
 @media(max-width:700px){.theme-toggle .theme-label{display:none}.topline .theme-toggle{margin-right:8px;padding-inline:12px}.access-header{flex-wrap:wrap}}
