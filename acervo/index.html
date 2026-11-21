@@ -20,10 +20,6 @@ permalink: /acervo/
     <button type="button" data-filter="leia" data-format="true" aria-pressed="false">Leia</button>
     <button type="button" data-filter="assista" data-format="true" aria-pressed="false">Assista</button>
     <button type="button" data-filter="escute" data-format="true" aria-pressed="false">Escute</button>
-    {% for category in site.data.categorias %}
-      {% include section-settings.html category=category %}
-      <button type="button" data-filter="{{ category.section }}" aria-pressed="false">{{ section.nav | escape }}</button>
-    {% endfor %}
   </div>
   {% for category in site.data.categorias %}
     {% include section-settings.html category=category %}
