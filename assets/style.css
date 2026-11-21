@@ -600,6 +600,7 @@ header nav a::after{transition-duration:320ms}
 .topline .theme-toggle{order:1;margin-left:auto;margin-right:16px}
 .topline .login-link{order:2}
 .theme-sun{display:none}
+.theme-toggle .theme-label{display:none}
 .theme-toggle:hover{background:#142d3b0c}
 .theme-toggle:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
 html[data-theme="dark"]{color-scheme:dark;--paper:#101d23;--ink:#e7eee8;--orange:#ffa783;--line:#43565d;--muted:#b8c9cd;--surface:#192c34}
