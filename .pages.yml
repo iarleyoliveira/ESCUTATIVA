@@ -712,7 +712,7 @@ content:
             label: Nome da rede
             type: string
             required: true
-            description: "Exemplos: Instagram, Facebook, Twitter ou WhatsApp."
+            description: "Exemplos: Instagram, Facebook, X ou WhatsApp."
           - name: url
             label: Endereço completo
             type: string
@@ -721,7 +721,7 @@ content:
               regex: ^https?://[^\s]+$
               message: Cole um link completo, começando com https://.
             description: Cole o endereço completo do perfil. Para WhatsApp, use o link https://wa.me/ com o número.
-        description: Adicione a rede e o link completo. Arraste para escolher a ordem no rodapé. Ícones automáticos para Instagram, Facebook, Twitter/X e WhatsApp.
+        description: Adicione a rede e o link completo. Arraste para escolher a ordem no rodapé. Ícones automáticos para Instagram, Facebook, X e WhatsApp.
       - name: contact
         label: E-mail de contato
         type: string
