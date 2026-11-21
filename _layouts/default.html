@@ -22,6 +22,7 @@
   <meta property="og:type" content="{% if page.collection == 'materias' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   {% include social-meta.html %}
+  <script src="{{ '/assets/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="icon" href="{{ default_icon | escape }}" type="image/svg+xml">
   <script src="{{ '/assets/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
@@ -31,11 +32,13 @@
   {% if page.team_access %}
   <header class="wrap access-header">
     <a class="access-brand" href="{{ '/' | relative_url }}">{{ identity.name | escape }}</a>
+    {% include theme-toggle.html %}
     <a class="access-back" href="{{ '/' | relative_url }}">Voltar ao site <span aria-hidden="true">↗</span></a>
   </header>
   {% else %}
   <header class="wrap">
     <div class="topline">
+      {% include theme-toggle.html %}
       <a class="search-link" href="{{ '/acervo/' | relative_url }}#busca" aria-label="Pesquisar publicações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Pesquisar</span></a>
       <a class="login-link" href="{{ site.editor_url | escape }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg> Login <span class="login-detail">da equipe</span></a>
     </div>

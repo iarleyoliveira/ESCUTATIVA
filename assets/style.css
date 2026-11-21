@@ -593,3 +593,28 @@ header nav a::after{transition-duration:320ms}
   .newsroom-list li { grid-template-columns: auto 1fr; gap: 8px 20px; }
   .newsroom-list li div { grid-column: 1/-1; }
 }
+
+/* Tema claro/escuro, seguindo o sistema ou a escolha do leitor. */
+:root{color-scheme:light}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:24px;background:transparent;color:var(--ink);font:12px Arial,sans-serif;cursor:pointer}
+.topline .theme-toggle{order:1;margin-left:auto;margin-right:16px}
+.topline .login-link{order:2}
+.theme-sun{display:none}
+.theme-toggle:hover{background:#142d3b0c}
+.theme-toggle:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+html[data-theme="dark"]{color-scheme:dark;--paper:#101d23;--ink:#e7eee8;--orange:#ffa783;--line:#43565d;--muted:#b8c9cd;--surface:#192c34}
+html[data-theme="dark"] .theme-sun{display:block}
+html[data-theme="dark"] .theme-moon{display:none}
+html[data-theme="dark"] :is(.card,.hero-feature,.case-block,.access-card,.archive-search input,.quick-search input,.newsroom input){background:var(--surface);color:var(--ink)}
+html[data-theme="dark"] :is(.hero p,.card p,.about p,.article .intro,.article figcaption,.comments>p,.format-heading p,.format-empty,.card .card-author,.access-intro>p,.access-card>p,.access-help p,.case-gallery figcaption,.case-report p,.case-empty,.newsroom-list small){color:var(--muted)}
+html[data-theme="dark"] :is(.dark,footer,.quote){background:#0b1419;color:var(--ink)}
+html[data-theme="dark"] :is(.team-section,.notice,.article .body pre,.placeholder,.search-close:hover,.team-member:hover,.team-member:focus-within,.newsroom-drafts){background:#21353d;color:var(--ink)}
+html[data-theme="dark"] :is(.feature-media.media-contained,.card-media.media-contained,.case-gallery img){background:#20343c}
+html[data-theme="dark"] :is(.button,.archive-search button,.archive-filters button[aria-pressed="true"]){background:#b7ded5;color:#102e31;border-color:#b7ded5}
+html[data-theme="dark"] :is(.button:hover,.login-link:hover){background:#d1ece5;color:#102e31}
+html[data-theme="dark"] :is(.case-carousel-toolbar button,.skip:focus){background:#21353d;color:var(--ink)}
+html[data-theme="dark"] .case-carousel-toolbar button:hover{background:#b7ded5;color:#102e31}
+html[data-theme="dark"] .theme-toggle:hover{background:#ffffff12}
+html[data-theme="dark"] .brand-logo{background:#f4f1e9;border-radius:5px;padding:12px 18px}
+html[data-theme="dark"] .quote p{color:var(--ink)}
+@media(max-width:700px){.theme-toggle .theme-label{display:none}.topline .theme-toggle{margin-right:8px;padding-inline:12px}.access-header{flex-wrap:wrap}}
