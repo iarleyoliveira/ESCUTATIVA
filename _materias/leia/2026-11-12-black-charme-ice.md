@@ -1,5 +1,5 @@
 ---
-title: Entre duas margens
+title: Entre duas margens 2
 category: Reportagem
 description: Há encontros que só acontecem porque alguém decide contar uma história
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
