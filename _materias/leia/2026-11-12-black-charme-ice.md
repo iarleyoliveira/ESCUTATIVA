@@ -51,7 +51,7 @@ Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do
 
 A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual “permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos”. Mas essa ponte também pode ser percorrida por quem precisa ser ouvido. 
 
-“**Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis**”, diz a assessora.
+“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a **oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis**”, diz a assessora.
 
 **Tempos de crise**
 
@@ -75,7 +75,7 @@ Durante sua passagem pela Secretaria de Saúde de Santos, Meilin ajudou a aproxi
 
 A experiência mostrou que problemas individuais podem revelar falhas que afetam outras pessoas e, por isso, merecem atenção do poder público. Segundo ela, quando uma situação ultrapassa o atendimento individual e ganha repercussão, ela ganha outro peso.
 
-“**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão. Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade**”, salienta Meilin.
+“**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão.** Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade”, salienta Meilin.
 
 **Uma cobrança que sai do papel**
 
