@@ -11,7 +11,7 @@ cover_fit: contain
 share_image: /assets/social/black-charme-ice.png
 published: true
 ---
-Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: o que se perde quando a população deixa de reconhecer o valor da informação jornalística?
+Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
 
 Para o historiador Cesar Agenor Fernandes da Silva, a resposta passa pelo próprio exercício da cidadania. “O exercício da cidadania depende da boa informação e o Jornalismo bem feito é fundamental para que isso ocorra”, analisa.
 
@@ -29,15 +29,13 @@ Depois da identificação, foram realizados os procedimentos para atualização 
 
 Para Bonametti, o caso é um exemplo de como a imprensa pode contribuir com investigações. Ele ressalta que uma notícia pode alcançar pessoas que, por diferentes motivos, não procurariam uma delegacia, mas que reconhecem alguém ou se lembram de alguma situação ao acompanhar uma reportagem. 
 
-> “**Já aconteceu da reportagem trazer alguma informação que a gente não tinha, até porque às vezes as pessoas procuram a imprensa antes de procurar a delegacia, porque a delegacia, querendo ou não, tem um ambiente ainda mais formal**”, revela Bonametti.
+> ### “**Já aconteceu da reportagem trazer alguma informação que a gente não tinha, até porque às vezes as pessoas procuram a imprensa antes de procurar a delegacia, porque a delegacia, querendo ou não, tem um ambiente ainda mais formal”**, revela Bonametti.
 
 O delegado Carlos Eduardo Vieira Ceroni, seccional de Jacupiranga, observa que a divulgação de uma ocorrência também pode despertar a atenção de testemunhas que desconheciam a importância de algo que presenciaram.
 
-> “**Muitas vezes, pessoas que possuem informações relevantes não sabem que determinado fato está sendo investigado ou que aquilo que presenciaram pode ter importância para a polícia. Quando a imprensa divulga um caso, essas pessoas podem se sentir motivadas a procurar uma delegacia ou apresentar informações que até então não haviam chegado ao conhecimento dos policiais**”, explica Ceroni.
+“Muitas vezes, pessoas que possuem informações relevantes não sabem que determinado fato está sendo investigado ou que aquilo que presenciaram pode ter importância para a polícia. **Quando a imprensa divulga um caso, essas pessoas podem se sentir motivadas a procurar uma delegacia ou apresentar informações que até então não haviam chegado ao conhecimento dos policiais**”, explica Ceroni.
 
-A delegada Izabela Coelho, titular da Delegacia de Defesa da Mulher (DDM) de Itanhaém, conta que também já recebeu informações relevantes depois da divulgação de investigações. 
-
-> “**Já consegui informação quente, fidedigna, com base em notícias inoculadas nas redes sociais**”, relata Izabela Coelho 
+A delegada Izabela Coelho, titular da Delegacia de Defesa da Mulher (DDM) de Itanhaém, conta que também já recebeu informações relevantes depois da divulgação de investigações. “**Já consegui informação quente, fidedigna, com base em notícias inoculadas nas redes sociais**”, relata.
 
 Ela afirma que já conseguiu separar especulações de informações concretas e aproveitou relatos que ajudaram em investigações. O cuidado, segundo ela, está em verificar o que chega, sem desconsiderar a possibilidade de uma notícia abrir caminhos ainda desconhecidos pela polícia.
 
@@ -47,31 +45,31 @@ A informação também pode fazer o caminho entre o poder público e a populaç�
 
 Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do Rio Branco, na Área Continental da Cidade. Menos de um mês depois, uma moradora do bairro sofreu um princípio de infarto e precisou de atendimento.
 
-“A família dessa moradora soube da existência do novo pronto-socorro por meio da repercussão nos veículos de imprensa”, conta o chefe de gabinete. A proximidade da unidade de saúde e a agilidade dos profissionais permitiram que ela fosse socorrida a tempo. 
+“**A família dessa moradora soube da existência do novo pronto-socorro por meio da repercussão nos veículos de imprensa**”, conta o chefe de gabinete. A proximidade da unidade de saúde e a agilidade dos profissionais permitiram que ela fosse socorrida a tempo. 
 
 > ### “**Para mim, esse é um exemplo concreto de como o Jornalismo e o Poder Público, juntos, ajudaram a salvar uma vida**”, afirma Sibilio.
 
 A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual “permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos”. Mas essa ponte também pode ser percorrida por quem precisa ser ouvido. 
 
-“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis”, diz Meilin.
+“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. **Quando procura um veículo de comunicação, passa a ter a oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis**”, diz a assessora.
 
 **Tempos de crise**
 
 Em outras circunstâncias, a relação entre imprensa e poder público ganha uma dimensão ainda mais delicada. Foi o que aconteceu com Meilin durante o deslizamento de terra de 2020 em Guarujá, provocado pelas fortes chuvas que atingiram a região. A tragédia deixou 34 mortos soterrados e mobilizou equipes de resgate, Defesa Civil, profissionais da saúde e diferentes órgãos municipais.
 
-“Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos”, lembra a assessora.
+“Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra a assessora.
 
 Segundo ela, um dos desafios foi lidar com divergências entre os números apresentados pelo Corpo de Bombeiros e pela Defesa Civil municipal sobre a quantidade de pessoas desaparecidas em uma das regiões atingidas. 
 
 A equipe de comunicação sugeriu, então, incluir agentes comunitários de saúde, que conheciam os bairros e acompanhavam os moradores cotidianamente, nas reuniões do gabinete de crise. A participação desses profissionais ajudou a qualificar as informações e a consolidar os dados oficiais. 
 
-> ### “**Em momentos de tragédia, a comunicação não pode ser tratada como uma atividade acessória. Ela é parte fundamental da gestão de crise, porque a informação correta, transmitida no momento adequado, também é uma forma de respeito às vítimas, aos familiares e à sociedade**”, frisa Meilin
+> ### “**Em momentos de tragédia, a comunicação não pode ser tratada como uma atividade acessória. Ela é parte fundamental da gestão de crise, porque a informação correta, transmitida no momento adequado, também é uma forma de respeito às vítimas, aos familiares e à sociedade**”, ressalta Meilin
 
 Poucas semanas depois, a chegada da pandemia de Covid-19 trouxe outro tipo de desafio. Se, no deslizamento, o trabalho estava concentrado em uma tragédia localizada, a crise sanitária exigia atualização diária de informações em meio a um cenário de medo e incerteza.
 
 As orientações de saúde mudavam conforme avançava o conhecimento científico sobre o vírus. Era preciso acompanhar as recomendações, atender às solicitações dos jornalistas e garantir que a população compreendesse os cuidados necessários. A assessora lembra de acompanhar entrevistas em unidades de saúde e orientar pessoalmente pessoas que chegavam assustadas, sem saber exatamente como proceder. 
 
-“Em determinados momentos, o trabalho extrapolava a rotina tradicional de uma assessoria de imprensa. Era preciso ter sensibilidade para entender o medo das pessoas, transmitir tranquilidade sem minimizar a gravidade da situação e, principalmente, garantir que as orientações fossem compreendidas”, relata.
+“**Em determinados momentos, o trabalho extrapolava a rotina tradicional de uma assessoria de imprensa**. Era preciso ter sensibilidade para entender o medo das pessoas, transmitir tranquilidade sem minimizar a gravidade da situação e, principalmente, garantir que as orientações fossem compreendidas”, relata.
 
 Durante sua passagem pela Secretaria de Saúde de Santos, Meilin ajudou a aproximar a comunicação dos setores responsáveis pelos serviços. Quando moradores relatavam dificuldades para marcar consultas ou exames, as reclamações eram encaminhadas para investigação.
 
