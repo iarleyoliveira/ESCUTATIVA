@@ -1,13 +1,11 @@
 name: Caso Felipe Rodrigues da Silva Ribeiro
-id: caso-felipe
-published: true
 ordem: 3
-descricao: >-
-  Felipe Rodrigues, de quatro anos, foi diagnosticado com leucodistrofia
-  hipomielinizante tipo 15, uma doença rara e sem cura que compromete seus
-  movimentos. Sua família organizou uma vaquinha para comprar uma cadeira
-  postural. Após a publicação da reportagem, um doador anônimo pagou pela
-  cadeira, proporcionando mais conforto à rotina de Felipe e permitindo
+id: caso-felipe
+descricao: Felipe Rodrigues, de quatro anos, foi diagnosticado com
+  leucodistrofia hipomielinizante tipo 15, uma doença rara e sem cura que
+  compromete seus movimentos. Sua família organizou uma vaquinha para comprar
+  uma cadeira postural. Após a publicação da reportagem, um doador anônimo pagou
+  pela cadeira, proporcionando mais conforto à rotina de Felipe e permitindo
   passeios com a família.
 fotos:
   - imagem: /assets/uploads/casos/caso-felipe-1.jpg
@@ -21,10 +19,10 @@ fotos:
 reportagens:
   - formato: Texto
     title: Pedido de ajuda para uma cadeira postural
-    veiculo: A Tribuna Online
-    resumo: >-
-      Publicada em 23 de abril de 2026, a reportagem apresenta a campanha da
+    veiculo: A Tribuna
+    resumo: Publicada em 23 de abril de 2026, a reportagem apresenta a campanha da
       família de Felipe para adquirir uma cadeira postural e melhorar sua
       qualidade de vida. Após a publicação, um doador anônimo custeou a cadeira.
     link: https://www.atribuna.com.br/cidades/santos/menino-de-4-anos-de-santos-e-unico-caso-de-doenca-genetica-rara-no-brasil-e-perde-movimento-do-corpo-familia-pede-ajuda-1.510953
     published: true
+published: true
