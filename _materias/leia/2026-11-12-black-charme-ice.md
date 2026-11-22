@@ -51,7 +51,7 @@ Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do
 
 A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual “permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos”. Mas essa ponte também pode ser percorrida por quem precisa ser ouvido. 
 
-“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. **Quando procura um veículo de comunicação, passa a ter a oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis**”, diz a assessora.
+“**Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de tornar aquele problema visível para um número maior de pessoas e, principalmente, de chamar a atenção das autoridades responsáveis**”, diz a assessora.
 
 **Tempos de crise**
 
@@ -75,7 +75,7 @@ Durante sua passagem pela Secretaria de Saúde de Santos, Meilin ajudou a aproxi
 
 A experiência mostrou que problemas individuais podem revelar falhas que afetam outras pessoas e, por isso, merecem atenção do poder público. Segundo ela, quando uma situação ultrapassa o atendimento individual e ganha repercussão, ela ganha outro peso.
 
-> “**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão. Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade**”, salienta Meilin.
+“**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão. Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade**”, salienta Meilin.
 
 **Uma cobrança que sai do papel**
 
@@ -95,7 +95,7 @@ Em novembro deste ano, a cidade inaugurou a nova rodoviária, com estrutura cobe
 
 Para o assessor de imprensa, o trabalho jornalístico também permite que a administração municipal identifique problemas que dificilmente conseguiria acompanhar individualmente em todos os bairros. “Embora o Poder Público tenha como responsabilidade fiscalizar as demandas de toda a cidade, é humanamente inviável executar esse trabalho todos os dias, rua por rua”, observa. 
 
-> “**O contato diário com a população, muitas vezes mediado pela imprensa, é fundamental para que a Administração Municipal amplie sua capacidade de identificação de problemas e, assim, possa direcionar a fiscalização e traçar estratégias para solucionar as demandas apresentadas**”, destaca Sibilio.
+“**O contato diário com a população, muitas vezes mediado pela imprensa, é fundamental para que a Administração Municipal amplie sua capacidade de identificação de problemas** e, assim, possa direcionar a fiscalização e traçar estratégias para solucionar as demandas apresentadas”, destaca Sibilio.
 
 O assessor ressalta que a contribuição do Jornalismo não está apenas em dar visibilidade às reclamações, mas também na maneira como os problemas são apresentados à população. “Embora vivamos em uma nova realidade, potencializada pelo imediatismo das redes sociais, o trabalho jornalístico de apuração, ouvindo todos os lados envolvidos e sem recorrer ao alarmismo, segue essencial para que o cidadão formule sua própria opinião sobre um projeto, uma entrega ou um problema enfrentado pelo órgão público”, avalia.
 
@@ -109,7 +109,7 @@ Ela aponta o risco de divulgar informações sigilosas e expor crianças vítima
 
 Bonametti também destaca que a divulgação precipitada pode comprometer uma investigação, especialmente quando envolve imagens ou detalhes sobre o modo de atuação da polícia. Em casos de desaparecimento, familiares que não recebem atualizações frequentes podem procurar a imprensa por ansiedade e falta de respostas, sem necessariamente compreender que determinadas informações precisam ser preservadas.
 
-> “**É um trabalho que tem que respeitar o trabalho formal da polícia e evitar, como muitos jornalistas bons fazem, divulgar informações antecipadas. Conversar com as autoridades policiais antes de fazer uma divulgação atropelada para evitar prejuízo às investigações**”, defende Bonametti.
+“**É um trabalho que tem que respeitar o trabalho formal da polícia** e evitar, como muitos jornalistas bons fazem, divulgar informações antecipadas.**** Conversar com as autoridades policiais antes de fazer uma divulgação atropelada para evitar **prejuízo às investigações**”, defende Bonametti.
 
 Meirelles faz uma ressalva semelhante em relação à cobertura de processos judiciais. Para ele, é importante diferenciar a divulgação de uma decisão, que já passou pelo devido processo legal, da publicação de uma acusação apresentada por apenas um dos envolvidos. “**Muitas vezes a imprensa divulga o que é passado, mas a fonte que traz a informação só escutou um lado**”, observa.
 
