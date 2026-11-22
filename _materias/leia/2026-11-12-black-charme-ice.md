@@ -127,5 +127,5 @@ A liberdade de imprensa, nesse cenário, permanece fundamental para a democracia
 
 Meirelles, por sua vez, teme o que aconteceria em uma sociedade sem essa possibilidade de acesso à informação confiável. Para ele, a população ficaria ainda mais vulnerável à circulação de notícias falsas e versões incompletas, sem saber em quais informações poderia confiar.
 
-> “**Sem a imprensa, eu acho que a desinformação ou até mesmo a informação séria se perderia, vamos dizer assim, num caos nacional. Você não sabe o que é verdade, você não sabe o que é fake news, você não sabe o que é meia verdade**”, afirma Meirelles. E conclui: “**Se não houvesse a imprensa, a gente estaria perdido**”.
+“**Sem a imprensa, eu acho que a desinformação ou até mesmo a informação séria se perderia, vamos dizer assim, num caos nacional. Você não sabe o que é verdade, você não sabe o que é fake news, você não sabe o que é meia verdade**”, afirma Meirelles. E conclui: “**Se não houvesse a imprensa, a gente estaria perdido**”.
 
