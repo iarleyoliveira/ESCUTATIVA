@@ -105,13 +105,13 @@ Se os relatos mostram como a imprensa pode ajudar a encontrar respostas e mobili
 
 Izabela, por exemplo, vê o jornalismo investigativo com cautela. Embora reconheça trabalhos “extraordinários” realizados pela imprensa, considera que a busca por notícias violentas pode estimular a espetacularização de crimes e investigações.
 
-Ela aponta o risco de divulgar informações sigilosas e expor crianças vítimas de violência sexual e chama a atenção para a exposição de pessoas investigadas, que podem ser condenadas pela opinião pública antes mesmo de um julgamento. “E essa sentença é meio irrecorrível. A pessoa vai estar taxada para sempre”, afirma.
+Ela aponta o risco de divulgar informações sigilosas e expor crianças vítimas de violência sexual e chama a atenção para a exposição de pessoas investigadas, que podem ser condenadas pela opinião pública antes mesmo de um julgamento. “E essa sentença é meio irrecorrível. **A pessoa vai estar taxada para sempre**”, afirma.
 
 Bonametti também destaca que a divulgação precipitada pode comprometer uma investigação, especialmente quando envolve imagens ou detalhes sobre o modo de atuação da polícia. Em casos de desaparecimento, familiares que não recebem atualizações frequentes podem procurar a imprensa por ansiedade e falta de respostas, sem necessariamente compreender que determinadas informações precisam ser preservadas.
 
 > “**É um trabalho que tem que respeitar o trabalho formal da polícia e evitar, como muitos jornalistas bons fazem, divulgar informações antecipadas. Conversar com as autoridades policiais antes de fazer uma divulgação atropelada para evitar prejuízo às investigações**”, defende Bonametti.
 
-Meirelles faz uma ressalva semelhante em relação à cobertura de processos judiciais. Para ele, é importante diferenciar a divulgação de uma decisão, que já passou pelo devido processo legal, da publicação de uma acusação apresentada por apenas um dos envolvidos. “Muitas vezes a imprensa divulga o que é passado, mas a fonte que traz a informação só escutou um lado”, observa.
+Meirelles faz uma ressalva semelhante em relação à cobertura de processos judiciais. Para ele, é importante diferenciar a divulgação de uma decisão, que já passou pelo devido processo legal, da publicação de uma acusação apresentada por apenas um dos envolvidos. “**Muitas vezes a imprensa divulga o que é passado, mas a fonte que traz a informação só escutou um lado**”, observa.
 
 A preocupação com a qualidade da informação também aparece na análise do historiador Cesar Agenor Fernandes da Silva. Para ele, a cobertura concentrada em episódios violentos pode alterar a percepção da sociedade sobre a própria realidade. “Sabemos que os números são altos em nosso país, isso é inegável, mas a espetacularização da violência cria a percepção de que o problema é ainda maior”, avalia.
 
@@ -119,7 +119,7 @@ O historiador considera que o ambiente das redes sociais intensifica esse desafi
 
 A dificuldade de distinguir uma reportagem de um conteúdo opinativo ou sem critérios profissionais também contribui para o desgaste da confiança na imprensa. Para Silva, um dos caminhos para enfrentar o problema é mostrar à população como uma notícia é construída, quais procedimentos de apuração são utilizados e por que a verificação das informações importa.
 
-A liberdade de imprensa, nesse cenário, permanece fundamental para a democracia, diz o historiador. Segundo ele, a circulação de informações permite que os cidadãos acompanhem decisões, compreendam questões que afetam a sociedade e cobrem providências de quem ocupa espaços de responsabilidade pública.
+**A liberdade de imprensa, nesse cenário, permanece fundamental para a democracia**, diz o historiador. Segundo ele, a circulação de informações permite que os cidadãos acompanhem decisões, compreendam questões que afetam a sociedade e cobrem providências de quem ocupa espaços de responsabilidade pública.
 
 > ### “**Em outras palavras, não existe democracia sem o livre exercício do Jornalismo**”, afirma Silva.
 
