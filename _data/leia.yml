@@ -2,8 +2,9 @@ materias:
   action: Ler reportagem
   nav: Reportagens
   title: Histórias para ler de perto.
-  description: Reportagens, entrevistas e bastidores.
-  empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e as entrevistas do projeto.
+  description: Entenda como funciona a ponte entre a sociedade e o poder público
+  empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e
+    as entrevistas do projeto.
 entrevistas:
   action: Ler entrevista
   nav: Entrevistas
