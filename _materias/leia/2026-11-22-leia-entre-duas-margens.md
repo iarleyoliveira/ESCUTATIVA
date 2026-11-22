@@ -1,7 +1,7 @@
 ---
 title: Entre duas margens
 category: Reportagem
-description: Há encontros que só acontecem porque alguém decide contar uma história
+description: Entenda como funciona a ponte entre a sociedade e o poder público
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
 date: 2026-11-22
 cover_fit: cover
