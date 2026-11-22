@@ -49,7 +49,7 @@ Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do
 
 “A família dessa moradora soube da existência do novo pronto-socorro por meio da repercussão nos veículos de imprensa”, conta o chefe de gabinete. A proximidade da unidade de saúde e a agilidade dos profissionais permitiram que ela fosse socorrida a tempo. 
 
-> ### “Para mim, esse é um exemplo concreto de como o Jornalismo e o Poder Público, juntos, ajudaram a salvar uma vida”, afirma Sibilio.
+> ### “**Para mim, esse é um exemplo concreto de como o Jornalismo e o Poder Público, juntos, ajudaram a salvar uma vida**”, afirma Sibilio.
 
 A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual “permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos”. Mas essa ponte também pode ser percorrida por quem precisa ser ouvido. 
 
@@ -65,7 +65,7 @@ Segundo ela, um dos desafios foi lidar com divergências entre os números apres
 
 A equipe de comunicação sugeriu, então, incluir agentes comunitários de saúde, que conheciam os bairros e acompanhavam os moradores cotidianamente, nas reuniões do gabinete de crise. A participação desses profissionais ajudou a qualificar as informações e a consolidar os dados oficiais. 
 
-> ### “Em momentos de tragédia, a comunicação não pode ser tratada como uma atividade acessória. Ela é parte fundamental da gestão de crise, porque a informação correta, transmitida no momento adequado, também é uma forma de respeito às vítimas, aos familiares e à sociedade”, frisa Meilin
+> ### “**Em momentos de tragédia, a comunicação não pode ser tratada como uma atividade acessória. Ela é parte fundamental da gestão de crise, porque a informação correta, transmitida no momento adequado, também é uma forma de respeito às vítimas, aos familiares e à sociedade**”, frisa Meilin
 
 Poucas semanas depois, a chegada da pandemia de Covid-19 trouxe outro tipo de desafio. Se, no deslizamento, o trabalho estava concentrado em uma tragédia localizada, a crise sanitária exigia atualização diária de informações em meio a um cenário de medo e incerteza.
 
@@ -89,7 +89,7 @@ Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos,
 
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
-> ### “O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”, diz Meirelles
+> ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz Meirelles
 
 A atuação da imprensa também esteve presente em uma demanda que se arrastava havia décadas em São Vicente: as condições da antiga rodoviária. Sibilio recorda das sucessivas reportagens dando visibilidade à situação dos passageiros, que precisavam esperar pelo transporte sob sol e chuva, sem uma estrutura adequada.
 
@@ -123,7 +123,7 @@ A dificuldade de distinguir uma reportagem de um conteúdo opinativo ou sem crit
 
 A liberdade de imprensa, nesse cenário, permanece fundamental para a democracia, diz o historiador. Segundo ele, a circulação de informações permite que os cidadãos acompanhem decisões, compreendam questões que afetam a sociedade e cobrem providências de quem ocupa espaços de responsabilidade pública.
 
-> ### “Em outras palavras, não existe democracia sem o livre exercício do Jornalismo”, afirma Silva.
+> ### “**Em outras palavras, não existe democracia sem o livre exercício do Jornalismo**”, afirma Silva.
 
 Meirelles, por sua vez, teme o que aconteceria em uma sociedade sem essa possibilidade de acesso à informação confiável. Para ele, a população ficaria ainda mais vulnerável à circulação de notícias falsas e versões incompletas, sem saber em quais informações poderia confiar.
 
