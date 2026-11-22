@@ -1,9 +1,9 @@
 ---
-title: Black Charme Ice
-description: "Reportagem que apresenta uma iniciativa cultural com entrevistas e
-  informações principais do evento. "
-author: Circy Shara
-date: 2026-11-12
+title: Entre duas margens
+description: Reportagem que traz relatos de quem faz parte da ponte entre
+  jornalismo e poder público.
+author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
+date: 2026-11-22
 category: Reportagem
 cover: /ESCUTATIVA/assets/uploads/WhatsApp Image 2026-11-12 at 15.27.09.jpeg
 published: true
