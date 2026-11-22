@@ -5,7 +5,7 @@ description: Há encontros que só acontecem porque alguém decide contar uma hi
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
 date: 2026-11-22
 cover_fit: cover
-published: false
+published: true
 ---
 Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
 
