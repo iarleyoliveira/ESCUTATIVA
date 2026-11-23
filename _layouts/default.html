@@ -4,7 +4,7 @@
 {% if page.home %}{% assign page_title = inicio.title %}{% endif %}
 {% if page.archive %}{% assign page_title = inicio.acervo.title %}{% endif %}
 {% assign description = page.description | default: identity.description %}
-{% assign default_icon = '/assets/icon.svg' | relative_url %}
+{% assign default_icon = '/assets/icon.png' | relative_url %}
 {% assign custom_logo = identity.logo | strip %}
 {% assign logo = custom_logo | default: '/assets/icon.svg' %}
 {% unless logo contains '://' %}{% assign logo = logo | remove_first: site.baseurl | relative_url %}{% endunless %}
@@ -24,7 +24,7 @@
   {% include social-meta.html %}
   <script src="{{ '/assets/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-  <link rel="icon" href="{{ default_icon | escape }}" type="image/svg+xml">
+  <link rel="icon" href="{{ default_icon | escape }}" type="image/png">
   <script src="{{ '/assets/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body>
