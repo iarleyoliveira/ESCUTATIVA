@@ -1,8 +1,8 @@
 materias:
   action: Ler reportagem
   nav: Reportagens
-  title: Histórias para ler de perto.
-  description: Há encontros que só acontecem porque alguém decide contar uma história.
+  title: Histórias para ler de perto
+  description: Há encontros que só acontecem porque alguém decide contar uma história
   empty: As primeiras matérias estão em preparação. Em breve, conheça os relatos e
     as entrevistas do projeto.
 entrevistas:
