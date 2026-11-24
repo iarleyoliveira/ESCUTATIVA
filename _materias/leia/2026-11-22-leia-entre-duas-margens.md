@@ -10,11 +10,7 @@ published: true
 ---
 Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
 
-Para o historiador Cesar Agenor Fernandes da Silva, a resposta passa pelo próprio exercício da cidadania. “O exercício da cidadania depende da boa informação e o Jornalismo bem feito é fundamental para que isso ocorra”, analisa.
-
-Ele considera que, embora a imprensa tenha perdido o monopólio da formação da opinião pública, isso não significa que sua credibilidade tenha acabado. O desafio está também em fazer a sociedade compreender **como uma notícia é produzida** e **o que diferencia o trabalho jornalístico de outros conteúdos que circulam nas redes**.
-
-Buscando compreender como essa relação se manifesta na prática, a equipe do ***Escutativa*** ouviu profissionais que atuam em diferentes pontos da relação entre a sociedade e as instituições. Eles compartilharam experiências que ajudam a entender como a informação pode aproximar a população do poder público e produzir efeitos que ultrapassam a notícia.
+Buscando responder essa pergunta, a equipe do ***Escutativa*** ouviu profissionais que atuam em diferentes pontos da relação entre a sociedade e as instituições. Eles compartilharam experiências que ajudam a entender como a informação pode aproximar a população do poder público e produzir efeitos que ultrapassam a notícia.
 
 Uma dessas experiências marcou a trajetória do delegado Thiago Nemi Bonametti, da Divisão Especializada de Investigações Especiais (Deic) de Santos. Trata-se do caso do canadense Karl Andre Van Roon. “Um advogado viu um indivíduo falando uma língua estrangeira em situação de rua e chamou a imprensa para tentar ajudar a localizar alguém da família, fizeram uma matéria com a foto dele, mas até então ninguém foi localizado”, lembra.
 
