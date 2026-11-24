@@ -45,6 +45,14 @@ reportagens:
     link: https://globoplay.globo.com/v/13075227/
     published: true
   - formato: Vídeo
+    title: PM acusado de matar menina Hillary vai a julgamento (2026)
+    veiculo: Globoplay / Jornal da Tribuna 1ª Edição
+    resumo: Luis de Farias Pacheco é acusado de ter feito o disparo que atingiu a
+      criança durante perseguição policial em 2019. Júri está previsto para
+      durar dois dias.
+    link: https://globoplay.globo.com/v/14400652/
+    published: true
+  - formato: Vídeo
     title: Avó da menina Hillary luta por justiça após morte da neta (2026)
     veiculo: Globoplay / Jornal da Tribuna 2ª Edição
     resumo: Após sete anos de espera, o policial militar Luis de Farias Pacheco foi
@@ -52,10 +60,5 @@ reportagens:
       menina. A decisão representou o desfecho judicial da luta da família por
       justiça.
     link: https://globoplay.globo.com/v/14409910/
-    published: true
-  - formato: Vídeo
-    title: PM acusado de matar menina Hillary vai a julgamento (2026)
-    veiculo: Globoplay
-    link: https://globoplay.globo.com/v/14400652/
     published: true
 published: true
