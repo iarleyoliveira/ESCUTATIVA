@@ -1,7 +1,7 @@
 ---
-title: Quando a escuta abre caminhos
+title: Quando a notícia faz parte da história
 category: Minidocumentário
-description: Histórias de pessoas que encontraram na imprensa uma aliada para serem ouvidas.
+description: Histórias de pessoas que encontraram na imprensa uma aliada para serem ouvidas
 date: 2026-11-12
 cover: /assets/uploads/whatsapp-image-2026-11-21-at-020924.jpeg
 cover_fit: cover
