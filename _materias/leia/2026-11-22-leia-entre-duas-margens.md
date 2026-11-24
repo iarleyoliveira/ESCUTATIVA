@@ -102,15 +102,19 @@ Meirelles faz uma ressalva semelhante em relação à cobertura de processos jud
 
 **O ruído em meio à informação**
 
-A preocupação com a qualidade da informação também aparece na análise de Silva. Para ele, a cobertura concentrada em episódios violentos pode alterar a percepção da sociedade sobre a própria realidade. “Sabemos que os números são altos em nosso país, isso é inegável, mas a espetacularização da violência cria a percepção de que o problema é ainda maior”, avalia o historiador.
+A preocupação com a qualidade da informação também aparece na análise do historiador Cesar Agenor Fernandes da Silva. Para ele, a cobertura concentrada em episódios violentos pode alterar a percepção da sociedade sobre a própria realidade. 
 
-Ele considera que o ambiente das redes sociais intensifica esse desafio. Os algoritmos selecionam conteúdos capazes de manter os usuários conectados e frequentemente reforçam opiniões e crenças que já possuem. Com isso, informações falsas podem circular entre grupos que passam a enxergar realidades completamente diferentes.
+O historiador considera que uma das causas desse cenário são os algoritmos das redes sociais, que selecionam conteúdos capazes de manter os usuários conectados e frequentemente reforçam opiniões e crenças que já possuem. 
 
-A dificuldade de distinguir uma reportagem de um conteúdo opinativo ou sem critérios profissionais também contribui para o desgaste da confiança na imprensa. Para Silva, um dos caminhos para enfrentar o problema é mostrar à população como uma notícia é construída, quais procedimentos de apuração são utilizados e por que a verificação das informações importa.
+"Isso vai gerando identidades, sentimentos de pertencimento e aglutinação de pessoas em torno de causas e ideias comuns e, em muitos casos, ocorre tanta difusão de informações falsas e de desinformação que muitas pessoas passam a acreditar em uma realidade distinta da de outras pessoas, o que é **extremamente perigoso** em nosso tempo", explica.
 
-**A liberdade de imprensa, nesse cenário, permanece fundamental para a democracia**, diz o historiador. Segundo ele, a circulação de informações permite que os cidadãos acompanhem decisões, compreendam questões que afetam a sociedade e cobrem providências de quem ocupa espaços de responsabilidade pública.
+Para Silva, embora a imprensa tenha perdido o monopólio da formação da opinião pública, isso não significa que sua credibilidade tenha acabado. "Podemos dizer que as percepções em torno do papel do Jornalismo oscilam de tempos em tempos, mas é pouco provável que um cidadão mediano não reconheça e não valorize o papel do Jornalismo em nosso tempo", analisa.
 
-> ### “**Em outras palavras, não existe democracia sem o livre exercício do Jornalismo**”, afirma Silva.
+Segundo ele, um dos caminhos para enfrentar o problema é **mostrar à sociedade como uma notícia é construída**, **quais procedimentos de apuração são utilizados** e **por que a verificação das informações importa**.
+
+**Esse esforço de transparência fortalece o próprio papel da imprensa na democracia**, avalia o historiador. Para Silva, a livre circulação de informações apuradas com rigor permite que os cidadãos acompanhem decisões, compreendam questões que afetam a sociedade e cobrem providências de quem ocupa espaços de responsabilidade pública.
+
+> ### “**Em outras palavras, não existe democracia sem o livre exercício do Jornalismo**”, afirma.
 
 Meirelles, por sua vez, teme o que aconteceria em uma sociedade sem essa possibilidade de acesso à informação confiável. Para ele, a população ficaria ainda mais vulnerável à circulação de notícias falsas e versões incompletas, sem saber em quais informações poderia confiar.
 
