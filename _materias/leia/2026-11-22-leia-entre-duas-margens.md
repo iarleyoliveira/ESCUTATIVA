@@ -4,6 +4,7 @@ category: Reportagem
 description: Entenda como funciona a ponte entre a sociedade e o poder público
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
 date: 2026-11-22
+cover: /assets/uploads/capa-materia-escrita.jpg
 cover_fit: cover
 published: true
 ---
