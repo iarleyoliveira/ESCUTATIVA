@@ -1,7 +1,7 @@
 ---
 title: Quando a escuta abre caminhos
 category: Minidocumentário
-description: Histórias de pessoas que encontraram na imprensa uma aliada para serem ouvidas
+description: Minidocumentário sobre vidas impactadas pelo Jornalismo
 date: 2026-11-12
 youtube_id: https://youtube.com/watch?v=tE6SYedFgeQ&feature=shared
 cover: /assets/uploads/capa.jpeg
