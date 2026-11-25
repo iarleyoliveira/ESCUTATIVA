@@ -171,6 +171,10 @@ content:
           - name: author
             label: Autor ou autores
             type: string
+          - name: ordem
+            label: Posição na seção
+            type: number
+            description: Números menores aparecem primeiro. Deixe vazio para ordenar por data após os itens posicionados.
           - name: date
             label: Data
             type: date
@@ -276,6 +280,10 @@ content:
           - name: author
             label: Autor ou autores
             type: string
+          - name: ordem
+            label: Posição na seção
+            type: number
+            description: Números menores aparecem primeiro. Deixe vazio para ordenar por data após os itens posicionados.
           - name: date
             label: Data
             type: date
@@ -382,6 +390,10 @@ content:
           - name: author
             label: Autor ou autores
             type: string
+          - name: ordem
+            label: Posição na seção
+            type: number
+            description: Números menores aparecem primeiro. Deixe vazio para ordenar por data após os itens posicionados.
           - name: date
             label: Data
             type: date
@@ -561,6 +573,30 @@ content:
           - name: empty
             label: Mensagem sem publicações
             type: text
+  - name: ordem_secoes
+    label: Ordem das seções
+    type: file
+    path: _data/formatos.yml
+    list: true
+    operations:
+      delete: false
+    fields:
+      - name: id
+        type: string
+        hidden: true
+      - name: label
+        label: Seção — arraste para mudar a posição
+        type: string
+        readonly: true
+      - name: heading
+        type: string
+        hidden: true
+      - name: description
+        type: text
+        hidden: true
+      - name: dark
+        type: boolean
+        hidden: true
   - name: inicio
     label: Página inicial
     type: file
@@ -590,11 +626,38 @@ content:
         label: Link ao fim da publicação
         type: string
       - name: destaque
-        label: Matéria de abertura da página inicial
+        label: Publicação de abertura da página inicial
         type: object
         fields:
+          - name: formato
+            label: Formato do destaque
+            type: select
+            default: leia
+            options:
+              values:
+                - name: leia
+                  label: Reportagem
+                - name: assista
+                  label: Minidocumentário
+                - name: escute
+                  label: Podcast
+            description: Escolha o formato e selecione a publicação no campo correspondente abaixo. Apenas o formato escolhido será usado.
+          - name: video
+            label: Escolher minidocumentário
+            type: reference
+            options:
+              collection: assista
+              value: "{path}"
+              label: "{primary}"
+          - name: podcast
+            label: Escolher podcast
+            type: reference
+            options:
+              collection: escute
+              value: "{path}"
+              label: "{primary}"
           - name: publication
-            label: Escolher publicação
+            label: Escolher reportagem
             type: reference
             description: Escolha uma publicação com Publicar no site ativado. Se limpar este campo, a publicação mais recente será usada automaticamente.
             options:

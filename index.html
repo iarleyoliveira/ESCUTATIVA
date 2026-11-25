@@ -4,9 +4,14 @@ home: true
 ---
 {% assign inicio = site.data.inicio %}
 {% assign publications = site.materias | where: 'published', true | sort: 'date' | reverse %}
+{% assign positioned = publications | where_exp: 'item', 'item.ordem != nil' | sort: 'ordem' %}
+{% assign unpositioned = publications | where_exp: 'item', 'item.ordem == nil' %}
+{% assign publications = positioned | concat: unpositioned %}
 {% assign feature_path = inicio.destaque.publication %}
+{% if inicio.destaque.formato == 'assista' %}{% assign feature_path = inicio.destaque.video %}{% endif %}
+{% if inicio.destaque.formato == 'escute' %}{% assign feature_path = inicio.destaque.podcast %}{% endif %}
 {% assign feature = publications | where: 'path', feature_path | first %}
-{% unless feature %}{% assign feature = publications | first %}{% endunless %}
+{% unless feature %}{% assign feature = publications | sort: 'date' | reverse | first %}{% endunless %}
 {% if feature %}
 <section class="wrap hero home-hero home-news">
     <article class="hero-feature">
