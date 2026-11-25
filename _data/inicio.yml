@@ -1,4 +1,3 @@
-mostrar_destaque: false
 title: Quando a escuta abre caminhos
 read_more: https://youtube.com/watch?v=tE6SYedFgeQ&feature=shared
 video_summary: Ver sinopse
@@ -6,6 +5,7 @@ video_pending: Em breve
 byline: Por Escutativa
 back: Voltar à seção
 continue: Continuar explorando
+mostrar_destaque: true
 destaque:
   formato: assista
   video: _materias/assista/quando-a-escuta-abre-caminhos.md
