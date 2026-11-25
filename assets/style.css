@@ -619,3 +619,10 @@ html[data-theme="dark"] .theme-toggle:hover{background:#ffffff12}
 html[data-theme="dark"] .brand-logo img{filter:invert(1) hue-rotate(180deg)}
 html[data-theme="dark"] .quote p{color:var(--ink)}
 @media(max-width:700px){.theme-toggle .theme-label{display:none}.topline .theme-toggle{margin-right:8px;padding-inline:12px}.access-header{flex-wrap:wrap}}
+
+/* Give the documentary room to play without repeating its cover. */
+#assista .video-list > .video-grid:first-child { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+#assista .video-list > .video-grid:first-child h3 { font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 16px; }
+#assista .video-list > .video-grid:first-child p { max-width: 760px; }
+.article.article-video { max-width: 1160px; }
+.article-video > .body, .article-video > .intro { max-width: 780px; }
