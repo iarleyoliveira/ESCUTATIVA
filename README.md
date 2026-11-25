@@ -15,6 +15,10 @@ Ao atualizar uma publicação existente, edite o mesmo registro dentro de Leia, 
 
 ## Casos
 
+### Imagens no texto das reportagens
+
+No formulário de uma reportagem, use **Imagens dentro da reportagem**, logo abaixo de **Texto da matéria**. Adicione um item, escolha **Enviar ou escolher imagem** e preencha a descrição. Em **Depois de qual trecho do texto?**, cole uma frase única do parágrafo que deve vir antes da imagem, sem marcações de negrito. Legenda e crédito são opcionais. A imagem aparece inteira e se adapta à largura da tela. Se o trecho ficar vazio ou não for encontrado após uma edição, a imagem aparece ao final do texto. Quando mudar esse parágrafo, atualize também o trecho. Salve para atualizar o site.
+
 O item **Casos** do menu abre uma seção única na página inicial, com **Caso Hillary**, **Caso canadense Cal** e **Caso Felipe**, nessa ordem. Os três blocos permanecem visíveis enquanto não houver reportagens cadastradas.
 
 No Pages CMS, abra **Casos** para adicionar ou editar um caso. Preencha **Nome do caso** e **Sobre este caso**. Em **Fotos**, adicione imagens, descrições e créditos. Em **Reportagens do caso**, cadastre título, veículo, resumo, formato e link da matéria original. Ative **Publicar no site** no caso e nas reportagens desejadas e salve. Arraste os casos para alterar a ordem. Os identificadores dos casos existentes são preservados; casos novos recebem um link a partir do nome. Os títulos das reportagens abrem as fontes originais em nova aba.

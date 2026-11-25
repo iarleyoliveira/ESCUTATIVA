@@ -1,0 +1,7 @@
+{% capture image_url %}{% include asset-url.html path=include.image.image %}{% endcapture %}
+<figure class="article-inline-image">
+  <img src="{{ image_url | strip | escape }}" alt="{{ include.image.alt | escape }}" loading="lazy">
+  {% if include.image.caption != blank or include.image.credit != blank %}
+    <figcaption>{% if include.image.caption != blank %}<span>{{ include.image.caption | escape }}</span>{% endif %}{% if include.image.credit != blank %}<small>{{ include.image.credit | escape }}</small>{% endif %}</figcaption>
+  {% endif %}
+</figure>

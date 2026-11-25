@@ -1,0 +1,28 @@
+{%- if page.body_images.size > 0 -%}
+  {%- assign paragraphs = content | split: '</p>' -%}
+  {%- assign inserted_images = '|' -%}
+  {%- for paragraph in paragraphs -%}
+    {{ paragraph }}{% unless forloop.last %}</p>{% endunless %}
+    {%- assign paragraph_text = paragraph | strip_html | strip -%}
+    {%- for image in page.body_images -%}
+      {%- assign image_key = forloop.index | prepend: '|' | append: '|' -%}
+      {%- assign anchor = image.after | default: '' | strip -%}
+      {%- if image.image != blank and anchor != '' and paragraph_text contains anchor -%}
+        {%- unless inserted_images contains image_key -%}
+          {% include article-image.html image=image %}
+          {%- assign inserted_images = inserted_images | append: image_key -%}
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- for image in page.body_images -%}
+    {%- assign image_key = forloop.index | prepend: '|' | append: '|' -%}
+    {%- if image.image != blank -%}
+      {%- unless inserted_images contains image_key -%}
+        {% include article-image.html image=image %}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {{ content }}
+{%- endif -%}
