@@ -2,7 +2,7 @@
 title: Entre duas margens
 category: Reportagem
 description: Histórias reais que revelam o que acontece quando a informação
-  atravessa distâncias e conecta pessoas com o poder público
+  atravessa distâncias e conecta pessoas com instituições
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
 date: 2026-11-22
 cover: /assets/uploads/capa-materia-escrita-1.jpg
