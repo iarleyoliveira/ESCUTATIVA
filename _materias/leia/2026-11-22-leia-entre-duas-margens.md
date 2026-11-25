@@ -16,6 +16,8 @@ Uma dessas experiências marcou a trajetória do delegado Thiago Nemi Bonametti,
 
 A reportagem foi publicada em agosto de 2024, mas continuou disponível na internet. Em março de 2026, familiares que procuravam informações sobre o desaparecido encontraram a reportagem por meio de uma pesquisa reversa de imagens. A partir daí, entraram em contato com a polícia. 
 
+![](</assets/uploads/CASO KARL.png>)
+
 Os investigadores conseguiram identificar o homem, reconstruir parte de seus últimos passos e localizar um registro de óbito. “Uma pena que nós encontramos ele apenas depois de morto, mas a família conseguiu ter uma resposta apenas por causa dessa matéria da imprensa”, conta Bonametti.
 
 Depois da identificação, foram realizados os procedimentos para atualização da documentação relacionada à morte, da certidão de óbito e do traslado do corpo. A família, segundo o delegado, ficou imensamente agradecida.
@@ -54,6 +56,8 @@ Em outras circunstâncias, a relação entre imprensa e poder público ganha uma
 
 “Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra.
 
+![](/assets/uploads/Deslizamentos.png)
+
 Segundo ela, um dos desafios foi lidar com divergências entre os números apresentados pelo Corpo de Bombeiros e pela Defesa Civil municipal sobre a quantidade de pessoas desaparecidas em uma das regiões atingidas. 
 
 A equipe de comunicação sugeriu, então, incluir agentes comunitários de saúde, que conheciam os bairros e acompanhavam os moradores cotidianamente, nas reuniões do gabinete de crise. A participação desses profissionais ajudou a qualificar as informações e a consolidar os dados oficiais. 
@@ -76,9 +80,13 @@ Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos,
 
 > ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz.
 
+![](/assets/uploads/OAB.png)
+
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
 A atuação da imprensa também esteve presente em uma demanda que se arrastava havia décadas em São Vicente: as condições da antiga rodoviária. Sibilio recorda das sucessivas reportagens dando visibilidade à situação dos passageiros, que precisavam esperar pelo transporte sob sol e chuva, sem uma estrutura adequada.
+
+![](/assets/uploads/RODOVIÁRIA.png)
 
 Em novembro deste ano, a cidade inaugurou a nova rodoviária, com estrutura coberta, climatizada e acessível. “Foi uma entrega histórica para a cidade, sobretudo pelo sentimento de pertencimento que representa e por colocar fim a um problema histórico que perdurou por décadas, associado ao descaso e à sensação de um caso que nunca seria resolvido”, afirma.
 
