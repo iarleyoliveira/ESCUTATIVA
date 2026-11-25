@@ -1,13 +1,15 @@
-- id: leia
-  label: Leia
-  heading: materias
-  description: Reportagens, entrevistas e bastidores.
 - id: assista
   label: Assista
   heading: documentario
   description: Histórias em minidocumentários.
+  dark: false
+- id: leia
+  label: Leia
+  heading: materias
+  description: Reportagens, entrevistas e bastidores.
+  dark: false
 - id: escute
   label: Escute
   heading: videocast
-  description: "Por trás de cada notícia, existem decisões, responsabilidades e histórias"
+  description: Por trás de cada notícia, existem decisões, responsabilidades e histórias
   dark: true
