@@ -16,8 +16,6 @@ Uma dessas experiências marcou a trajetória do delegado Thiago Nemi Bonametti,
 
 A reportagem foi publicada em agosto de 2024, mas continuou disponível na internet. Em março de 2026, familiares que procuravam informações sobre o desaparecido encontraram a reportagem por meio de uma pesquisa reversa de imagens. A partir daí, entraram em contato com a polícia. 
 
-![](</assets/uploads/CASO KARL.png>)
-
 Os investigadores conseguiram identificar o homem, reconstruir parte de seus últimos passos e localizar um registro de óbito. “Uma pena que nós encontramos ele apenas depois de morto, mas a família conseguiu ter uma resposta apenas por causa dessa matéria da imprensa”, conta Bonametti.
 
 Depois da identificação, foram realizados os procedimentos para atualização da documentação relacionada à morte, da certidão de óbito e do traslado do corpo. A família, segundo o delegado, ficou imensamente agradecida.
