@@ -1,6 +1,7 @@
 ---
 title: Conversas que aproximam
 category: Podcast
+youtube_id: "-poQdEqW6xI"
 description: O que acontece antes de uma notícia chegar ao público? Uma conversa
   sobre escolhas editoriais, desafios da profissão e o compromisso de informar
 date: 2026-11-12
