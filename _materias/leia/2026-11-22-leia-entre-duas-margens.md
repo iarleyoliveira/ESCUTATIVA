@@ -56,7 +56,7 @@ Em outras circunstâncias, a relação entre imprensa e poder público ganha uma
 
 “Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra.
 
-![](/assets/uploads/Deslizamentos.png)
+![](/assets/uploads/DESLIZAMENTO.png)
 
 Segundo ela, um dos desafios foi lidar com divergências entre os números apresentados pelo Corpo de Bombeiros e pela Defesa Civil municipal sobre a quantidade de pessoas desaparecidas em uma das regiões atingidas. 
 
