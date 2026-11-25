@@ -46,7 +46,7 @@ layout: default
   {% elsif category.video and cover == "" %}
     {% include video-pending.html publication=page %}
   {% endif %}
-  <div class="body">{% include article-body.html %}</div>
+  <div class="body">{{ content }}</div>
   {% if page.credits and page.credits != "" %}
     <p class="meta">{{ page.credits | escape | newline_to_br }}</p>
   {% endif %}

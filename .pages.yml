@@ -177,38 +177,15 @@ content:
             required: true
             description: Data exibida na publicação. Para publicar, ative também Publicar no site ao final do formulário.
           - name: body
-            label: Texto da matéria
+            label: Texto e imagens da reportagem
             type: rich-text
-            description: Escreva a matéria aqui. Para adicionar fotos entre os parágrafos, use Imagens dentro da reportagem logo abaixo.
-          - name: body_images
-            label: Imagens dentro da reportagem
-            type: object
-            description: Adicione uma imagem, envie o arquivo e copie uma frase do parágrafo após o qual ela deve aparecer. Não precisa editar código. Se o trecho não for encontrado, a imagem aparece ao final do texto.
-            list:
-              collapsible:
-                collapsed: false
-                summary: "{fields.alt}"
-            fields:
-              - name: image
-                label: Enviar ou escolher imagem
-                type: image
-                required: true
-                options:
-                  rename: safe
-              - name: after
-                label: Depois de qual trecho do texto?
-                type: text
-                description: Copie uma frase única do parágrafo desejado, sem a formatação. Deixe vazio para mostrar ao final da reportagem.
-              - name: alt
-                label: O que aparece na imagem?
-                type: string
-                required: true
-              - name: caption
-                label: Legenda
-                type: string
-              - name: credit
-                label: Crédito da imagem
-                type: string
+            description: Arraste uma imagem do computador e solte no ponto desejado entre os parágrafos. Você também pode colar uma imagem ou digitar / em uma linha vazia e escolher Image. Espere o envio terminar e salve a reportagem.
+            options:
+              media: default
+              path: assets/uploads
+              rename: safe
+              format: markdown
+              switcher: true
           - name: cover
             label: Capa — enviar ou escolher imagem
             type: image

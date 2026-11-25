@@ -17,7 +17,7 @@ Ao atualizar uma publicação existente, edite o mesmo registro dentro de Leia, 
 
 ### Imagens no texto das reportagens
 
-No formulário de uma reportagem, use **Imagens dentro da reportagem**, logo abaixo de **Texto da matéria**. Adicione um item, escolha **Enviar ou escolher imagem** e preencha a descrição. Em **Depois de qual trecho do texto?**, cole uma frase única do parágrafo que deve vir antes da imagem, sem marcações de negrito. Legenda e crédito são opcionais. A imagem aparece inteira e se adapta à largura da tela. Se o trecho ficar vazio ou não for encontrado após uma edição, a imagem aparece ao final do texto. Quando mudar esse parágrafo, atualize também o trecho. Salve para atualizar o site.
+No formulário da reportagem, use **Texto e imagens da reportagem**. Arraste o arquivo de imagem do computador e solte no ponto desejado entre os parágrafos. Também é possível colar uma imagem ou digitar `/` em uma linha vazia e escolher **Image** para abrir a biblioteca. Aguarde o envio terminar e salve. Texto e imagens ficam juntos no editor; não é necessário copiar trechos nem editar o código da matéria. O envio usa `assets/uploads` e nomes de arquivo seguros.
 
 O item **Casos** do menu abre uma seção única na página inicial, com **Caso Hillary**, **Caso canadense Cal** e **Caso Felipe**, nessa ordem. Os três blocos permanecem visíveis enquanto não houver reportagens cadastradas.
 

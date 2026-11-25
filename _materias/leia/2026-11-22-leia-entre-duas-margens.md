@@ -7,16 +7,6 @@ date: 2026-11-22
 cover: /assets/uploads/capa-materia-escrita-1.jpg
 cover_fit: cover
 published: true
-body_images:
-  - image: /assets/uploads/DESLIZAMENTO.png
-    after: Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme
-    alt: Manchetes sobre os desaparecidos após os deslizamentos de 2020 na Baixada Santista
-  - image: /assets/uploads/OAB.png
-    after: O papel da imprensa é fundamental, porque além de fazer uma pressão
-    alt: Manchetes sobre as cobranças da OAB pela reestruturação do IML de Santos
-  - image: /assets/uploads/RODOVIÁRIA.png
-    after: A atuação da imprensa também esteve presente em uma demanda
-    alt: Manchetes sobre a falta de estrutura da antiga rodoviária de São Vicente
 ---
 Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
 
@@ -66,6 +56,8 @@ Em outras circunstâncias, a relação entre imprensa e poder público ganha uma
 
 “Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra.
 
+![Manchetes sobre os desaparecidos após os deslizamentos de 2020 na Baixada Santista](</assets/uploads/DESLIZAMENTO.png>)
+
 Segundo ela, um dos desafios foi lidar com divergências entre os números apresentados pelo Corpo de Bombeiros e pela Defesa Civil municipal sobre a quantidade de pessoas desaparecidas em uma das regiões atingidas. 
 
 A equipe de comunicação sugeriu, então, incluir agentes comunitários de saúde, que conheciam os bairros e acompanhavam os moradores cotidianamente, nas reuniões do gabinete de crise. A participação desses profissionais ajudou a qualificar as informações e a consolidar os dados oficiais. 
@@ -88,9 +80,13 @@ Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos,
 
 > ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz.
 
+![Manchetes sobre as cobranças da OAB pela reestruturação do IML de Santos](</assets/uploads/OAB.png>)
+
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
 A atuação da imprensa também esteve presente em uma demanda que se arrastava havia décadas em São Vicente: as condições da antiga rodoviária. Sibilio recorda das sucessivas reportagens dando visibilidade à situação dos passageiros, que precisavam esperar pelo transporte sob sol e chuva, sem uma estrutura adequada.
+
+![Manchetes sobre a falta de estrutura da antiga rodoviária de São Vicente](</assets/uploads/RODOVIÁRIA.png>)
 
 Em novembro deste ano, a cidade inaugurou a nova rodoviária, com estrutura coberta, climatizada e acessível. “Foi uma entrega histórica para a cidade, sobretudo pelo sentimento de pertencimento que representa e por colocar fim a um problema histórico que perdurou por décadas, associado ao descaso e à sensação de um caso que nunca seria resolvido”, afirma.
 
