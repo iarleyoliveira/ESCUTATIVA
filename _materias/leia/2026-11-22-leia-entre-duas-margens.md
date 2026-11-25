@@ -76,11 +76,11 @@ A imprensa também pode ajudar a mobilizar instituições em torno de reivindica
 
 Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos, em outubro de 2022. A reforma do equipamento deveria durar aproximadamente um ano, mas o prazo foi ultrapassado e o serviço permaneceu sem funcionar por quase dois anos. 
 
+![](/assets/uploads/OAB.png)
+
 “Então a OAB pediu ajuda para a imprensa e, com isso, ela fez uma pressão para os órgãos públicos responsáveis, e o IML conseguiu retornar muito mais rápido”, conta o presidente da instituição. Em dezembro de 2023, o equipamento voltou a operar parcialmente. O funcionamento pleno se deu em junho de 2024.  
 
 > ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz.
-
-![](/assets/uploads/OAB.png)
 
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
