@@ -1,12 +1,12 @@
 name: Caso Felipe Ribeiro
 ordem: 3
 id: caso-felipe
-descricao: Felipe Rodrigues, de quatro anos, foi diagnosticado com
-  leucodistrofia hipomielinizante tipo 15, uma doença rara e sem cura que
-  compromete seus movimentos. Sua família organizou uma vaquinha para comprar
-  uma cadeira postural. Após a publicação da reportagem, um doador anônimo pagou
-  pela cadeira, proporcionando mais conforto à rotina de Felipe e permitindo
-  passeios com a família.
+descricao: Felipe Ribeiro, de quatro anos, foi diagnosticado com leucodistrofia
+  hipomielinizante tipo 15, uma doença rara e sem cura que compromete seus
+  movimentos. Sua família organizou uma vaquinha para comprar uma cadeira
+  postural. Após a publicação da reportagem, um doador anônimo pagou pela
+  cadeira, proporcionando mais conforto à rotina de Felipe e permitindo passeios
+  com a família.
 fotos:
   - imagem: /assets/uploads/casos/caso-felipe-1.jpg
     descricao: Felipe em sua cadeira, com a família ao lado de uma estátua do Hulk.
