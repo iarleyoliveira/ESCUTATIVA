@@ -1,8 +1,3 @@
-- id: assista
-  label: Assista
-  heading: documentario
-  description: Histórias em minidocumentários.
-  dark: false
 - id: leia
   label: Leia
   heading: materias
@@ -13,3 +8,8 @@
   heading: videocast
   description: Por trás de cada notícia, existem decisões, responsabilidades e histórias
   dark: true
+- id: assista
+  label: Assista
+  heading: documentario
+  description: Histórias em minidocumentários.
+  dark: false
