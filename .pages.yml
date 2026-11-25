@@ -625,6 +625,11 @@ content:
       - name: continue
         label: Link ao fim da publicação
         type: string
+      - name: mostrar_destaque
+        label: Mostrar destaque com foto no topo
+        type: boolean
+        default: true
+        description: Desative para começar diretamente pelas seções, sem repetir a capa acima do vídeo.
       - name: destaque
         label: Publicação de abertura da página inicial
         type: object

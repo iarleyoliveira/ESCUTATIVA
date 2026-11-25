@@ -12,7 +12,7 @@ home: true
 {% if inicio.destaque.formato == 'escute' %}{% assign feature_path = inicio.destaque.podcast %}{% endif %}
 {% assign feature = publications | where: 'path', feature_path | first %}
 {% unless feature %}{% assign feature = publications | sort: 'date' | reverse | first %}{% endunless %}
-{% if feature %}
+{% if feature and inicio.mostrar_destaque != false %}
 <section class="wrap hero home-hero home-news">
     <article class="hero-feature">
       {% assign feature_cover = inicio.destaque.cover | default: feature.cover %}
