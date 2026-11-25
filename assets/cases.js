@@ -128,10 +128,15 @@
       if (Date.now() - lastSwipe < 500) event.preventDefault();
     }, true);
     document.addEventListener('visibilitychange', schedule);
-    motion.addEventListener('change', () => {
+    function handleMotionPreferenceChange() {
       if (motion.matches) playing = false;
       updatePlayback();
-    });
+    }
+    if (typeof motion.addEventListener === 'function') {
+      motion.addEventListener('change', handleMotionPreferenceChange);
+    } else if (typeof motion.addListener === 'function') {
+      motion.addListener(handleMotionPreferenceChange);
+    }
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => {
         visible = entry.isIntersecting;

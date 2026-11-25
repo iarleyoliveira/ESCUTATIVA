@@ -31,7 +31,11 @@
       applyTheme();
     }));
   });
-  system.addEventListener('change', () => { if (!preference) applyTheme(); });
+  if (typeof system.addEventListener === 'function') {
+    system.addEventListener('change', () => { if (!preference) applyTheme(); });
+  } else if (typeof system.addListener === 'function') {
+    system.addListener(() => { if (!preference) applyTheme(); });
+  }
   window.addEventListener('storage', event => {
     if (event.key !== 'escutativa-theme' && event.key !== null) return;
     preference = ['light', 'dark'].includes(event.newValue) ? event.newValue : null;

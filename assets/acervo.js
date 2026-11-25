@@ -1,9 +1,12 @@
 const filters = document.querySelector('.archive-filters');
+const form = document.querySelector('.archive-search');
+if (!filters || !form) throw new Error('A interface do acervo não está disponível.');
+
 const buttons = Array.from(filters.querySelectorAll('[data-filter]'));
 const groups = Array.from(document.querySelectorAll('.archive-group'));
-const form = document.querySelector('.archive-search');
 const input = form.querySelector('input');
 const status = document.querySelector('#search-status');
+if (!input || !status) throw new Error('Os campos de pesquisa do acervo não estão disponíveis.');
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
 function applyFilter() {
   const params = new URL(window.location.href).searchParams;

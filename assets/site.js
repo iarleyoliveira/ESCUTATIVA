@@ -33,7 +33,9 @@ if (searchLink && searchDialog && typeof searchDialog.showModal === 'function') 
     if (event.target === searchDialog && outside) searchDialog.close();
   });
   searchDialog.addEventListener('close', () => {
-    searchDialog.getAnimations().forEach((animation) => animation.cancel());
+    if (typeof searchDialog.getAnimations === 'function') {
+      searchDialog.getAnimations().forEach((animation) => animation.cancel());
+    }
     document.documentElement.classList.remove('search-open');
     searchLink.setAttribute('aria-expanded', 'false');
     searchLink.focus({ preventScroll: true });
@@ -82,12 +84,19 @@ function observeSections() {
 }
 
 observeSections();
-motionPreference.addEventListener('change', () => {
+function handleMotionPreferenceChange() {
   revealObserver?.disconnect();
   for (const animation of runningAnimations) animation.cancel();
-  searchDialog?.getAnimations().forEach((animation) => animation.cancel());
+  if (typeof searchDialog?.getAnimations === 'function') {
+    searchDialog.getAnimations().forEach((animation) => animation.cancel());
+  }
   if (!motionPreference.matches) observeSections();
-});
+}
+if (typeof motionPreference.addEventListener === 'function') {
+  motionPreference.addEventListener('change', handleMotionPreferenceChange);
+} else if (typeof motionPreference.addListener === 'function') {
+  motionPreference.addListener(handleMotionPreferenceChange);
+}
 
 // A discreet reading indicator follows native scrolling, including on touchscreens.
 if (document.querySelector('.home-hero, .article')) {

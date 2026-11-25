@@ -5,8 +5,10 @@
   const status = document.querySelector('.comments-status');
   const shortname = container.dataset.shortname || '';
   if (!/^[a-z0-9][a-z0-9-]*$/i.test(shortname)) {
-    status.textContent = 'Os comentários estão em configuração. Tente novamente mais tarde.';
-    status.hidden = false;
+    if (status) {
+      status.textContent = 'Os comentários estão em configuração. Tente novamente mais tarde.';
+      status.hidden = false;
+    }
     return;
   }
 
@@ -22,8 +24,10 @@
   script.async = true;
   script.setAttribute('data-timestamp', String(Date.now()));
   script.addEventListener('error', () => {
-    status.textContent = 'Não foi possível carregar os comentários. Atualize a página para tentar novamente.';
-    status.hidden = false;
+    if (status) {
+      status.textContent = 'Não foi possível carregar os comentários. Atualize a página para tentar novamente.';
+      status.hidden = false;
+    }
   });
   document.head.appendChild(script);
 })();
