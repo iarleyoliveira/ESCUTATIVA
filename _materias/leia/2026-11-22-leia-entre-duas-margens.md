@@ -1,7 +1,8 @@
 ---
 title: Entre duas margens
 category: Reportagem
-description: Entenda como funciona a ponte entre a sociedade e o poder público
+description: Histórias reais que revelam o que acontece quando a informação
+  atravessa distâncias e conecta pessoas, direitos e instituições
 author: Breno Sant'Anna, Bruna Sousa, Circy Shara e Felipe Roque
 date: 2026-11-22
 cover: /assets/uploads/capa-materia-escrita-1.jpg
