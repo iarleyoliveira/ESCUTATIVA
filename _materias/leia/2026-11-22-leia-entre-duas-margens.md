@@ -8,11 +8,11 @@ cover: /assets/uploads/capa-materia-escrita-1.jpg
 cover_fit: cover
 published: true
 ---
-Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais ampliaram o acesso às notícias, mas também tornaram mais difícil distinguir informações verificadas de opiniões e conteúdos sem fundamento. Nesse contexto, fica um questionamento: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
+Em um cenário de circulação acelerada de informações, desinformação e questionamentos sobre a credibilidade da imprensa, compreender o papel do Jornalismo tornou-se um desafio ainda maior. As redes sociais facilitaram o acesso às notícias, mas também tornaram mais difícil identificar o que é confiável. Segundo levantamentos do *Digital News Report*, do Instituto Reuters, embora as redes sejam uma importante fonte de informação no Brasil, o público confia mais nas marcas jornalísticas tradicionais. Diante desse cenário, surge uma questão: **o que se perde quando a população deixa de reconhecer o valor da informação jornalística?**
 
-Buscando responder essa pergunta, a equipe do ***Escutativa*** ouviu profissionais que atuam em diferentes pontos da relação entre a sociedade e as instituições. Eles compartilharam experiências que ajudam a entender como a informação pode aproximar a população do poder público e produzir efeitos que ultrapassam a notícia.
+Buscando responder essa pergunta, o ***Escutativa*** ouviu profissionais que atuam em diferentes pontos da relação entre a sociedade e as instituições. Eles compartilharam experiências que ajudam a entender como a informação pode aproximar a população do poder público e produzir efeitos que ultrapassam a notícia.
 
-Uma dessas experiências marcou a trajetória do delegado Thiago Nemi Bonametti, da Divisão Especializada de Investigações Especiais (Deic) de Santos. Trata-se do caso do canadense Karl Andre Van Roon. “Um advogado viu um indivíduo falando uma língua estrangeira em situação de rua e chamou a imprensa para tentar ajudar a localizar alguém da família, fizeram uma matéria com a foto dele, mas até então ninguém foi localizado”, lembra.
+Uma dessas experiências marcou a trajetória do delegado Thiago Nemi Bonametti, da Divisão Especializada de Investigações Especiais (Deic) de Santos. Trata-se do caso do canadense Karl Andre Van Roon. “Um advogado viu um indivíduo falando uma língua estrangeira em situação de rua e chamou a imprensa para tentar ajudar a localizar alguém da família. Fizeram uma matéria com a foto dele, mas até então ninguém foi localizado”, lembra.
 
 A reportagem foi publicada em agosto de 2024, mas continuou disponível na internet. Em março de 2026, familiares que procuravam informações sobre o desaparecido encontraram a reportagem por meio de uma pesquisa reversa de imagens. A partir daí, entraram em contato com a polícia. 
 
@@ -26,7 +26,7 @@ Para Bonametti, o caso é um exemplo de como a imprensa pode contribuir com inve
 
 > ### “**Já aconteceu da reportagem trazer alguma informação que a gente não tinha, até porque às vezes as pessoas procuram a imprensa antes de procurar a delegacia, porque a delegacia, querendo ou não, tem um ambiente ainda mais formal”**, revela.
 
-O delegado Carlos Eduardo Vieira Ceroni, seccional de Jacupiranga, observa que a divulgação de uma ocorrência também pode despertar a atenção de testemunhas que desconheciam a importância de algo que presenciaram.
+O delegado Carlos Eduardo Vieira Ceroni, seccional de Jacupiranga, no Vale do Ribeira, observa que a divulgação de uma ocorrência também pode despertar a atenção de testemunhas que desconheciam a importância de algo que presenciaram.
 
 “Muitas vezes, pessoas que possuem informações relevantes não sabem que determinado fato está sendo investigado ou que aquilo que presenciaram pode ter importância para a polícia. **Quando a imprensa divulga um caso, essas pessoas podem se sentir motivadas a procurar uma delegacia ou apresentar informações que até então não haviam chegado ao conhecimento dos policiais**”, explica.
 
@@ -46,17 +46,13 @@ Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do
 
 A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos. 
 
-“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de **tornar aquele problema visível para um número maior de pessoas** e, principalmente, de **chamar a atenção das autoridades responsáveis**”, diz a assessora.
-
-Segundo Meilin, quando uma situação ultrapassa o atendimento individual e ganha repercussão, ela ganha outro peso. “**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão.** Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade”, salienta.
-
 **Tempos de crise**
 
 Em outras circunstâncias, a relação entre imprensa e poder público ganha uma dimensão ainda mais delicada. Foi o que aconteceu com Meilin durante o deslizamento de terra de 2020 em Guarujá, provocado pelas fortes chuvas que atingiram a região. A tragédia deixou 34 mortos soterrados e mobilizou equipes de resgate, Defesa Civil, profissionais da saúde e diferentes órgãos municipais.
 
 “Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra.
 
-![Manchetes sobre os desaparecidos após os deslizamentos de 2020 na Baixada Santista](</assets/uploads/DESLIZAMENTO.png>)
+![Manchetes sobre os desaparecidos após os deslizamentos de 2020 na Baixada Santista](/assets/uploads/DESLIZAMENTO.png)
 
 Segundo ela, um dos desafios foi lidar com divergências entre os números apresentados pelo Corpo de Bombeiros e pela Defesa Civil municipal sobre a quantidade de pessoas desaparecidas em uma das regiões atingidas. 
 
@@ -72,25 +68,29 @@ As orientações de saúde mudavam conforme avançava o conhecimento científico
 
 **Uma cobrança que sai do papel**
 
-A imprensa também pode ajudar a mobilizar instituições em torno de reivindicações que, mesmo conhecidas pelos órgãos responsáveis, permanecem sem solução. O presidente da OAB Santos, Raphael Meirelles, lembra de dois episódios acompanhados pela entidade.
+A imprensa também pode ajudar a mobilizar instituições em torno de reivindicações que, mesmo conhecidas pelos órgãos responsáveis, permanecem sem solução. Pesquisas sobre o ecossistema informativo brasileiro, como o *Atlas da Notícia* (iniciativa do Instituto para o Desenvolvimento do Jornalismo — Projor), apontam que municípios sem veículos locais ativos — os chamados “**desertos de notícias**” — tendem a registrar **menor fiscalização do poder público** e **maior dificuldade para solucionar demandas comunitárias**. 
 
-Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos, em outubro de 2022. A reforma do equipamento deveria durar aproximadamente um ano, mas o prazo foi ultrapassado e o serviço permaneceu sem funcionar por quase dois anos. 
+Na Baixada Santista, o presidente da OAB Santos, Raphael Meirelles, lembra de dois episódios acompanhados pela entidade que ilustram o efeito oposto. Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos, em outubro de 2022. A reforma do equipamento deveria durar aproximadamente um ano, mas o prazo foi ultrapassado e o serviço permaneceu sem funcionar por quase dois anos. 
+
+![](/assets/uploads/OAB.png)
 
 “Então a OAB pediu ajuda para a imprensa e, com isso, ela fez uma pressão para os órgãos públicos responsáveis, e o IML conseguiu retornar muito mais rápido”, conta o presidente da instituição. Em dezembro de 2023, o equipamento voltou a operar parcialmente. O funcionamento pleno se deu em junho de 2024.  
 
 > ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz.
 
-![Manchetes sobre as cobranças da OAB pela reestruturação do IML de Santos](</assets/uploads/OAB.png>)
-
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
 A atuação da imprensa também esteve presente em uma demanda que se arrastava havia décadas em São Vicente: as condições da antiga rodoviária. Sibilio recorda das sucessivas reportagens dando visibilidade à situação dos passageiros, que precisavam esperar pelo transporte sob sol e chuva, sem uma estrutura adequada.
 
-![Manchetes sobre a falta de estrutura da antiga rodoviária de São Vicente](</assets/uploads/RODOVIÁRIA.png>)
+![Manchetes sobre a falta de estrutura da antiga rodoviária de São Vicente](/assets/uploads/RODOVIÁRIA.png)
 
 Em novembro deste ano, a cidade inaugurou a nova rodoviária, com estrutura coberta, climatizada e acessível. “Foi uma entrega histórica para a cidade, sobretudo pelo sentimento de pertencimento que representa e por colocar fim a um problema histórico que perdurou por décadas, associado ao descaso e à sensação de um caso que nunca seria resolvido”, afirma.
 
 O assessor de imprensa destaca que o trabalho jornalístico também permite que a prefeitura identifique problemas que dificilmente conseguiria acompanhar individualmente em todos os bairros. “**O contato diário com a população, muitas vezes mediado pela imprensa, é fundamental para que a Administração Municipal amplie sua capacidade de identificação de problemas** e, assim, possa direcionar a fiscalização e traçar estratégias para solucionar as demandas apresentadas”, destaca.
+
+“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de **tornar aquele problema visível para um número maior de pessoas** e, principalmente, de **chamar a atenção das autoridades responsáveis**”, diz Meilin
+
+Segundo a assessora, quando uma situação ultrapassa o atendimento individual e ganha repercussão, ela ganha outro peso. “**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão.** Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade”, salienta.
 
 Para Sibilio, a contribuição do Jornalismo não está apenas em dar visibilidade às reclamações, mas também na maneira como os problemas são apresentados à população. “Embora vivamos em uma nova realidade, potencializada pelo imediatismo das redes sociais, o trabalho jornalístico de apuração, ouvindo todos os lados envolvidos e sem recorrer ao alarmismo, segue essencial para que o cidadão formule sua própria opinião sobre um projeto, uma entrega ou um problema enfrentado pelo órgão público”, avalia.
 
