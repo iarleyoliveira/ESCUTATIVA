@@ -1,4 +1,5 @@
-{% capture player_video_id %}{% include youtube-id.html value=include.publication.youtube_id %}{% endcapture %}
+{% assign player_video_value = include.video_id | default: include.publication.youtube_id %}
+{% capture player_video_id %}{% include youtube-id.html value=player_video_value %}{% endcapture %}
 {% assign player_video_id = player_video_id | strip %}
 {% if player_video_id != '' %}
 <iframe
@@ -6,6 +7,6 @@
   title="{{ include.publication.title | escape }}"
   loading="lazy"
   allowfullscreen
-  allow="encrypted-media; picture-in-picture">
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
 </iframe>
 {% endif %}

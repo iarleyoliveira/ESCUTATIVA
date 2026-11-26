@@ -36,6 +36,7 @@ defaults:
     values:
       category: Podcast
 exclude:
+  - output
   - preview.ps1
   - README.md
   - Gemfile

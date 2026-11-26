@@ -2,6 +2,7 @@
   const root = document.documentElement;
   const system = window.matchMedia('(prefers-color-scheme: dark)');
   let preference = null;
+  let commentsReady = false;
   try { preference = localStorage.getItem('escutativa-theme'); } catch (_) {}
   if (!['light', 'dark'].includes(preference)) preference = null;
 
@@ -9,7 +10,9 @@
     const theme = root.dataset.theme;
     const script = document.querySelector('script[src="https://giscus.app/client.js"]');
     if (script) script.dataset.theme = theme;
-    document.querySelector('.giscus-frame')?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+    if (commentsReady) {
+      document.querySelector('.giscus-frame')?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+    }
   }
   function applyTheme() {
     const dark = (preference || (system.matches ? 'dark' : 'light')) === 'dark';
@@ -23,14 +26,19 @@
     syncComments();
   }
   applyTheme();
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeControls() {
     applyTheme();
     document.querySelectorAll('.theme-toggle').forEach(button => button.addEventListener('click', () => {
       preference = root.dataset.theme === 'dark' ? 'light' : 'dark';
       try { localStorage.setItem('escutativa-theme', preference); } catch (_) {}
       applyTheme();
     }));
-  });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeControls, { once: true });
+  } else {
+    initializeControls();
+  }
   if (typeof system.addEventListener === 'function') {
     system.addEventListener('change', () => { if (!preference) applyTheme(); });
   } else if (typeof system.addListener === 'function') {
@@ -41,7 +49,6 @@
     preference = ['light', 'dark'].includes(event.newValue) ? event.newValue : null;
     applyTheme();
   });
-  let commentsReady = false;
   window.addEventListener('message', event => {
     if (!commentsReady && event.origin === 'https://giscus.app' && event.data?.giscus) {
       commentsReady = true;

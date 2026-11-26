@@ -2,3 +2,5 @@
 /.jekyll-cache/
 /.jekyll-metadata
 /.sass-cache/
+/.playwright-cli/
+/output/

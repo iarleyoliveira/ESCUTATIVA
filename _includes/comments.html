@@ -11,7 +11,7 @@
       data-page-id="{{ page.url | escape }}"
       data-page-title="{{ page.title | escape }}"></div>
     <p class="comments-status" role="status" hidden></p>
-    <script src="{{ '/assets/comments.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/comments.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
     <noscript>Ative o JavaScript para ler e deixar comentários pelo Disqus.</noscript>
   {% elsif comments_provider == 'giscus' and comments.repo_id and comments.repo_id != "" and comments.category_id and comments.category_id != "" %}
     <p>Participe da conversa com sua conta GitHub. Os comentários são públicos. Respeite as pessoas e mantenha o diálogo sobre a publicação.</p>

@@ -421,10 +421,17 @@ content:
           - name: audio_link
             label: Link do áudio (alternativa ao arquivo)
             type: string
-            description: Se o áudio já está hospedado, cole o link direto do MP3 ou M4A. Links de páginas do Spotify não são arquivos de áudio. Use este campo ou envie o arquivo acima.
+            description: Cole o link direto do MP3 ou M4A. Para episódios no YouTube, prefira o campo YouTube abaixo. Links de páginas do Spotify ou Google Drive não são arquivos de áudio.
             pattern:
               regex: ^(https?://[^\s]+)?$
               message: Cole o link completo do arquivo de áudio ou deixe em branco.
+          - name: youtube_id
+            label: YouTube (alternativa ao áudio)
+            type: string
+            description: Cole o link do episódio no YouTube ou o ID de 11 caracteres. Deixe os campos de áudio vazios para usar o player do YouTube.
+            pattern:
+              regex: ^([A-Za-z0-9_-]{11}|https?://(www\.)?(m\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/[^\s]+)?$
+              message: Cole um link do YouTube, um ID de 11 caracteres ou deixe em branco.
           - name: cover
             label: Capa — enviar ou escolher imagem
             type: image

@@ -5,7 +5,7 @@ No [Pages CMS](https://app.pagescms.org), selecione `iarleyoliveira/ESCUTATIVA` 
 
 - **Leia** reúne reportagens, entrevistas e bastidores. Cadastre os textos e edite a apresentação dessa seção dentro da mesma área do menu.
 - **Assista** reúne os minidocumentários e os textos de apresentação da seção. Cole o link completo do YouTube ou o ID de 11 caracteres. A frase “Quando a notícia faz parte da história” fica em **Assista → Textos da seção Assista → Título**.
-- **Escute** reúne os podcasts e a apresentação da seção. Envie o arquivo de áudio pelo formulário ou use o link direto de um áudio hospedado. Os campos de áudio ficam apenas nessa área.
+- **Escute** reúne os podcasts e a apresentação da seção. Envie o arquivo de áudio pelo formulário, use o link direto de um áudio hospedado ou preencha **YouTube** com o link do episódio. Para usar YouTube, deixe os campos de áudio vazios. Links de páginas do Spotify ou Google Drive não funcionam como arquivos de áudio. Os campos de áudio ficam apenas nessa área.
 - **Página inicial** permite escolher a matéria da abertura. Limpar a matéria em destaque seleciona automaticamente a publicação mais recente. **Projeto** reúne os textos sobre o trabalho.
 - **Equipe, redes e contato** reúne os integrantes, as redes e os e-mails. **Identidade** reúne nome, logo, assinatura e descrição para buscadores.
 
