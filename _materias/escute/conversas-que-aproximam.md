@@ -1,5 +1,5 @@
 ---
-title: Episódio 01
+title: "Conversas que aproximam "
 category: Podcast
 description: O que acontece antes de uma notícia chegar ao público? Uma conversa
   sobre escolhas editoriais, desafios da profissão e o compromisso de informar
