@@ -5,7 +5,7 @@
 <iframe
   src="https://www.youtube-nocookie.com/embed/{{ player_video_id | uri_escape | escape }}"
   title="{{ include.publication.title | escape }}"
-  loading="lazy"
+  loading="{{ include.loading | default: 'lazy' }}"
   allowfullscreen
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
 </iframe>
