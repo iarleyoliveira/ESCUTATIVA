@@ -4,6 +4,7 @@ category: Podcast
 description: O que acontece antes de uma notícia chegar ao público? Uma conversa
   sobre escolhas editoriais, desafios da profissão e o compromisso de informar
 date: 2026-11-12
+audio_link: https://youtu.be/-poQdEqW6xI?si=WHFyx37aYBDQ3wQL
 cover: /assets/uploads/whatsapp-image-2026-11-21-at-021224.jpeg
 cover_alt: Capa terracota do podcast Conversas que aproximam, do Escutativa.
 cover_fit: cover
