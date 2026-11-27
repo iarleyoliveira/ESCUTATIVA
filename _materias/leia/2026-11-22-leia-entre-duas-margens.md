@@ -43,13 +43,11 @@ Ele relata que, em fevereiro de 2023, a Prefeitura inaugurou o Pronto-Socorro do
 
 > ### “**Para mim, esse é um exemplo concreto de como o Jornalismo e o Poder Público, juntos, ajudaram a salvar uma vida**”, afirma.
 
-A assessora de imprensa Meilin Neves considera que a imprensa funciona como uma espécie de “amplificador da voz institucional”, o qual permite que uma informação que chegaria a um grupo restrito alcance milhares de cidadãos. 
-
 **Tempos de crise**
 
-Em outras circunstâncias, a relação entre imprensa e poder público ganha uma dimensão ainda mais delicada. Foi o que aconteceu com Meilin durante o deslizamento de terra de 2020 em Guarujá, provocado pelas fortes chuvas que atingiram a região. A tragédia deixou 34 mortos soterrados e mobilizou equipes de resgate, Defesa Civil, profissionais da saúde e diferentes órgãos municipais.
+Em outras circunstâncias, a relação entre imprensa e poder público ganha uma dimensão ainda mais delicada. Foi o que aconteceu com a assessora de imprensa Meilin Neves durante o deslizamento de terra de 2020 em Guarujá, provocado pelas fortes chuvas que atingiram a região. A tragédia deixou 34 mortos soterrados e mobilizou equipes de resgate, Defesa Civil, profissionais da saúde e diferentes órgãos municipais.
 
-“Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, lembra.
+“Naquele momento, nossa equipe de comunicação tinha uma responsabilidade enorme: reunir informações oficiais e repassá-las à imprensa com a maior precisão possível. **Não estávamos lidando apenas com números, mas com vidas, famílias desesperadas e pessoas que ainda procuravam por parentes desaparecidos**”, recorda.
 
 ![Manchetes sobre os desaparecidos após os deslizamentos de 2020 na Baixada Santista](/assets/uploads/DESLIZAMENTO.png)
 
@@ -67,15 +65,15 @@ As orientações de saúde mudavam conforme avançava o conhecimento científico
 
 **Uma cobrança que sai do papel**
 
-A imprensa também pode ajudar a mobilizar instituições em torno de reivindicações que, mesmo conhecidas pelos órgãos responsáveis, permanecem sem solução. Pesquisas sobre o ecossistema informativo brasileiro, como o *Atlas da Notícia* (iniciativa do Instituto para o Desenvolvimento do Jornalismo — Projor), apontam que municípios sem veículos locais ativos — os chamados “**desertos de notícias**” — tendem a registrar **menor fiscalização do poder público** e **maior dificuldade para solucionar demandas comunitárias**. 
+Pesquisas sobre o ecossistema informativo brasileiro, como o *Atlas da Notícia* (iniciativa do Instituto para o Desenvolvimento do Jornalismo — Projor), apontam que municípios sem veículos locais ativos — os chamados “**desertos de notícias**” — tendem a registrar **menor fiscalização do poder público** e **maior dificuldade para solucionar demandas comunitárias**. 
 
-Na Baixada Santista, o presidente da OAB Santos, Raphael Meirelles, lembra de dois episódios acompanhados pela entidade que ilustram o efeito oposto. Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) a Santos, em outubro de 2022. A reforma do equipamento deveria durar aproximadamente um ano, mas o prazo foi ultrapassado e o serviço permaneceu sem funcionar por quase dois anos. 
+Na Baixada Santista, o presidente da subseção de Santos da Ordem dos Advogados do Brasil (OAB), Raphael Meirelles, lembra de dois episódios acompanhados pela entidade que ilustram o efeito oposto. Um deles foi a cobrança pelo retorno do Instituto Médico Legal (IML) ao Município, em outubro de 2022. A reforma do equipamento deveria durar aproximadamente um ano, mas o prazo foi ultrapassado e o serviço permaneceu sem funcionar por quase dois anos. 
 
 ![](/assets/uploads/OAB.png)
 
 “Então a OAB pediu ajuda para a imprensa e, com isso, ela fez uma pressão para os órgãos públicos responsáveis, e o IML conseguiu retornar muito mais rápido”, conta o presidente da instituição. Em dezembro de 2023, o equipamento voltou a operar parcialmente. O funcionamento pleno se deu em junho de 2024.  
 
-> ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, diz.
+> ### “**O papel da imprensa é fundamental, porque além de fazer uma pressão em quem está atrasando o andamento das coisas, informa a população dos serviços que têm e, muitas vezes, não sabe”**, destaca.
 
 Outra reivindicação antiga da entidade era a instalação de uma Vara de Violência Doméstica e Familiar contra a Mulher em Santos. Segundo o presidente da instituição, a divulgação da conquista ajudou a informar a população sobre a estrutura especializada e a rede de proteção disponível. 
 
@@ -85,13 +83,13 @@ A atuação da imprensa também esteve presente em uma demanda que se arrastava 
 
 Em novembro deste ano, a cidade inaugurou a nova rodoviária, com estrutura coberta, climatizada e acessível. “Foi uma entrega histórica para a cidade, sobretudo pelo sentimento de pertencimento que representa e por colocar fim a um problema histórico que perdurou por décadas, associado ao descaso e à sensação de um caso que nunca seria resolvido”, afirma.
 
-O assessor de imprensa destaca que o trabalho jornalístico também permite que a prefeitura identifique problemas que dificilmente conseguiria acompanhar individualmente em todos os bairros. “**O contato diário com a população, muitas vezes mediado pela imprensa, é fundamental para que a Administração Municipal amplie sua capacidade de identificação de problemas** e, assim, possa direcionar a fiscalização e traçar estratégias para solucionar as demandas apresentadas”, destaca.
+"Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando ele procura um veículo de comunicação, passa a ter a oportunidade de **tornar aquele problema visível para um número maior de pessoas** e, principalmente, de **chamar a atenção das autoridades responsáveis**”, analisa Meilin.
 
-“Em muitas situações, o cidadão encontra dificuldades para conseguir uma resposta diretamente do poder público. Quando procura um veículo de comunicação, passa a ter a oportunidade de **tornar aquele problema visível para um número maior de pessoas** e, principalmente, de **chamar a atenção das autoridades responsáveis**”, diz Meilin
-
-Segundo a assessora, quando uma situação ultrapassa o atendimento individual e ganha repercussão, ela ganha outro peso. “**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão.** Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade”, salienta.
+A assessora acrescenta que, quando uma situação ultrapassa o atendimento individual e repercute, ela ganha outro peso. “**Quando uma reclamação ganha repercussão jornalística, a situação muda de dimensão.** Ela passa a envolver o interesse público, a necessidade de posicionamento oficial e a responsabilidade da administração de prestar esclarecimentos à sociedade”.
 
 Para Sibilio, a contribuição do Jornalismo não está apenas em dar visibilidade às reclamações, mas também na maneira como os problemas são apresentados à população. “Embora vivamos em uma nova realidade, potencializada pelo imediatismo das redes sociais, o trabalho jornalístico de apuração, ouvindo todos os lados envolvidos e sem recorrer ao alarmismo, segue essencial para que o cidadão formule sua própria opinião sobre um projeto, uma entrega ou um problema enfrentado pelo órgão público”, avalia.
+
+O assessor relata que o trabalho jornalístico também permite que a prefeitura identifique problemas que dificilmente conseguiria acompanhar individualmente em todos os bairros. “**O contato diário com a população, muitas vezes mediado pela imprensa, é fundamental para que a Administração Municipal amplie sua capacidade de identificação de problemas** e, assim, possa direcionar a fiscalização e traçar estratégias para solucionar as demandas apresentadas”.
 
 **Cuidados**
 
